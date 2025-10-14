@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Coding Agents & MCPs: The Complete Developer's Guide</title>
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <style>
+        :root {
+            --preskok-red: #DF3B3B;
+            --briefd-green: #144b3c;
+        }
+        .reveal {
+            font-size: 24px;
+            background-color: #ffffff !important;
+        }
+        .reveal .slides {
+            color: #000000 !important;
+        }
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+            color: #000000 !important;
+        }
+        .reveal p, .reveal li, .reveal td, .reveal th {
+            color: #000000 !important;
+        }
+        .reveal strong {
+            color: #000000 !important;
+        }
+        .reveal h1 {
+            font-size: 2.0em;
+            text-transform: none;
+        }
+        .reveal h2 {
+            font-size: 1.4em;
+            text-transform: none;
+        }
+        .reveal h3 {
+            font-size: 1.1em;
+            text-transform: none;
+        }
+        .reveal ul {
+            display: block;
+        }
+        .reveal ol {
+            display: block;
+        }
+        .reveal .slides section {
+            text-align: left;
+            padding: 20px 60px;
+            box-sizing: border-box;
+        }
+        .reveal .slides section.center {
+            text-align: center;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        .four-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .highlight-box {
+            background: transparent;
+            border-left: 2px solid var(--preskok-red);
+            border-top: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-bottom: 2px solid var(--briefd-green);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .stats-box {
+            background: transparent;
+            border-left: 2px solid var(--preskok-red);
+            border-top: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-bottom: 2px solid var(--briefd-green);
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .code-box {
+            background: #1e1e1e;
+            border-left: 2px solid var(--preskok-red);
+            border-top: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-bottom: 2px solid var(--briefd-green);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+            color: #4AF626;
+            overflow-x: auto;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .code-box strong {
+            color: #ffffff !important;
+        }
+        .code-box code {
+            color: #4AF626 !important;
+        }
+        .demo-console strong {
+            color: #ffffff !important;
+        }
+        .warning-box {
+            background: transparent;
+            border-left: 2px solid var(--preskok-red);
+            border-top: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-bottom: 2px solid var(--briefd-green);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .mcp-box {
+            background: transparent;
+            border-left: 2px solid var(--preskok-red);
+            border-top: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-bottom: 2px solid var(--briefd-green);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .demo-console {
+            background: #1e1e1e;
+            border-left: 2px solid var(--preskok-red);
+            border-top: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-bottom: 2px solid var(--briefd-green);
+            padding: 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.55em;
+            color: #4AF626;
+            line-height: 1.4;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .section-header {
+            background: linear-gradient(135deg, rgba(223, 59, 59, 0.15) 0%, rgba(20, 75, 60, 0.15) 100%);
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .comparison-table {
+            font-size: 0.65em;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-table th {
+            background: rgba(223, 59, 59, 0.2);
+            padding: 6px 8px;
+            border: 2px solid var(--preskok-red);
+            color: #000000;
+        }
+        .comparison-table td {
+            padding: 6px 8px;
+            border: 1px solid #cccccc;
+            color: #000000;
+        }
+        .company-logos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .company-logos img {
+            height: 50px;
+            object-fit: contain;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .service-logo {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+        /* Branded slide borders */
+        .reveal .slides section {
+            border-top: 2px solid var(--preskok-red);
+            border-bottom: 2px solid var(--briefd-green);
+            border-left: 2px solid var(--preskok-red);
+            border-right: 2px solid var(--briefd-green);
+            border-radius: 5px;
+            padding: 15px 25px !important;
+            box-sizing: border-box;
+        }
+        /* Branded header with logos */
+        .brand-header {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .brand-header img {
+            height: 35px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 5px 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        /* Branded footer accent */
+        .brand-footer {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--preskok-red) 0%, var(--preskok-red) 50%, var(--briefd-green) 50%, var(--briefd-green) 100%);
+            z-index: 100;
+            pointer-events: none;
+        }
+        /* Update section header styling with brand colors */
+        .section-header {
+            background: linear-gradient(135deg, rgba(223, 59, 59, 0.2) 0%, rgba(20, 75, 60, 0.2) 100%) !important;
+            border: 2px solid transparent !important;
+            border-image: linear-gradient(90deg, var(--preskok-red), var(--briefd-green)) 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Branded header with company logos -->
+    <div class="brand-header">
+        <img src="https://preskok.si/wp-content/uploads/2025/05/Logo_Preskok-1.svg" alt="Preskok">
+        <img src="https://autobrief.io/wp-content/uploads/2023/04/AutoBriefD-logo.svg" alt="Briefd">
+    </div>
+
+    <!-- Branded footer accent bar -->
+    <div class="brand-footer"></div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section class="center">
+                <h1>AI Coding Agents & MCPs</h1>
+                <h2>The Complete Developer's Guide</h2>
+                <p style="margin-top: 40px; font-size: 0.9em;">45-60 minute deep dive • 2025</p>
+
+                <div class="company-logos">
+                    <img src="https://preskok.si/wp-content/uploads/2025/05/Logo_Preskok-1.svg" alt="Preskok Logo">
+                    <img src="https://autobrief.io/wp-content/uploads/2023/04/AutoBriefD-logo.svg" alt="Briefd Logo">
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 30 seconds</strong>
+                    <ul>
+                        <li>Good morning! We're diving into AI Coding Agents and Model Context Protocol - two technologies fundamentally changing how we write software in 2025</li>
+                        <li>This is a 45-60 minute technical deep dive</li>
+                        <li><span style="color: #888;">We'll cover:</span> what AI agents are, how they differ from Copilot, how MCPs unlock their potential</li>
+                        <li>Real examples with actual time savings</li>
+                        <li>Best practices you can use tomorrow</li>
+                        <li><span style="color: #888;">Energy:</span> Start with enthusiasm - this is exciting!</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- SECTION 1: AI CODING AGENTS -->
+
+            <!-- Slide 2: What Are AI Coding Agents? -->
+            <section>
+                <h2>What Are AI Coding Agents?</h2>
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">Autonomous systems that execute complete development workflows</h3>
+                </div>
+                <div class="two-column" style="font-size: 0.85em; margin-top: 30px;">
+                    <div>
+                        <h3>Key Characteristics:</h3>
+                        <ul>
+                            <li>Execute multi-step workflows</li>
+                            <li>Make autonomous decisions</li>
+                            <li>Use tools and APIs</li>
+                            <li>Iterate until task complete</li>
+                            <li><strong>Ask for approval at each step</strong></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Example Workflow:</h3>
+                        <div class="code-box" style="font-size: 0.9em;">
+1. Read requirement<br>
+2. Search codebase<br>
+3. Write implementation <em>[approve]</em><br>
+4. Create tests <em>[approve]</em><br>
+5. Run tests <em>[approve]</em><br>
+6. Create PR <em>[approve]</em><br>
+7. Update documentation <em>[approve]</em>
+                        </div>
+                    </div>
+                </div>
+                <div class="warning-box" style="margin-top: 20px; text-align: center; font-size: 0.85em;">
+                    <strong>Important:</strong> Agents propose actions, YOU approve each one - you're always in control
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li>AI coding agents = autonomous systems that execute complete development workflows from start to finish</li>
+                        <li><span style="color: #888;">Left side -</span> Key characteristics: Execute multi-step workflows, make decisions, use tools/APIs, iterate until complete</li>
+                        <li><span style="color: #888;">Critical:</span> They ask for approval at each step</li>
+                        <li><span style="color: #888;">Walk through the workflow example:</span> Read requirement → Search codebase → Write code [approve] → Tests [approve] → Run [approve] → PR [approve] → Docs [approve]</li>
+                        <li><span style="color: #888;">Emphasize the warning box:</span> You're always in control. Agent proposes, YOU approve. Supervised automation, not blind automation</li>
+                        <li><span style="color: #888;">Transition:</span> So how is this different from GitHub Copilot?</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 3: AI Agents vs AI Assistants -->
+            <section>
+                <h2>AI Agents ≠ AI Assistants</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>💬 AI Assistants</h3>
+                        <p style="font-size: 0.75em; opacity: 0.8;">GitHub Copilot autocomplete, ChatGPT</p>
+                        <ul style="font-size: 0.75em;">
+                            <li>Respond to prompts</li>
+                            <li>Provide suggestions</li>
+                            <li>Need constant guidance</li>
+                            <li>Can't take actions</li>
+                            <li>Single-step operations</li>
+                        </ul>
+                        <div class="code-box" style="font-size: 0.65em; margin-top: 20px;">
+You: "Write email validator"<br>
+Assistant: "Here's code..." [stops]<br>
+You: [manually test, commit, push]
+                        </div>
+                    </div>
+                    <div>
+                        <h3>🤖 AI Agents</h3>
+                        <p style="font-size: 0.75em; opacity: 0.8;">Claude Code, Cursor, Windsurf</p>
+                        <ul style="font-size: 0.75em;">
+                            <li>Execute multi-step tasks</li>
+                            <li>Make autonomous decisions</li>
+                            <li>Use tools and APIs</li>
+                            <li>Iterate until complete</li>
+                            <li>End-to-end workflows</li>
+                        </ul>
+                        <div class="code-box" style="font-size: 0.65em; margin-top: 20px;">
+You: "Fix JIRA-123"<br>
+Agent: [Reads ticket → Investigates →<br>
+Fixes → Tests → Commits → PRs →<br>
+Updates Jira → Notifies team] DONE!
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-weight: bold;">Agents execute autonomously with oversight</p>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Critical distinction:</span> AI agents ≠ AI assistants. Many of you use GitHub Copilot or ChatGPT - those are assistants</li>
+                        <li><span style="color: #888;">Left - Assistants:</span> Respond to prompts, provide suggestions, then STOP. You ask "write email validator" → they give code → YOU manually test, commit, push</li>
+                        <li>They need constant guidance and can't take actions</li>
+                        <li><span style="color: #888;">Right - Agents:</span> Fundamentally different. You say "Fix JIRA-123" → agent reads ticket, investigates, fixes, tests, commits, creates PR, updates Jira, notifies team. Complete end-to-end</li>
+                        <li><span style="color: #888;">Bottom line:</span> Agents execute autonomously with oversight - you're in control, but they handle the entire workflow</li>
+                        <li><span style="color: #888;">Transition:</span> What agents are available today in 2025?</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 4: How to Get Started -->
+            <section>
+                <h2>How to Get Started</h2>
+                <div class="two-column" style="font-size: 0.8em;">
+                    <div>
+                        <h3>Claude Code</h3>
+                        <div class="code-box">
+npm install -g @anthropic-ai/claude-code<br>
+claude-code auth<br>
+claude-code
+                        </div>
+                        <h3 style="margin-top: 20px;">Cursor</h3>
+                        <div class="code-box">
+# Download from cursor.com<br>
+# Install and authenticate<br>
+# Open your project
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Basic First Prompt</h3>
+                        <div class="highlight-box">
+                            <strong>"Analyze this codebase and explain the main architecture"</strong>
+                        </div>
+                        <h3 style="margin-top: 20px;">Requirements:</h3>
+                        <ul style="font-size: 0.9em;">
+                            <li>API key (Anthropic/OpenAI)</li>
+                            <li>Git repository (recommended)</li>
+                            <li>Clear project structure</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li>Getting started is surprisingly simple</li>
+                        <li><span style="color: #888;">Claude Code:</span> npm install globally → authenticate → run claude-code. That's it</li>
+                        <li><span style="color: #888;">Cursor:</span> Download from cursor.com → install → authenticate → open project. Even simpler</li>
+                        <li><span style="color: #888;">First prompt should be simple:</span> "Analyze my codebase and explain the architecture." See how well it understands</li>
+                        <li><span style="color: #888;">Requirements:</span> API key from Anthropic or OpenAI, git repository helps, clear project structure</li>
+                        <li><span style="color: #888;">Transition:</span> Now before we dive into the real power, I want to tease something important...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- SECTION 2: MODEL CONTEXT PROTOCOL -->
+
+            <!-- Slide 5: Section Header -->
+            <section class="center section-header">
+                <h1>Model Context Protocol</h1>
+                <h3>Connecting AI to Your Tools</h3>
+                <aside class="notes">
+                    <strong>TIMING: 15 seconds</strong>
+                    <ul>
+                        <li>Model Context Protocol - or MCP. This is how we connect AI agents to your actual development tools</li>
+                        <li><span style="color: #888;">Energy:</span> Shift tone - this is THE key section. Slow down slightly, ensure clarity</li>
+                        <li><span style="color: #888;">Transition immediately to next slide without pausing</span></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 6: The Problem - Context Switching -->
+            <section>
+                <h2>The Developer's Daily Struggle</h2>
+                <div class="two-column">
+                    <div>
+                        <h3>Context Switching</h3>
+                        <ul style="font-size: 0.85em;">
+                            <li>📋 Jira</li>
+                            <li>💬 Slack</li>
+                            <li>🔧 GitHub</li>
+                            <li>💻 IDE</li>
+                            <li>📚 Confluence</li>
+                            <li>🗄️ Database tools</li>
+                            <li>🎭 Browser DevTools</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="warning-box">
+                            <strong>20+</strong> tool switches per task<br>
+                            <strong>15-20 min</strong> lost per switch<br>
+                            <strong>3-4 hours</strong> daily on "tool management"
+                        </div>
+                    </div>
+                </div>
+                <div class="warning-box" style="text-align: center; margin-top: 30px;">
+                    <strong>Manual copy-paste between systems</strong><br>
+                    Error-prone • Time-consuming • No automation
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Let's talk about the developer's daily struggle. How many of these do you recognize?</li>
+                        <li><span style="color: #888;">Left list (read with frustration):</span> In a single task you're switching between Jira, Slack, GitHub, IDE, Confluence, database tools, DevTools...</li>
+                        <li><span style="color: #888;">Right box - emphasize numbers:</span> 20+ tool switches per task. Each switch costs 15-20 minutes of lost focus. That's 3-4 HOURS daily just on tool management!</li>
+                        <li><span style="color: #888;">Bottom box:</span> What are you doing between tools? Manual copy-paste. Error-prone, time-consuming, zero automation</li>
+                        <li><span style="color: #888;">Pause, let it sink in:</span> This is the problem MCP solves. Let's see how...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 7: What is MCP? -->
+            <section>
+                <h2>What is MCP?</h2>
+                <div class="mcp-box">
+                    <h3 style="margin-top: 0;">Model Context Protocol</h3>
+                    <p style="font-size: 0.9em;">Open-source standard for connecting AI assistants to external data sources and tools</p>
+                </div>
+                <div class="two-column" style="font-size: 0.85em; margin-top: 30px;">
+                    <div>
+                        <h3>Created by:</h3>
+                        <p>Anthropic (November 2024)</p>
+                        <h3>Purpose:</h3>
+                        <p>Standardize AI-tool communication</p>
+                        <h3>Analogy:</h3>
+                        <p><strong>"USB-C for AI"</strong></p>
+                    </div>
+                    <div>
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li>Build once, use everywhere</li>
+                            <li>No more copy-paste</li>
+                            <li>Open-source ecosystem</li>
+                            <li>Vendor agnostic</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>MCP = Model Context Protocol. Open-source standard for connecting AI assistants to external data sources and tools</li>
+                        <li><span style="color: #888;">Left column:</span> Created by Anthropic in November 2024 (very recent). Purpose: standardize how AI tools communicate with dev tools</li>
+                        <li><span style="color: #888;">The analogy - make it stick:</span> "USB-C for AI". Just like USB-C lets any device connect to any charger, MCP lets any AI agent connect to any dev tool</li>
+                        <li><span style="color: #888;">Right - Benefits:</span> Build once, use everywhere. No more copy-paste. Open-source ecosystem. Vendor agnostic - not locked to specific AI provider</li>
+                        <li><span style="color: #888;">Transition:</span> But how does it actually work under the hood?</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 8: How MCP Works - Architecture -->
+            <section>
+                <h2>How MCP Works - Architecture</h2>
+                <div style="text-align: center; margin: 40px 0;">
+                    <div class="stats-box" style="max-width: 600px; margin: 0 auto;">
+                        <strong style="font-size: 1.2em;">AI Agent (MCP Host)</strong><br>
+                        <span style="font-size: 0.8em;">Claude Code, Cursor, etc.</span>
+                    </div>
+                    <div style="margin: 30px 0; font-size: 1.5em;">⬇️ MCP Protocol ⬇️</div>
+                    <div class="three-column" style="font-size: 0.75em;">
+                        <div class="mcp-box" style="margin: 0;">
+                            <img src="https://cdn.simpleicons.org/github/000000" class="service-logo" alt="GitHub" style="width: 48px; height: 48px; display: block; margin: 0 auto 10px auto;"><br>
+                            <strong>MCP Server: GitHub</strong><br>
+                            Handles API calls
+                        </div>
+                        <div class="mcp-box" style="margin: 0;">
+                            <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 48px; height: 48px; display: block; margin: 0 auto 10px auto;"><br>
+                            <strong>MCP Server: Jira</strong><br>
+                            Handles API calls
+                        </div>
+                        <div class="mcp-box" style="margin: 0;">
+                            <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 48px; height: 48px; display: block; margin: 0 auto 10px auto;"><br>
+                            <strong>MCP Server: Slack</strong><br>
+                            Handles API calls
+                        </div>
+                    </div>
+                    <div style="margin: 30px 0; font-size: 1.5em;">⬇️</div>
+                    <div class="three-column" style="font-size: 0.75em;">
+                        <div class="highlight-box" style="margin: 0;">
+                            <strong>GitHub API</strong><br>
+                            Your repositories
+                        </div>
+                        <div class="highlight-box" style="margin: 0;">
+                            <strong>Jira API</strong><br>
+                            Your tickets
+                        </div>
+                        <div class="highlight-box" style="margin: 0;">
+                            <strong>Slack API</strong><br>
+                            Your workspace
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Walk through architecture diagram top to bottom</span></li>
+                        <li><span style="color: #888;">Top:</span> AI Agent (Claude Code, Cursor, etc.) - called the MCP Host</li>
+                        <li><span style="color: #888;">Middle layer with logos:</span> Agent communicates via MCP Protocol to MCP Servers. Each specialized - GitHub, Jira, Slack. These handle API calls to their services</li>
+                        <li><span style="color: #888;">Bottom:</span> MCP servers connect to actual APIs - GitHub API (repos), Jira API (tickets), Slack API (workspace)</li>
+                        <li><span style="color: #888;">Tie it together:</span> Flow is Agent → MCP → Servers → API calls → data back up. Agent never needs to know GitHub/Jira APIs - just speaks MCP</li>
+                        <li><span style="color: #888;">Transition:</span> Now let's see why this architecture matters...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 9: Why MCP Matters -->
+            <section>
+                <h2>Why MCP Matters</h2>
+                <div class="two-column" style="font-size: 0.8em;">
+                    <div>
+                        <h3>❌ Before MCP:</h3>
+                        <ul>
+                            <li>Each AI tool builds custom integrations</li>
+                            <li>Limited external tool access</li>
+                            <li>Fragmented ecosystem</li>
+                            <li>Manual data synchronization</li>
+                            <li>Vendor lock-in</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>✅ With MCP:</h3>
+                        <ul>
+                            <li>Standardized protocol for all</li>
+                            <li>Rich tool ecosystem</li>
+                            <li>Unified integration layer</li>
+                            <li>Automated workflows</li>
+                            <li>Vendor agnostic</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mcp-box" style="text-align: center; margin-top: 40px; font-size: 1.1em;">
+                    <strong>Build once → Works with all MCP-compatible AI agents</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>This is why MCP is revolutionary. <span style="color: #888;">Before and after contrast</span></li>
+                        <li><span style="color: #888;">Left - Before MCP:</span> Every AI tool built custom integrations with every service. Result: Limited tool access, fragmented ecosystem, manual data sync, vendor lock-in</li>
+                        <li><span style="color: #888;">Right - With MCP:</span> Standardized protocol. Anyone can build MCP servers = rich ecosystem. Unified integration layer - one protocol, all tools. Workflows automated. Vendor agnostic</li>
+                        <li><span style="color: #888;">Bottom box - KEY:</span> Build an MCP integration once → works with ALL MCP-compatible AI agents. That's the power of standardization</li>
+                        <li><span style="color: #888;">Transition:</span> So what MCPs are actually available for development work?</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 10: Available MCPs for Development -->
+            <section>
+                <h2>Available MCPs for Development</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 0.7em;">
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/github/000000" class="service-logo" alt="GitHub">GitHub</strong><br>
+                        • Repository access<br>
+                        • PR management<br>
+                        • Issue tracking<br>
+                        • Code search
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira">Jira</strong><br>
+                        • Read/create issues<br>
+                        • Update statuses<br>
+                        • Sprint management<br>
+                        • Custom fields
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack">Slack</strong><br>
+                        • Read messages<br>
+                        • Post updates<br>
+                        • Search threads<br>
+                        • Channel management
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://playwright.dev/img/playwright-logo.svg" class="service-logo" alt="Playwright">Playwright</strong><br>
+                        • Browser automation<br>
+                        • E2E test creation<br>
+                        • Test execution<br>
+                        • Screenshot capture
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/googlechrome/4285F4" class="service-logo" alt="Chrome">Chrome DevTools MCP</strong><br>
+                        • Browser debugging<br>
+                        • Network/console errors<br>
+                        • Performance analysis<br>
+                        • DOM/CSS inspection
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/googledrive/4285F4" class="service-logo" alt="Google Drive">Google Drive</strong><br>
+                        • File access<br>
+                        • Document reading<br>
+                        • Search<br>
+                        • Sharing
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/angular/DD0031" class="service-logo" alt="Angular">Angular CLI</strong><br>
+                        • Component generation<br>
+                        • Service scaffolding<br>
+                        • Best practices<br>
+                        • Project structure
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/laravel/FF2D20" class="service-logo" alt="Laravel">Laravel</strong><br>
+                        • Controller generation<br>
+                        • Model relationships<br>
+                        • Migration helpers<br>
+                        • Artisan commands
+                    </div>
+                    <div class="mcp-box" style="margin: 0;">
+                        <strong><img src="https://cdn.simpleicons.org/confluence/172B4D" class="service-logo" alt="Confluence">Confluence</strong><br>
+                        • Read documentation<br>
+                        • Create pages<br>
+                        • Search content<br>
+                        • Space management
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.8em;">100+ community-built MCPs available at github.com/modelcontextprotocol</p>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Here's a sample of available MCPs - won't go through every detail, just highlight key ones</span></li>
+                        <li><span style="color: #888;">Top row - Essentials:</span> GitHub (full repo access, PR management, issue tracking), Jira (tickets, sprints), Slack (messages, channels). These three cover most workflow integration needs</li>
+                        <li><span style="color: #888;">Middle row - Specialized:</span> Playwright (browser automation, E2E testing), Chrome DevTools MCP (browser debugging - network errors, performance traces, DOM inspection), Google Drive (document access)</li>
+                        <li><span style="color: #888;">Bottom row - Framework-specific:</span> Angular CLI and Laravel - agent generates components, controllers, follows best practices automatically</li>
+                        <li><span style="color: #888;">Bottom text:</span> Just a sample - 100+ community-built MCPs available. Ecosystem growing fast</li>
+                        <li><span style="color: #888;">Transition:</span> So how do you actually set these up?</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 11: MCP Setup - Configuration -->
+            <section>
+                <h2>MCP Setup - Configuration</h2>
+                <div class="highlight-box">
+                    <strong>Configuration File Location:</strong>
+                    <div class="code-box" style="margin-top: 10px;">
+~/Library/Application Support/Claude/claude_desktop_config.json
+                    </div>
+                </div>
+                <div class="mcp-box">
+                    <strong>Basic Structure:</strong>
+                    <div class="code-box" style="margin-top: 10px; font-size: 0.7em;">
+{<br>
+  "mcpServers": {<br>
+    "github": {<br>
+      "command": "npx",<br>
+      "args": ["-y", "@modelcontextprotocol/server-github"],<br>
+      "env": {<br>
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "your_token_here"<br>
+      }<br>
+    }<br>
+  }<br>
+}
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.85em;">API tokens required for each service</p>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Setup is straightforward - edit a JSON configuration file</li>
+                        <li><span style="color: #888;">For Claude Code:</span> ~/Library/Application Support/Claude/claude_desktop_config.json</li>
+                        <li><span style="color: #888;">Structure is simple:</span> "mcpServers" object. Each server gets a name (like 'github'), specify command ('npx'), args (MCP server package), environment variables (API token)</li>
+                        <li>You'll need API tokens for each service - GitHub personal access token, Slack bot token, etc. Once set up, it just works</li>
+                        <li><span style="color: #888;">Don't worry if it looks intimidating</span> - documentation walks through step by step</li>
+                        <li><span style="color: #888;">Transition:</span> Let me show you a multi-service example...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 12: MCP Setup - Connection Example -->
+            <section>
+                <h2>MCP Setup - Multiple Services</h2>
+                <div class="code-box" style="font-size: 0.55em;">
+{<br>
+  "mcpServers": {<br>
+    "github": {<br>
+      "command": "npx",<br>
+      "args": ["-y", "@modelcontextprotocol/server-github"],<br>
+      "env": {"GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_token"}<br>
+    },<br>
+    "slack": {<br>
+      "command": "npx",<br>
+      "args": ["-y", "@modelcontextprotocol/server-slack"],<br>
+      "env": {<br>
+        "SLACK_BOT_TOKEN": "your_slack_bot_token",<br>
+        "SLACK_TEAM_ID": "your_team_id"<br>
+      }<br>
+    },<br>
+    "postgres": {<br>
+      "command": "npx",<br>
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],<br>
+      "env": {"DATABASE_URL": "postgresql://user:pass@localhost/db"}<br>
+    }<br>
+  }<br>
+}
+                </div>
+                <div class="stats-box" style="margin-top: 20px;">
+                    <strong>Setup time per MCP: ~5-10 minutes</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li><span style="color: #888;">Here's a real example with multiple services. Notice the pattern</span> - just repeating the same structure for each</li>
+                        <li><span style="color: #888;">GitHub:</span> personal access token. <span style="color: #888;">Slack:</span> bot token + team ID. <span style="color: #888;">Postgres:</span> database connection string. Same pattern, different credentials</li>
+                        <li><span style="color: #888;">Bottom box - reassure:</span> Each MCP takes 5-10 minutes to set up (mostly getting API tokens). Once configured, never touch it again</li>
+                        <li><span style="color: #888;">Transition:</span> Now that you know HOW to set it up, let's see how agents actually USE these MCPs...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 13: How AI Agents Use MCPs -->
+            <section>
+                <h2>How AI Agents Use MCPs</h2>
+                <div style="font-size: 0.8em;">
+                    <div class="highlight-box">
+                        <strong>Step 1:</strong> You give a prompt<br>
+                        <em>"Check <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack for bug reports and create <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira tickets"</em>
+                    </div>
+                    <div class="mcp-box">
+                        <strong>Step 2:</strong> Agent analyzes and plans<br>
+                        <em>• Need to read <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack → Use Slack MCP [approve]<br>
+                        • Need to create <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira ticket → Use Jira MCP [approve]</em>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Step 3:</strong> Agent executes via MCPs (with approvals)<br>
+                        <em>• Calls <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack MCP to fetch messages [you approve]<br>
+                        • Analyzes content<br>
+                        • Calls <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira MCP to create tickets [you approve each]</em>
+                    </div>
+                    <div class="stats-box" style="text-align: left;">
+                        <strong>Step 4:</strong> Agent reports back<br>
+                        <em>"Created 3 <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira tickets from <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack bug reports"</em>
+                    </div>
+                </div>
+                <div class="mcp-box" style="margin-top: 30px; text-align: center; font-size: 0.9em;">
+                    <strong>Key insight:</strong> MCPs excel at tasks BEFORE coding (gathering info) and AFTER coding (integration, deployment, communication) - you approve each MCP action
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li>Complete workflow of how an agent uses MCPs</li>
+                        <li><span style="color: #888;">Step 1:</span> You give natural language prompt - "Check Slack for bug reports and create Jira tickets"</li>
+                        <li><span style="color: #888;">Step 2 - Emphasize approvals:</span> Agent plans → "Need Slack MCP" [you approve] → "Need Jira MCP" [you approve]. You control what tools it accesses</li>
+                        <li><span style="color: #888;">Step 3 - Emphasize approvals:</span> Executes → calls Slack MCP [you approve] → analyzes content → calls Jira MCP [you approve each]. Every MCP action requires approval</li>
+                        <li><span style="color: #888;">Bottom box - KEY:</span> MCPs shine BEFORE coding (gathering info from Slack, Jira, databases) and AFTER coding (PRs, updating tickets, notifying teams). Agent writes code, MCPs automate surrounding work. You approve each action</li>
+                        <li><span style="color: #888;">Transition:</span> Let's see this approval workflow in action...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- SECTION 3: REAL-WORLD EXAMPLES -->
+
+            <!-- Slide 14: Example Scenario Introduction -->
+            <section>
+                <h2>Real-World Scenario</h2>
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">📧 Bug Report from Slack</h3>
+                    <div style="background: rgba(0,0,0,0.3); padding: 15px; margin-top: 10px; border-radius: 5px;">
+                        <strong>@support</strong> Sarah Chen reports:<br>
+                        "Profile picture upload (6.2MB) shows 'success' but doesn't save."<br><br>
+                        <strong>Environment:</strong> Production | <strong>User ID:</strong> 84729
+                    </div>
+                </div>
+                <div style="font-size: 0.8em; margin-top: 20px;">
+                    <div class="warning-box">
+                        <strong>Follow-up:</strong> Works fine with 2MB files
+                    </div>
+                    <div class="warning-box">
+                        <strong>Additional:</strong> User john.doe reports same issue with 7.1MB PNG
+                    </div>
+                </div>
+                <div style="margin-top: 30px; padding: 15px; border-radius: 5px; background: rgba(223, 59, 59, 0.1); text-align: center; font-size: 0.9em;">
+                    <strong>Task:</strong> Investigate → Fix → Test → Document → Deploy
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li><span style="color: #888;">Scenario you've probably experienced:</span> Bug report through Slack from support channel</li>
+                        <li><span style="color: #888;">Sarah Chen reports:</span> Profile picture upload (6.2MB) shows 'success' but doesn't save</li>
+                        <li><span style="color: #888;">Follow-ups:</span> 2MB files work fine. User john.doe reports same issue with 7.1MB PNG. Pattern: files over certain size are failing</li>
+                        <li><span style="color: #888;">Bottom - Full task:</span> Investigate → Fix → Test → Document → Create PR. Complete end-to-end workflow</li>
+                        <li><span style="color: #888;">Transition:</span> Let's see how long this takes WITHOUT MCPs...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 15: WITHOUT MCPs - Title -->
+            <section class="center">
+                <h2>Approach 1: WITHOUT MCPs</h2>
+                <div class="warning-box" style="max-width: 600px; margin: 40px auto;">
+                    <h3>AI Agent + Manual Integration</h3>
+                    <p>Agent can write code, but YOU handle tool integration</p>
+                </div>
+                <div class="stats-box" style="max-width: 400px; margin: 20px auto;">
+                    <strong>Estimated Time: 90 minutes</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 30 seconds</strong>
+                    <ul>
+                        <li><span style="color: #888;">Set expectations for WITHOUT scenario:</span> AI agent helps write code, but YOU handle all tool integration manually</li>
+                        <li><span style="color: #888;">Point to time estimate - let it sink in:</span> 90 minutes. Remember this number</li>
+                        <li><span style="color: #888;">Transition:</span> Let's walk through what those 90 minutes look like, step by step...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 16: WITHOUT MCPs - Steps 1-4 -->
+            <section>
+                <h2>WITHOUT MCPs - Manual Steps (1-4)</h2>
+                <div style="font-size: 0.8em;">
+                    <div class="warning-box">
+                        <strong>Step 1:</strong> Read Slack messages manually<br>
+                        <em>• Open Slack<br>
+                        • Search #customer-support<br>
+                        • Read through threads<br>
+                        • Copy relevant info</em><br>
+                        ⏱️ <strong>5 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 2:</strong> Create Jira ticket manually<br>
+                        <em>• Open Jira<br>
+                        • Create new issue<br>
+                        • Paste Slack context<br>
+                        • Add details</em><br>
+                        ⏱️ <strong>10 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 3:</strong> Tell AI agent about the issue<br>
+                        <em>• Paste bug description to agent<br>
+                        • Agent searches codebase<br>
+                        • Agent identifies issue</em><br>
+                        ⏱️ <strong>5 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 4:</strong> Agent writes fix + tests<br>
+                        <em>• Agent generates code<br>
+                        • You review and apply</em><br>
+                        ⏱️ <strong>15 minutes</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Go through each step with slight frustration - they should FEEL the pain</span></li>
+                        <li><span style="color: #888;">Step 1:</span> Manually open Slack, search customer-support, read threads, copy info. 5 minutes</li>
+                        <li><span style="color: #888;">Step 2:</span> Switch to Jira, create issue, paste from Slack, fill fields. 10 minutes</li>
+                        <li><span style="color: #888;">Step 3:</span> NOW tell AI agent. Paste bug description, agent searches codebase, identifies problem. 5 minutes</li>
+                        <li><span style="color: #888;">Step 4:</span> Agent generates fix + tests. You review and apply. 15 minutes. <span style="color: #888;">Notice</span> - ACTUAL coding only 15 minutes, but already 35 minutes total</li>
+                        <li><span style="color: #888;">Transition:</span> And we're not even halfway done yet...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 17: WITHOUT MCPs - Steps 5-8 -->
+            <section>
+                <h2>WITHOUT MCPs - Manual Steps (5-8)</h2>
+                <div style="font-size: 0.8em;">
+                    <div class="warning-box">
+                        <strong>Step 5:</strong> Run tests manually<br>
+                        <em>• Execute test suite<br>
+                        • Fix any failures<br>
+                        • Verify all pass</em><br>
+                        ⏱️ <strong>10 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 6:</strong> Create commit + PR manually<br>
+                        <em>• git add, commit, push<br>
+                        • Open GitHub<br>
+                        • Create PR<br>
+                        • Write description</em><br>
+                        ⏱️ <strong>10 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 7:</strong> Update Jira manually<br>
+                        <em>• Copy PR link<br>
+                        • Go back to Jira<br>
+                        • Add link to ticket<br>
+                        • Update status</em><br>
+                        ⏱️ <strong>5 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 8:</strong> Notify team manually<br>
+                        <em>• Go back to Slack<br>
+                        • Post update<br>
+                        • Link to PR</em><br>
+                        ⏱️ <strong>5 minutes</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li><span style="color: #888;">Continue the pain - go faster, they get the pattern</span></li>
+                        <li><span style="color: #888;">Step 5:</span> Run tests manually. 10 minutes</li>
+                        <li><span style="color: #888;">Step 6:</span> Git commands, open GitHub, create PR, write description. 10 minutes</li>
+                        <li><span style="color: #888;">Step 7:</span> Copy PR link, switch BACK to Jira, add link, update status. 5 minutes</li>
+                        <li><span style="color: #888;">Step 8:</span> Switch BACK to Slack, post update with PR link. 5 minutes</li>
+                        <li><span style="color: #888;">Emphasize context switching:</span> Notice how many times? Slack → Jira → Agent → Terminal → GitHub → Jira → Slack. Exhausting!</li>
+                        <li><span style="color: #888;">Transition:</span> And there's still more...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 18: WITHOUT MCPs - Steps 9-12 -->
+            <section>
+                <h2>WITHOUT MCPs - Final Steps</h2>
+                <div style="font-size: 0.8em;">
+                    <div class="warning-box">
+                        <strong>Step 9:</strong> Update documentation<br>
+                        <em>• Open Confluence<br>
+                        • Find relevant page<br>
+                        • Document the fix</em><br>
+                        ⏱️ <strong>10 minutes</strong>
+                    </div>
+                    <div class="warning-box">
+                        <strong>Step 10:</strong> Context switching penalty<br>
+                        <em>• Lost focus between tools<br>
+                        • Mental overhead<br>
+                        • Forgot to update something?</em><br>
+                        ⏱️ <strong>10 minutes</strong>
+                    </div>
+                </div>
+                <div class="stats-box" style="margin-top: 30px; font-size: 1.2em;">
+                    <strong>TOTAL TIME: ~90 minutes</strong><br>
+                    <span style="font-size: 0.8em;">50 minutes of manual tool integration</span>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li><span style="color: #888;">Final steps - emphasize hidden cost</span></li>
+                        <li><span style="color: #888;">Step 9:</span> Oh wait, forgot documentation. Open Confluence, find page, document fix. 10 minutes</li>
+                        <li><span style="color: #888;">Step 10:</span> Hidden cost - context switching penalty. Lost focus, mental overhead. Forgot to update something? Probably. 10 minutes</li>
+                        <li><span style="color: #888;">Point to total - emphasize breakdown:</span> 90 minutes TOTAL. Only 40 minutes actual development. 50 minutes - MORE THAN HALF - was manual tool integration</li>
+                        <li><span style="color: #888;">Pause for effect:</span> That's broken. Now let me show you the better way...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 19: WITHOUT MCPs - Pain Points -->
+            <section>
+                <h2>WITHOUT MCPs - Pain Points</h2>
+                <div class="two-column" style="font-size: 0.8em;">
+                    <div>
+                        <div class="warning-box">
+                            <strong>Context Switching</strong><br>
+                            • 20+ tool switches<br>
+                            • Lost focus<br>
+                            • Mental overhead
+                        </div>
+                        <div class="warning-box">
+                            <strong>Manual Data Entry</strong><br>
+                            • Copy-paste errors<br>
+                            • Inconsistent formats<br>
+                            • Forgotten updates
+                        </div>
+                    </div>
+                    <div>
+                        <div class="warning-box">
+                            <strong>No Workflow Continuity</strong><br>
+                            • Agent can't see Slack<br>
+                            • Agent can't update Jira<br>
+                            • Agent can't post to Slack
+                        </div>
+                        <div class="warning-box">
+                            <strong>Time Wasted</strong><br>
+                            • 50+ min on integration<br>
+                            • Only 40 min on actual fix<br>
+                            • Zero value-add work
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-size: 1.1em; font-weight: bold;">Agent helps with code, but YOU are the integration layer</p>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li><span style="color: #888;">Summarize pain points - don't dwell too long, they get it</span></li>
+                        <li><span style="color: #888;">Context switching:</span> 20+ tool switches, lost focus, mental overhead</li>
+                        <li><span style="color: #888;">Manual data entry:</span> copy-paste errors, inconsistent formats, forgotten updates</li>
+                        <li><span style="color: #888;">No workflow continuity:</span> Agent writes code but can't see Slack, can't update Jira, can't post updates. Blind to your tooling</li>
+                        <li><span style="color: #888;">Time wasted:</span> 50 minutes on integration, only 40 on actual fix. Zero value-add work</li>
+                        <li><span style="color: #888;">Read bottom line with emphasis:</span> Agent helps with code, but YOU are the integration layer. You're the glue. Not sustainable</li>
+                        <li><span style="color: #888;">Transition with excitement:</span> Now watch this...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 20: WITH MCPs - Title -->
+            <section class="center">
+                <h2>Approach 2: WITH MCPs</h2>
+                <div class="mcp-box" style="max-width: 600px; margin: 40px auto;">
+                    <h3>AI Agent + MCP Integration</h3>
+                    <p>Agent handles EVERYTHING end-to-end</p>
+                </div>
+                <div class="stats-box" style="max-width: 400px; margin: 20px auto;">
+                    <strong>Estimated Time: 15 minutes</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 30 seconds</strong>
+                    <ul>
+                        <li><span style="color: #888;">Build contrast with excitement:</span> NOW let's see WITH MCPs. AI agent with MCP integration handles EVERYTHING end-to-end. You heard that right - everything</li>
+                        <li><span style="color: #888;">Point to time - let number speak:</span> 15 minutes. Remember WITHOUT was 90. That's 83% reduction!</li>
+                        <li><span style="color: #888;">Energy:</span> Excitement and enthusiasm - this is the WOW moment coming up!</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 21: WITH MCPs - Single Prompt -->
+            <section>
+                <h2>WITH MCPs - Single Prompt</h2>
+                <div class="mcp-box" style="font-size: 0.9em;">
+                    <strong>Your prompt to Claude Code:</strong>
+                    <div class="code-box" style="margin-top: 20px; font-size: 0.9em;">
+"Check #customer-support Slack channel for profile<br>
+upload issues, investigate the codebase, fix the bug,<br>
+write comprehensive tests, create a PR with proper<br>
+description, update the Jira ticket, and notify the<br>
+team in Slack"
+                    </div>
+                </div>
+                <div class="stats-box" style="margin-top: 30px;">
+                    <strong>Then you approve each action...</strong><br>
+                    <span style="font-size: 0.8em;">Agent proposes, you approve - especially for MCP calls</span>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px; text-align: center; font-size: 0.85em;">
+                    <strong>What MCPs automate:</strong> Reading Slack, creating Jira tickets, creating PRs, updating tickets, posting notifications<br>
+                    <strong>What you still do:</strong> Write/review code, approve each MCP action
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Read the prompt - this is ONE command:</span> "Check customer-support Slack channel for profile upload issues, investigate codebase, fix bug, write tests, create PR, update Jira ticket, notify team in Slack"</li>
+                        <li><span style="color: #888;">Clarify approval workflow:</span> Don't just hit enter and walk away. Agent proposes each action, asks approval - especially MCP calls. "Can I read Slack?" You approve. "Create Jira ticket?" You approve. "Create PR?" You approve. Supervising, not blindly trusting</li>
+                        <li><span style="color: #888;">Point to bottom - emphasize what MCPs automate:</span> ALL work BEFORE coding (reading Slack, creating Jira tickets) and AFTER coding (PRs, updating tickets, notifications). Agent writes code, you review, but integration work automated WITH approval</li>
+                        <li><span style="color: #888;">Build anticipation:</span> Let me show you what this approval workflow looks like...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 22: WITH MCPs - Agent Execution (1) -->
+            <section>
+                <h2>WITH MCPs - Agent Execution (1)</h2>
+                <div class="demo-console">
+<strong style="color: #f6ad55;">→ Agent: Can I use Slack MCP to read #customer-support?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved</strong><br>
+✓ Reading messages from #customer-support...<br>
+✓ Found 3 related messages:<br>
+  - Sarah Chen: 6.2MB upload fails<br>
+  - john.doe: 7.1MB PNG same issue<br>
+  - Pattern identified: Files > 5MB fail<br>
+<br>
+<strong style="color: #f6ad55;">→ Agent: Can I use Jira MCP to create a ticket?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved</strong><br>
+✓ Ticket PROJ-789 created: "File upload validation bug > 5MB"<br>
+✓ Added user details and reproduction steps<br>
+<br>
+✓ Searching codebase... (no approval needed for reading)<br>
+✓ Found FileUploadController.php<br>
+✓ Found validation rule: max:5120 (5MB limit)<br>
+✓ Root cause: Hardcoded limit, but success message shown anyway
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">⏱️ <strong>5 minutes elapsed</strong> (including your approvals)</p>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Walk through what agent does - emphasize approvals</span></li>
+                        <li><span style="color: #888;">Agent asks:</span> "Can I use Slack MCP to read customer-support?" <span style="color: #888;">You approve.</span> Reads channel, finds 3 messages, identifies pattern - files over 5MB fail</li>
+                        <li><span style="color: #888;">Agent asks:</span> "Can I use Jira MCP to create ticket?" <span style="color: #888;">You approve.</span> Creates ticket with all Slack details</li>
+                        <li>Searches codebase (no approval for reading own files), finds controller, identifies 5MB limit, discovers root cause</li>
+                        <li><span style="color: #888;">Point to time:</span> 5 minutes including approvals. MCPs automated: reading Slack, creating Jira ticket - all BEFORE-coding work. Agent did requirements gathering for you</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 23: WITH MCPs - Agent Execution (2) -->
+            <section>
+                <h2>WITH MCPs - Agent Execution (2)</h2>
+                <div class="demo-console">
+✓ Implementing fix in 3 files:<br>
+  1. FileUploadController.php - Update validation logic<br>
+  2. config/upload.php - Make limit configurable<br>
+  3. .env.example - Add MAX_FILE_SIZE_MB variable<br>
+<br>
+<strong style="color: #f6ad55;">→ Agent: Can I write these changes?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved (after reviewing proposed changes)</strong><br>
+<br>
+<strong style="color: #4AF626;">Developer adds context:</strong> "Use 5MB as default, add error message"<br>
+<br>
+✓ Writing tests...<br>
+<strong style="color: #4AF626;">Developer prompt:</strong> "Add edge case for exactly 5MB"<br>
+<br>
+✓ Created UploadValidationTest.php:<br>
+  - Test < 5MB uploads (pass)<br>
+  - Test 5MB exact (pass)<br>
+  - Test > 5MB uploads (fail with clear error)<br>
+  - Test error message shown to user<br>
+  - Test configuration changes<br>
+  Total: 18 test cases<br>
+<br>
+<strong style="color: #f6ad55;">→ Agent: Can I run the test suite?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved</strong><br>
+✓ Running test suite...<br>
+✓ All 18 tests passing ✅
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">⏱️ <strong>10 minutes elapsed</strong></p>
+                <aside class="notes">
+                    <strong>TIMING: 45 seconds</strong>
+                    <ul>
+                        <li><span style="color: #888;">Notice the workflow - emphasize developer involvement:</span> Agent asks permission to write changes, you approve after reviewing</li>
+                        <li><span style="color: #888;">YOU provide context:</span> "Use 5MB as default, add error message"</li>
+                        <li><span style="color: #888;">Agent writes tests, YOU prompt:</span> "Add edge case for exactly 5MB"</li>
+                        <li><span style="color: #888;">It's collaborative</span> - agent does work, you guide with prompts and context, approve each action</li>
+                        <li>10 minutes total with your active involvement</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 24: WITH MCPs - Agent Execution (3) -->
+            <section>
+                <h2>WITH MCPs - Agent Execution (3)</h2>
+                <div class="demo-console">
+✓ Creating commit... (you review the code changes)<br>
+  git add .<br>
+  git commit -m "Fix: Handle file uploads > 5MB with proper error message<br>
+  - Made upload limit configurable<br>
+  - Show clear error for oversized files<br>
+  - Added 18 tests covering edge cases"<br>
+<br>
+<strong style="color: #f6ad55;">→ Agent: Can I use GitHub MCP to create PR?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved (after reviewing the changes)</strong><br>
+✓ PR #456 created with detailed description<br>
+✓ Linked to PROJ-789<br>
+<br>
+<strong style="color: #f6ad55;">→ Agent: Can I use Jira MCP to update ticket status?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved</strong><br>
+✓ Status: In Progress → In Review<br>
+✓ Added PR link and fix summary<br>
+<br>
+<strong style="color: #f6ad55;">→ Agent: Can I use Slack MCP to notify team?</strong><br>
+<strong style="color: #68d391;">✓ You: Approved</strong><br>
+✓ "Bug fix PR created: [link] - Will resolve upload issues > 5MB"<br>
+<br>
+<strong style="color: #68d391;">✓ COMPLETE! All tasks done with your supervision.</strong>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 1.1em; font-weight: bold;">⏱️ <strong>15 minutes total</strong> (with approvals)</p>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Final steps - emphasize approvals for AFTER-coding work</span></li>
+                        <li><span style="color: #888;">After you review code, agent creates commit. Asks:</span> "Can I use GitHub MCP to create PR?" <span style="color: #888;">You approve after reviewing.</span> PR created with detailed description</li>
+                        <li>"Can I use Jira MCP to update ticket status?" <span style="color: #888;">You approve.</span> Status updated, PR link added</li>
+                        <li>"Can I use Slack MCP to notify team?" <span style="color: #888;">You approve.</span> Team notification posted</li>
+                        <li><span style="color: #888;">Point to COMPLETE - supervised automation:</span> All tasks done WITH YOUR SUPERVISION. MCPs automated ALL AFTER-coding integration - PRs, Jira updates, Slack posts. You still wrote and reviewed code, but surrounding work automated with approval</li>
+                        <li><span style="color: #888;">Pause, then:</span> 15 minutes total including approvals. WITHOUT MCPs: 90 minutes. Let's compare...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 25: Before/After Comparison -->
+            <section style="padding: 10px 20px !important;">
+                <h2 style="margin-top: 0; margin-bottom: 10px;">Before/After Comparison</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>WITHOUT MCPs</th>
+                            <th>WITH MCPs</th>
+                            <th>Improvement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Total Time</strong></td>
+                            <td>90 minutes</td>
+                            <td>15 minutes</td>
+                            <td style="color: #48bb78;">83% faster</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tool Switches</strong></td>
+                            <td>20+</td>
+                            <td>0</td>
+                            <td style="color: #48bb78;">✅ Zero</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Manual Steps</strong></td>
+                            <td>10</td>
+                            <td>1 (review)</td>
+                            <td style="color: #48bb78;">✅ 90% reduction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Copy-Paste Operations</strong></td>
+                            <td>15+</td>
+                            <td>0</td>
+                            <td style="color: #48bb78;">✅ Eliminated</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Potential Errors</strong></td>
+                            <td>High</td>
+                            <td>Low</td>
+                            <td style="color: #48bb78;">✅ Consistent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Context Maintained</strong></td>
+                            <td>No</td>
+                            <td>Yes</td>
+                            <td style="color: #48bb78;">✅ Full workflow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Documentation</strong></td>
+                            <td>Often missed</td>
+                            <td>Always complete</td>
+                            <td style="color: #48bb78;">✅ Reliable</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mcp-box" style="text-align: center; margin-top: 10px; font-size: 1.0em; padding: 8px;">
+                    <strong>75 minutes saved = More time for architecture & innovation</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Walk through table - let numbers speak:</span> Total time: 90 min WITHOUT, 15 min WITH. 83% faster!</li>
+                        <li><span style="color: #888;">Tool switches:</span> 20+ WITHOUT, ZERO WITH. <span style="color: #888;">Manual steps:</span> 10 WITHOUT, 1 (review) WITH. <span style="color: #888;">Copy-paste:</span> 15+ WITHOUT, ZERO WITH - completely eliminated</li>
+                        <li><span style="color: #888;">Potential errors:</span> High WITHOUT (manual work), Low WITH (automated/consistent). <span style="color: #888;">Context maintained:</span> No WITHOUT (jumping between tools), Yes WITH (agent maintains full workflow). <span style="color: #888;">Documentation:</span> Often missed WITHOUT, Always complete WITH</li>
+                        <li><span style="color: #888;">Point to bottom - the payoff:</span> 75 minutes saved on single task. More time for architecture, innovation, hard problems - work that moves product forward</li>
+                        <li><span style="color: #888;">Transition:</span> This is THE key difference...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 26: The MCP Advantage - Emphasized -->
+            <section class="center">
+                <h2>The MCP Advantage</h2>
+                <div style="margin: 20px 0;">
+                    <div class="warning-box" style="max-width: 750px; margin: 20px auto;">
+                        <h3>WITHOUT MCPs:</h3>
+                        <p style="font-size: 1.1em;">Agent helps with <strong>coding</strong><br>
+                        <strong>YOU manually do:</strong> Slack reading, Jira tickets, PRs, notifications, documentation</p>
+                    </div>
+                    <div class="mcp-box" style="max-width: 750px; margin: 20px auto;">
+                        <h3>WITH MCPs (with your approval):</h3>
+                        <p style="font-size: 1.1em;">Agent automates <strong>BEFORE coding</strong> (gathering info from Slack, Jira, DBs)<br>
+                        AND <strong>AFTER coding</strong> (PRs, ticket updates, notifications)<br>
+                        <em>You still write/review code - MCPs handle integration tasks</em></p>
+                    </div>
+                </div>
+                <div class="stats-box" style="max-width: 750px; margin: 20px auto; font-size: 0.95em;">
+                    <strong style="font-size: 1.3em;">This is the game-changer:</strong><br>
+                    Automate the boring integration work, focus on solving problems
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes - THIS IS THE KEY MESSAGE SLIDE</strong>
+                    <ul>
+                        <li><span style="color: #888;">Slow down, emphasize EVERY word:</span> This is THE MCP advantage. Make this crystal clear - often misunderstood</li>
+                        <li><span style="color: #888;">Point to top - read with emphasis:</span> WITHOUT MCPs - agent helps with coding (useful!). But YOU manually do EVERYTHING BEFORE coding (Slack, requirements, Jira tickets) and AFTER coding (PRs, ticket updates, notifications, docs). YOU are the integration layer</li>
+                        <li><span style="color: #888;">Pause, point to bottom with excitement:</span> WITH MCPs (requires approval for each action) - agent automates BEFORE-coding work (gathering from Slack, Jira, DBs) and AFTER-coding work (PRs, tickets, notifications). You STILL write/review actual code. MCPs don't replace you - they handle boring integration tasks AROUND coding</li>
+                        <li><span style="color: #888;">Point to bottom, read slowly:</span> This. Is. The. Game-changer. Stop being human copy-paste machine, focus on solving problems</li>
+                        <li><span style="color: #888;">Pause, then:</span> 60-85% of dev time isn't spent coding - it's integration work. THAT'S what MCPs automate, with your approval</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 27: More Real-World Examples -->
+            <section>
+                <h2>More Real-World MCP Examples</h2>
+                <div style="font-size: 0.75em;">
+                    <div class="mcp-box">
+                        <strong>Example 1: Feature Development</strong><br>
+                        <em>"Implement JIRA-456 user authentication feature"</em><br>
+                        • Reads Jira ticket details via Jira MCP<br>
+                        • Implements OAuth flow<br>
+                        • Writes tests<br>
+                        • Creates PR via GitHub MCP<br>
+                        • Updates Jira status<br>
+                        <strong>Time: 45 min</strong> (vs 2-3 hours)
+                    </div>
+                    <div class="mcp-box">
+                        <strong>Example 2: Production Issue</strong><br>
+                        <em>"Investigate database slow queries from #alerts"</em><br>
+                        • Reads Slack alert via Slack MCP<br>
+                        • Connects to DB via Postgres MCP<br>
+                        • Analyzes query performance<br>
+                        • Adds indexes<br>
+                        • Posts resolution to Slack<br>
+                        <strong>Time: 20 min</strong> (vs 1 hour)
+                    </div>
+                    <div class="mcp-box">
+                        <strong>Example 3: Code Review Analysis</strong><br>
+                        <em>"Review all open PRs and summarize in Confluence"</em><br>
+                        • Fetches PRs via GitHub MCP<br>
+                        • Analyzes code changes<br>
+                        • Identifies patterns and issues<br>
+                        • Creates summary page in Confluence<br>
+                        <strong>Time: 15 min</strong> (vs 2 hours)
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Quick tour of more examples:</span></li>
+                        <li><span style="color: #888;">Feature development</span> - implement Jira ticket end-to-end: 45 min vs 2-3 hours manually</li>
+                        <li><span style="color: #888;">Production issue</span> - investigate slow DB queries: 20 min vs 1 hour</li>
+                        <li><span style="color: #888;">Code review analysis</span> - review PRs, document in Confluence: 15 min vs 2 hours</li>
+                        <li><span style="color: #888;">Pattern recognition:</span> Every task involving multiple tools sees 60-85% time savings with MCPs</li>
+                        <li><span style="color: #888;">Transition:</span> Now that you've seen what's possible, let me show you how to get these results with better prompts...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- SECTION 4: PROMPT ENGINEERING BEST PRACTICES -->
+
+            <!-- Slide 28: Section Header -->
+            <section class="center section-header">
+                <h1>Prompt Engineering</h1>
+                <h3>Best Practices for AI Agents</h3>
+                <aside class="notes">
+                    <strong>TIMING: 15 seconds</strong>
+                    <ul>
+                        <li>Now let's talk about how to actually GET these results - <span style="color: #888;">Prompt Engineering best practices</span></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 29: Why Prompting Matters -->
+            <section>
+                <h2>Why Prompting Matters</h2>
+                <div class="two-column" style="font-size: 0.8em;">
+                    <div>
+                        <div class="warning-box">
+                            <strong>❌ Vague Prompt</strong>
+                            <div class="code-box" style="margin-top: 10px;">
+"Fix the bug"
+                            </div>
+                            <strong>Result:</strong><br>
+                            • Agent confused<br>
+                            • Asks many questions<br>
+                            • Wrong assumptions<br>
+                            • Partial solution
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stats-box">
+                            <strong>✅ Specific Prompt</strong>
+                            <div class="code-box" style="margin-top: 10px; text-align: left;">
+"Investigate file upload issue where files > 5MB show success but don't save. Fix validation, add error message, write tests"
+                            </div>
+                            <strong>Result:</strong><br>
+                            • Clear direction<br>
+                            • Complete solution<br>
+                            • Proper testing<br>
+                            • First-time success
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box" style="text-align: center; margin-top: 30px; font-size: 1.1em;">
+                    <strong>Same agent, 10x better results with good prompts</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Prompting matters because the same agent gives you 10x better results with a good prompt vs a vague one</li>
+                        <li>Left side: "Fix the bug" - Agent confused, asks many questions, wrong assumptions, partial solution</li>
+                        <li>Right side: "Investigate file upload issue where files over 5MB show success but don't save. Fix validation, add error message, write tests" - Clear direction, complete solution, proper testing, first-time success</li>
+                        <li>Emphasize the bottom highlight: Same agent, 10x better results with good prompts</li>
+                        <li>This is why we're spending time on prompting - it's the difference between frustration and success</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 30: Core Prompting Principles (2025) -->
+            <section>
+                <h2>Core Prompting Principles (2025)</h2>
+                <div style="font-size: 0.75em;">
+                    <div class="highlight-box" style="margin: 10px 0; padding: 12px;">
+                        <strong>1. Be Explicit with Instructions</strong><br>
+                        • Go beyond basics - request fully-featured implementations<br>
+                        • Describe exactly what you want in output<br>
+                        • Example: <em>"Create comprehensive OAuth implementation with error handling, logging, and edge case coverage"</em>
+                    </div>
+                    <div class="mcp-box" style="margin: 10px 0; padding: 12px;">
+                        <strong>2. Add Context and Motivation</strong><br>
+                        • Explain WHY certain behaviors matter<br>
+                        • Help AI understand underlying goals<br>
+                        • Example: <em>"We need caching because API has rate limits and user experience degrades above 200ms"</em>
+                    </div>
+                    <div class="stats-box" style="margin: 10px 0; padding: 12px; text-align: left;">
+                        <strong>3. Precision Over Cleverness</strong><br>
+                        • Clear structure beats clever wording<br>
+                        • Most failures come from ambiguity, not model limitations<br>
+                        • Use structured formats (XML tags, JSON) for complex requests
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>These are the three core principles from Claude's official 2025 documentation</li>
+                        <li>Principle 1: Be explicit with instructions - Go beyond basics, request fully-featured implementations. Don't just say "add login", say "create comprehensive OAuth with error handling, logging, and edge case coverage"</li>
+                        <li>Principle 2: Add context and motivation - Explain WHY certain behaviors matter. Example: "We need caching because API has rate limits and user experience degrades above 200ms"</li>
+                        <li>Principle 3: Precision over cleverness - Clear structure beats clever wording. Most failures come from ambiguity, not model limitations</li>
+                        <li>Use structured formats like XML tags or JSON for complex requests</li>
+                        <li>Remember: Most prompt failures are from ambiguity, not AI limitations</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 31: Complete Prompt Structure -->
+            <section>
+                <h2>Complete Prompt Structure</h2>
+                <div class="highlight-box" style="padding: 12px;">
+                    <h3 style="margin-top: 0;">7-Part Template:</h3>
+                    <div style="font-size: 0.75em;">
+                        <p><strong>1. Context:</strong> What's the situation?</p>
+                        <p><strong>2. Task:</strong> What needs to be done?</p>
+                        <p><strong>3. Constraints:</strong> Any limitations?</p>
+                        <p><strong>4. Output format:</strong> How should it respond?</p>
+                        <p><strong>5. Expected Behavior:</strong> Describe edge cases</p>
+                        <p><strong>6. Success Criteria:</strong> Define "done"</p>
+                        <p><strong>7. Reasoning Request:</strong> Ask agent to explain approach first</p>
+                    </div>
+                </div>
+                <div class="stats-box" style="margin-top: 10px; padding: 10px;">
+                    <strong>Real-World Example:</strong>
+                    <div class="code-box" style="margin-top: 10px; text-align: left; font-size: 0.65em;">
+<strong>Context:</strong> Laravel API with 100K+ daily users<br>
+<strong>Task:</strong> Add rate limiting to prevent abuse<br>
+<strong>Constraints:</strong> Redis available, must not break existing auth<br>
+<strong>Output:</strong> Implementation + migration guide + monitoring dashboard<br>
+<strong>Expected:</strong> Handle burst traffic, graceful degradation<br>
+<strong>Success:</strong> 429 responses after limit, &lt;5ms overhead<br>
+<strong>Reasoning:</strong> "Explain your approach before coding"
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>The complete prompt structure has 7 parts - walk through each one from the slide</li>
+                        <li>Parts 1-4 are basics: Context (what's the situation?), Task (what needs doing?), Constraints (limitations?), Output format (how should it respond?)</li>
+                        <li>Parts 5-7 make all the difference: Expected Behavior covers edge cases, Success Criteria defines what "done" means, Reasoning Request asks agent to explain approach first</li>
+                        <li>Show the real-world example: Laravel API with 100K+ daily users, adding rate limiting</li>
+                        <li>Point out the specificity: Redis, 429 responses, less than 5ms overhead, monitoring dashboard, graceful degradation</li>
+                        <li>Emphasize: We're not just saying "add rate limiting" - we're providing complete context, constraints, and success criteria</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 32: Good vs Bad Prompts & Common Pitfalls -->
+            <section>
+                <h2>Good vs Bad Prompts & Common Pitfalls</h2>
+                <div style="font-size: 0.65em;">
+                    <div class="two-column" style="gap: 15px;">
+                        <div>
+                            <h3 style="font-size: 1.1em; margin-bottom: 10px;">❌ Bad Prompts</h3>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>"Fix the bug"</strong> - Too vague, no context
+                            </div>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>"Make it better"</strong> - Subjective, no direction
+                            </div>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>"Add 6+ features at once"</strong> - Too many tasks
+                            </div>
+                            <h3 style="font-size: 1.1em; margin: 15px 0 10px 0;">❌ Common Pitfalls</h3>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>Ignoring agent questions</strong> - Answer clarifications
+                            </div>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>Not reviewing output</strong> - Always review & test
+                            </div>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>Expecting perfection</strong> - Iterate & refine
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.1em; margin-bottom: 10px;">✅ Good Prompts</h3>
+                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
+                                <strong>"Fix UserController line 45: email validation should allow + characters"</strong><br>
+                                Specific location + requirement
+                            </div>
+                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
+                                <strong>"Refactor calculateTotal() to O(n), maintain same API"</strong><br>
+                                Clear goal + constraints
+                            </div>
+                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
+                                <strong>"Implement OAuth2: 1) Setup, 2) Backend, 3) Frontend, 4) Tests"</strong><br>
+                                Complex task broken down
+                            </div>
+                            <div class="mcp-box" style="padding: 8px; margin: 15px 0 5px 0; font-size: 0.95em;">
+                                <strong>Complete Example:</strong><br>
+                                <strong>❌ BAD:</strong> "Add error handling"<br>
+                                <strong>✅ GOOD:</strong> "Add error handling to UserService: try-catch on DB calls, log to Sentry with context, return standardized JSON errors, retry transient failures (3x, exponential backoff), write tests, update API docs"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li>This slide combines bad prompts and common pitfalls</li>
+                        <li>Bad prompts - Left side top: "Fix the bug" is too vague, "Make it better" is subjective, "Add 6+ features at once" is too many tasks</li>
+                        <li>Common pitfalls - Left side bottom: Ignoring agent questions (always answer clarifications!), Not reviewing output (always review and test!), Expecting perfection (iterate and refine!)</li>
+                        <li>Good prompts - Right side: Specific location + requirement ("Fix UserController line 45"), Clear goal + constraints ("Refactor to O(n)"), Complex task broken down into steps (OAuth: 1-2-3-4)</li>
+                        <li>Show the bottom complete example: "Add error handling" BAD versus detailed specification with Sentry logging, retry logic with exponential backoff, standardized JSON errors, tests, and docs</li>
+                        <li>Key message: Agents aren't oracles - they need clear direction and you need to review their output</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 33: Advanced Techniques -->
+            <section>
+                <h2>Advanced Techniques (Claude 4)</h2>
+                <div style="font-size: 0.7em;">
+                    <div class="two-column" style="gap: 15px;">
+                        <div>
+                            <div class="highlight-box" style="padding: 10px;">
+                                <strong>Chain of Thought</strong><br>
+                                <em>"Explain your reasoning step-by-step before implementing"</em><br>
+                                → Shows logic, catches errors early
+                            </div>
+                            <div class="mcp-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Long-Horizon Reasoning</strong><br>
+                                <em>"Track test results in JSON, continue from failures"</em><br>
+                                → Maintains state across complex tasks
+                            </div>
+                            <div class="highlight-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Provide Examples</strong><br>
+                                <em>"Follow pattern in UserController::store()"</em><br>
+                                → Ensures consistency
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats-box" style="padding: 10px;">
+                                <strong>Context Window Management</strong><br>
+                                <em>"If approaching context limit, summarize completed work and continue"</em><br>
+                                → Handles large refactorings
+                            </div>
+                            <div class="warning-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Parallel Tool Usage</strong><br>
+                                <em>"Read these 5 files in parallel, then compare patterns"</em><br>
+                                → Significantly faster
+                            </div>
+                            <div class="stats-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Iterative Refinement</strong><br>
+                                <em>"Show 3 approaches with pros/cons"</em><br>
+                                → Better decisions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mcp-box" style="padding: 10px; margin-top: 10px; font-size: 0.95em;">
+                        <strong>XML Formatting for Complex Requests</strong><br>
+                        Use XML tags to structure complex prompts with multiple parts, requirements, or constraints → Helps Claude parse and understand multi-faceted requests more accurately
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>These are advanced Claude 4 techniques that significantly improve results</li>
+                        <li>Chain of Thought: "Explain your reasoning step-by-step before implementing" - Shows logic, catches errors early</li>
+                        <li>Long-horizon Reasoning: "Track test results in JSON, continue from failures" - Maintains state across complex multi-step tasks, especially useful for large refactorings</li>
+                        <li>Provide Examples: "Follow pattern in UserController::store()" - Ensures consistency with existing code patterns</li>
+                        <li>Context Window Management: "If approaching context limit, summarize completed work and continue" - Tell Claude how to handle large refactorings that might exceed limits</li>
+                        <li>Parallel Tool Usage: "Read these 5 files in parallel, then compare patterns" - Significantly faster than sequential reads</li>
+                        <li>Iterative Refinement: "Show 3 approaches with pros/cons" - Better architectural decisions by comparing options</li>
+                        <li>XML Formatting at bottom: Use XML tags to structure complex prompts with multiple parts - helps Claude parse multi-faceted requests more accurately</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 34: Security & Defensive Prompting -->
+            <section>
+                <h2>Security & Defensive Prompting</h2>
+                <div style="font-size: 0.72em;">
+                    <div class="two-column" style="gap: 15px;">
+                        <div>
+                            <div class="warning-box" style="padding: 10px;">
+                                <strong>Prompt Scaffolding</strong><br>
+                                Set clear boundaries:<br>
+                                • "Only modify files in /src/features/"<br>
+                                • "Do not touch /config/ or /database/"<br>
+                                • "Never delete files without approval"<br>
+                                → Limits unintended actions
+                            </div>
+                            <div class="stats-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Output Verification</strong><br>
+                                Request sources:<br>
+                                • "Provide file paths and line numbers"<br>
+                                • "Cite documentation sources"<br>
+                                • "Show relevant code context"<br>
+                                → Minimizes hallucinations
+                            </div>
+                        </div>
+                        <div>
+                            <div class="highlight-box" style="padding: 10px;">
+                                <strong>Safety Constraints</strong><br>
+                                Explicit approval workflows:<br>
+                                • "Propose changes first, wait for approval"<br>
+                                • "Show diff before applying"<br>
+                                • "List all files to be modified"<br>
+                                → Maintains control
+                            </div>
+                            <div class="mcp-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Sensitive Data Protection</strong><br>
+                                Guard against leaks:<br>
+                                • "Do not log user credentials"<br>
+                                • "Redact PII from examples"<br>
+                                • "Use placeholder data only"<br>
+                                → Protects privacy
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Security and defensive prompting are critical for production environments</li>
+                        <li>Prompt Scaffolding: Set clear boundaries - "Only modify files in /src/features/", "Do not touch /config/ or /database/", "Never delete files without approval" - Limits unintended actions</li>
+                        <li>Output Verification: Request sources to minimize hallucinations - "Provide file paths and line numbers", "Cite documentation sources", "Show relevant code context"</li>
+                        <li>Safety Constraints: Explicit approval workflows - "Propose changes first, wait for approval", "Show diff before applying", "List all files to be modified" - Maintains control</li>
+                        <li>Sensitive Data Protection: Guard against leaks - "Do not log user credentials", "Redact PII from examples", "Use placeholder data only" - Protects privacy</li>
+                        <li>These practices are essential when working with real codebases and production data</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 35: Prompting Checklist -->
+            <section>
+                <h2>Prompting Checklist</h2>
+                <div class="stats-box" style="font-size: 0.85em;">
+                    <h3 style="margin-top: 0;">Before Hitting Enter:</h3>
+                    <div style="text-align: left; margin-top: 20px;">
+                        <p>✅ <strong>Clear objective</strong> - Agent knows what success looks like</p>
+                        <p>✅ <strong>Sufficient context</strong> - Relevant files, patterns, constraints</p>
+                        <p>✅ <strong>Specific constraints</strong> - Performance, compatibility, standards</p>
+                        <p>✅ <strong>Expected output format</strong> - Tests? Docs? PR description?</p>
+                        <p>✅ <strong>Testing criteria</strong> - How to verify it works</p>
+                        <p>✅ <strong>Success metrics</strong> - What gets better after this change</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="text-align: center; margin-top: 30px; font-size: 1.1em;">
+                    <strong>Better prompts = Better code = Less iteration</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li>This is your pre-flight checklist before hitting enter on any prompt</li>
+                        <li>Clear objective: Does the agent know what success looks like?</li>
+                        <li>Sufficient context: Relevant files, patterns, constraints provided?</li>
+                        <li>Specific constraints: Performance targets, compatibility requirements, coding standards?</li>
+                        <li>Expected output format: Tests? Documentation? PR description?</li>
+                        <li>Testing criteria: How to verify it works?</li>
+                        <li>Success metrics: What gets better after this change?</li>
+                        <li>Bottom highlight: Better prompts = Better code = Less iteration</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 36: Measuring Prompt Quality -->
+            <section>
+                <h2>Measuring Prompt Quality</h2>
+                <div style="font-size: 0.75em;">
+                    <div class="two-column" style="gap: 15px;">
+                        <div>
+                            <div class="stats-box" style="padding: 12px;">
+                                <strong>Track These Metrics:</strong><br>
+                                • <strong>First-attempt success rate</strong><br>
+                                  Target: >80%<br>
+                                • <strong>Approval cycles per task</strong><br>
+                                  Target: <3<br>
+                                • <strong>Code review rejections</strong><br>
+                                  Target: <15%<br>
+                                • <strong>Time: prompt → working code</strong><br>
+                                  Benchmark your baseline
+                            </div>
+                        </div>
+                        <div>
+                            <div class="highlight-box" style="padding: 12px;">
+                                <strong>Continuous Improvement:</strong><br>
+                                • Save successful prompts as templates<br>
+                                • Review failures - unclear prompt or tool limitation?<br>
+                                • Build team prompt library in .claude/commands/<br>
+                                • Share learnings across team
+                            </div>
+                            <div class="mcp-box" style="padding: 12px; margin-top: 10px; text-align: center;">
+                                <strong>Goal: Treat prompts like code</strong><br>
+                                Review, iterate, version control
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Make prompting measurable - track these metrics to improve over time</li>
+                        <li>First-attempt success rate: Aim for above 80% - how often does the agent get it right on first try?</li>
+                        <li>Approval cycles per task: Target less than 3 - how many back-and-forth cycles before acceptance?</li>
+                        <li>Code review rejections: Target less than 15% - how often does agent code get rejected in peer review?</li>
+                        <li>Time from prompt to working code: Establish your baseline and track improvement</li>
+                        <li>Continuous improvement: Save successful prompts as templates, Review failures (unclear prompt or tool limitation?), Build team prompt library in .claude/commands/, Share learnings across team</li>
+                        <li>Bottom box: Treat prompts like code - Review them, iterate on them, version control them</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- FINAL: WRAP-UP -->
+
+            <!-- Slide 37: Key Takeaways -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <div style="font-size: 0.8em;">
+                    <div class="highlight-box">
+                        <strong>1. AI Agents ≠ AI Assistants</strong><br>
+                        Agents execute complete workflows - with your approval at each step
+                    </div>
+                    <div class="mcp-box">
+                        <strong>2. MCPs Automate BEFORE & AFTER Coding</strong><br>
+                        Not the coding itself - they automate info gathering (Slack, Jira, DBs) and integration (PRs, tickets, notifications). You still write/review code.
+                    </div>
+                    <div class="warning-box">
+                        <strong>3. You Approve Each MCP Action</strong><br>
+                        Supervised automation, not blind automation - you control what tools agents access
+                    </div>
+                    <div class="highlight-box">
+                        <strong>4. Good Prompting = 10x Better Results</strong><br>
+                        Specific, structured prompts with context
+                    </div>
+                    <div class="stats-box">
+                        <strong>5. Start Small, Scale Gradually</strong><br>
+                        Begin with 1 agent + 2-3 MCPs, expand from there
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li>Let's recap the five key takeaways - these are the most critical points from this entire presentation</li>
+                        <li>Takeaway 1: AI Agents ≠ AI Assistants - Agents execute complete workflows from start to finish, but they're not fully autonomous. You approve each step, especially MCP calls. It's supervised automation.</li>
+                        <li>Takeaway 2: THIS IS CRUCIAL - MCPs automate BEFORE and AFTER coding, not the coding itself. BEFORE: gathering information from Slack, Jira, databases. AFTER: creating PRs, updating tickets, posting notifications. You still write and review the actual code.</li>
+                        <li>Takeaway 3: You approve each MCP action. You control what tools agents can access and approve every external action. This is supervised automation, not blind automation.</li>
+                        <li>Takeaway 4: Good prompting gives 10x better results. Be specific, provide context, structure your requests. Same agent, dramatically different outcomes.</li>
+                        <li>Takeaway 5: Start small, scale gradually. Begin with 1 agent and 2-3 MCPs (maybe Slack + Jira), see the value, then expand from there. Don't try to do everything at once.</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- SECTION 4: PROJECT SETUP & BEST PRACTICES -->
+
+            <!-- Section Title Slide: Project Setup -->
+            <section class="center" style="background: linear-gradient(135deg, rgba(223, 59, 59, 0.1) 0%, rgba(20, 75, 60, 0.1) 100%);">
+                <h1 style="font-size: 2.5em; margin-bottom: 30px;">SECTION 4</h1>
+                <h2 style="font-size: 1.8em; margin-bottom: 40px;">Project Setup & Best Practices</h2>
+                <div class="mcp-box" style="max-width: 800px; margin: 0 auto; font-size: 0.9em; padding: 20px;">
+                    <strong>Setting up your project for AI agent success:</strong><br><br>
+                    • CLAUDE.md structure and configuration<br>
+                    • Slash commands for repeatable workflows<br>
+                    • Documentation & testing guidelines<br>
+                    • Code patterns and standards
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 30 seconds</strong>
+                    <ul>
+                        <li>Now let's shift gears to practical project setup</li>
+                        <li>This section covers: CLAUDE.md structure and configuration, Slash commands for repeatable workflows, Documentation and testing guidelines, Code patterns and standards</li>
+                        <li>These files make your AI agents significantly more effective by providing them with project-specific context and patterns</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 38: Getting Started Roadmap -->
+            <section>
+                <h2>Getting Started Roadmap</h2>
+                <div class="two-column" style="font-size: 0.8em;">
+                    <div>
+                        <div class="highlight-box">
+                            <strong>Week 1: Setup</strong>
+                            <ul>
+                                <li>Install Claude Code or Cursor</li>
+                                <li>Try basic prompts</li>
+                                <li>Explore capabilities</li>
+                            </ul>
+                        </div>
+                        <div class="highlight-box">
+                            <strong>Week 2: Add MCPs</strong>
+                            <ul>
+                                <li>Configure 2-3 essential MCPs</li>
+                                <li>GitHub, Jira, Slack</li>
+                                <li>Test integrations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="highlight-box">
+                            <strong>Week 3: Create Workflows</strong>
+                            <ul>
+                                <li>Build .claude/commands</li>
+                                <li>Document in CLAUDE.md</li>
+                                <li>Establish patterns</li>
+                            </ul>
+                        </div>
+                        <div class="highlight-box">
+                            <strong>Week 4: Share & Scale</strong>
+                            <ul>
+                                <li>Share learnings with team</li>
+                                <li>Create prompt library</li>
+                                <li>Measure productivity gains</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-box" style="margin-top: 30px;">
+                    <strong>Goal: 65-85% time savings on routine tasks within 1 month</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Here's a practical 4-week roadmap for getting started with AI agents and MCPs</li>
+                        <li>Week 1 - Setup: Install Claude Code or Cursor, Try basic prompts without MCPs first, Explore agent capabilities and get comfortable</li>
+                        <li>Week 2 - Add MCPs: Configure 2-3 essential MCPs - start with GitHub, Jira, and Slack, Test the integrations to make sure they work</li>
+                        <li>Week 3 - Create Workflows: Build custom slash commands in .claude/commands/, Document your patterns and standards in CLAUDE.md, Establish team workflows</li>
+                        <li>Week 4 - Share & Scale: Share learnings with your team, Create a prompt library for common tasks, Measure productivity gains</li>
+                        <li>Bottom goal: Aim for 65-85% time savings on routine tasks within 1 month - this is realistic based on actual usage</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 39: CLAUDE.md - Project Context File -->
+            <section>
+                <h2>CLAUDE.md - Your Project's AI Context</h2>
+                <div style="font-size: 0.62em;">
+                    <div class="highlight-box" style="padding: 10px; margin: 5px 0;">
+                        <strong>Location:</strong> <code>/.claude/CLAUDE.md</code> (root of your project)<br>
+                        <strong>Purpose:</strong> Automatically loaded by Claude Code - provides project context for every session
+                    </div>
+                    <div class="two-column" style="gap: 15px; margin-top: 10px;">
+                        <div>
+                            <div class="mcp-box" style="padding: 10px;">
+                                <strong>Essential Sections:</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.95em;">
+# Project Overview<br>
+- App name & purpose<br>
+- Target users<br>
+<br>
+# Tech Stack<br>
+- Laravel 10 + PostgreSQL<br>
+- Vue 3 + Tailwind CSS<br>
+- PHPUnit for testing<br>
+<br>
+# Development Standards<br>
+- Follow PSR-12<br>
+- Tests required for features<br>
+- Max function length: 50 lines
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats-box" style="padding: 10px; text-align: left;">
+                                <strong>Common Commands:</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.95em;">
+# Testing<br>
+php artisan test --env=testing-local<br>
+<br>
+# Build<br>
+npm run build<br>
+<br>
+# Deploy<br>
+./deploy.sh staging
+                                </div>
+                            </div>
+                            <div class="warning-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>AI Communication Style:</strong><br>
+                                • Be concise for routine tasks<br>
+                                • Detailed explanations for architecture<br>
+                                • Always ask before destructive operations
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>CLAUDE.md is your project's AI context file - automatically loaded by Claude Code in every session</li>
+                        <li>Location: .claude/CLAUDE.md at your project root</li>
+                        <li>Left side - Essential Sections: Project Overview (app name, purpose, target users), Tech Stack (Laravel 10 + PostgreSQL, Vue 3 + Tailwind, PHPUnit), Development Standards (PSR-12, tests required, max function length 50 lines)</li>
+                        <li>Right side top - Common Commands: Testing command, Build command, Deploy command - so the agent knows how to run these operations</li>
+                        <li>Right side bottom - AI Communication Style: You can tune how the agent communicates! Be concise for routine tasks, detailed explanations for architecture decisions, always ask before destructive operations</li>
+                        <li>Key benefit: This ensures every developer on your team gets consistent AI behavior and follows the same standards</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 40: Slash Commands - Automate Workflows -->
+            <section>
+                <h2>Slash Commands - Automate Workflows</h2>
+                <div style="font-size: 0.68em;">
+                    <div class="highlight-box" style="padding: 10px; margin: 5px 0;">
+                        <strong>Location:</strong> <code>/.claude/commands/</code><br>
+                        <strong>Purpose:</strong> Create reusable workflows triggered by /command-name
+                    </div>
+                    <div class="two-column" style="gap: 15px; margin-top: 10px;">
+                        <div>
+                            <div class="mcp-box" style="padding: 10px;">
+                                <strong>Example: /feature</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.9em;">
+<strong>.claude/commands/feature.md:</strong><br>
+<br>
+Implement {{feature_name}}:<br>
+1. Follow patterns in CODE_PATTERNS.md<br>
+2. Write tests per TESTING_GUIDELINES.md<br>
+3. Update DOCUMENTATION.md<br>
+4. Create migration if needed<br>
+5. Add API endpoint following REST conventions
+                                </div>
+                                <em style="font-size: 0.9em; margin-top: 5px; display: block;">Usage: /feature user-profile-export</em>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats-box" style="padding: 10px; text-align: left;">
+                                <strong>Example: /review</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.9em;">
+<strong>.claude/commands/review.md:</strong><br>
+<br>
+Review current changes:<br>
+1. Check code follows PSR-12<br>
+2. Verify tests exist & pass<br>
+3. Check for security issues<br>
+4. Validate error handling<br>
+5. Suggest performance improvements
+                                </div>
+                            </div>
+                            <div class="warning-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Pro Tip:</strong> Reference other MD files (CODE_PATTERNS.md, TESTING_GUIDELINES.md) to maintain consistency
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Slash commands automate repeatable workflows - Location: .claude/commands/ directory</li>
+                        <li>Each command is a markdown file that gets triggered by /command-name</li>
+                        <li>Left example: /feature command - Takes a parameter like "user-profile-export", Follows patterns in CODE_PATTERNS.md, Writes tests per TESTING_GUIDELINES.md, Updates DOCUMENTATION.md, Creates migration if needed, Adds API endpoint following REST conventions</li>
+                        <li>Right example: /review command - Checks code follows PSR-12, Verifies tests exist and pass, Looks for security issues, Validates error handling, Suggests performance improvements</li>
+                        <li>Key insight at bottom: These commands reference other MD files (CODE_PATTERNS, TESTING_GUIDELINES, DOCUMENTATION), creating a consistent knowledge base for the AI</li>
+                        <li>This is incredibly powerful - you write the workflow once, everyone on the team can use it</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 41: Additional Documentation Files -->
+            <section>
+                <h2>Additional Documentation Files</h2>
+                <div style="font-size: 0.65em;">
+                    <div class="two-column" style="gap: 15px;">
+                        <div>
+                            <div class="highlight-box" style="padding: 10px; margin: 5px 0;">
+                                <strong>CODE_PATTERNS.md</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.9em;">
+# Controller Pattern<br>
+- Single responsibility<br>
+- Use Form Requests for validation<br>
+- Return JSON responses<br>
+<br>
+# Service Layer<br>
+- Business logic here<br>
+- Inject dependencies via constructor<br>
+- Return DTOs, not Eloquent models
+                                </div>
+                            </div>
+                            <div class="mcp-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>TESTING_GUIDELINES.md</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.9em;">
+# Test Structure<br>
+- Use --env=testing-local<br>
+- Arrange-Act-Assert pattern<br>
+- Mock external APIs<br>
+- Test happy path + edge cases
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats-box" style="padding: 10px; text-align: left;">
+                                <strong>DOCUMENTATION.md</strong><br>
+                                <div class="code-box" style="margin-top: 8px; padding: 8px; font-size: 0.9em;">
+# API Documentation<br>
+- OpenAPI 3.0 format<br>
+- Include request/response examples<br>
+- Document error codes<br>
+<br>
+# Code Comments<br>
+- Public methods need docblocks<br>
+- Explain WHY, not WHAT
+                                </div>
+                            </div>
+                            <div class="warning-box" style="padding: 10px; margin-top: 10px;">
+                                <strong>Where to place:</strong><br>
+                                • <code>/.claude/</code> directory alongside CLAUDE.md<br>
+                                • Referenced in slash commands & CLAUDE.md<br>
+                                • Version controlled with your code
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li>Three additional MD files that complete your project's AI knowledge base</li>
+                        <li>CODE_PATTERNS.md (left top): Defines your architecture patterns - Controller Pattern (single responsibility, use Form Requests, return JSON), Service Layer (business logic, dependency injection, return DTOs not Eloquent models)</li>
+                        <li>TESTING_GUIDELINES.md (left bottom): Specifies test structure - Use --env=testing-local, Arrange-Act-Assert pattern, Mock external APIs, Test happy path plus edge cases</li>
+                        <li>DOCUMENTATION.md (right top): Sets documentation standards - OpenAPI 3.0 format for APIs with examples, Document error codes, Public methods need docblocks, Explain WHY not WHAT</li>
+                        <li>Bottom right box is critical: Where to place these files - .claude/ directory alongside CLAUDE.md, Reference them in slash commands and CLAUDE.md, Version control them with your code</li>
+                        <li>This creates a comprehensive, versioned AI knowledge base that's consistent across your entire team</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 42: Resources & Further Learning -->
+            <section>
+                <h2>Resources & Further Learning</h2>
+                <div style="font-size: 0.68em;">
+                    <div class="highlight-box" style="padding: 10px; margin: 8px 0;">
+                        <strong>Official Documentation:</strong><br>
+                        • Claude Code: docs.claude.com/claude-code<br>
+                        • Claude 4 Best Practices: docs.claude.com/prompt-engineering/claude-4-best-practices<br>
+                        • MCP Protocol: modelcontextprotocol.io<br>
+                        • Cursor: cursor.com/docs
+                    </div>
+                    <div class="two-column" style="gap: 15px;">
+                        <div>
+                            <div class="mcp-box" style="padding: 10px; margin: 8px 0;">
+                                <strong>Prompt Engineering (2025):</strong><br>
+                                • OpenAI Guide: platform.openai.com/docs/guides/prompt-engineering<br>
+                                • DAIR.AI: promptingguide.ai<br>
+                                • IBM 2025 Guide: ibm.com/think/prompt-engineering<br>
+                                • MIT Sloan: mitsloanedtech.mit.edu/ai/basics/effective-prompts
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats-box" style="padding: 10px; margin: 8px 0;">
+                                <strong>MCP Servers:</strong><br>
+                                • Official: github.com/modelcontextprotocol<br>
+                                • Community: github.com/punkpeye/awesome-mcp-servers<br>
+                                • SDK Documentation: modelcontextprotocol.io/docs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box" style="padding: 8px; margin: 8px 0; text-align: center; font-size: 0.95em;">
+                        <strong>All links and references available at: docs.claude.com/claude-code</strong>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li>Here are comprehensive resources for further learning - all current for 2025</li>
+                        <li><span style="color: #888;">Official Documentation at top:</span> Claude Code docs, Claude 4 Best Practices, MCP Protocol specification, Cursor documentation</li>
+                        <li><span style="color: #888;">Left - Prompt Engineering resources (2025):</span> OpenAI Guide, DAIR.AI, IBM 2025 Guide, MIT Sloan - all have been updated with latest best practices</li>
+                        <li><span style="color: #888;">Right - MCP Servers:</span> Official GitHub repository from modelcontextprotocol, Community "awesome-mcp-servers" list, SDK Documentation</li>
+                        <li><span style="color: #888;">Bottom box:</span> Everything is linked from docs.claude.com/claude-code for easy access</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- SECTION 5: REAL-WORLD EXAMPLE -->
+
+            <!-- Slide 44: Section Header -->
+            <section class="center section-header">
+                <h1>Real-World Example</h1>
+                <h3>Claude Code in Action</h3>
+                <aside class="notes">
+                    <strong>TIMING: 15 seconds</strong>
+                    <ul>
+                        <li>Let me show you a real-world example from our actual production environment</li>
+                        <li><span style="color: #888;">This happened today</span> - you're seeing actual Claude Code output from fixing live bugs</li>
+                        <li><span style="color: #888;">Energy:</span> This is the proof - real results, not theoretical</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 45: The Error Summary -->
+            <section>
+                <h2>Production Errors - The Starting Point</h2>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Error Summary" style="max-width: 90%; border: 2px solid #444; border-radius: 8px;">
+                </div>
+                <div class="warning-box" style="margin-top: 20px; text-align: center;">
+                    <strong>5 Recent Errors Found:</strong><br>
+                    • AdUpdateService TypeError (3 occurrences)<br>
+                    • Dober Avto Integration Issues (2 occurrences)<br>
+                    • Array Offset Error (1 occurrence)
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1 minute</strong>
+                    <ul>
+                        <li><span style="color: #888;">Show the screenshot:</span> This is our actual error monitoring dashboard from today - 5 different errors</li>
+                        <li><span style="color: #888;">Point to the top error:</span> AdUpdateService TypeError appearing 3 times - "Cannot access offset of type string on string"</li>
+                        <li>This is affecting vehicle ad updates from different integration sources - Dober Avto, Phyron, Virtual Salon</li>
+                        <li><span style="color: #888;">The task:</span> I gave Claude Code one simple prompt: "Let's fix the AdUpdateService TypeError, use git worktree and create a PR into main"</li>
+                        <li><span style="color: #888;">Transition:</span> Watch what happened next...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 46: Claude's Investigation -->
+            <section>
+                <h2>Claude Code - Autonomous Investigation</h2>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Claude Investigation" style="max-width: 90%; border: 2px solid #444; border-radius: 8px;">
+                </div>
+                <div class="mcp-box" style="margin-top: 20px; font-size: 0.85em;">
+                    <strong>What Claude Did Autonomously:</strong><br>
+                    • Read AdUpdateService.php (123 lines)<br>
+                    • Searched for IntegrationVehicleAd.php files<br>
+                    • Read IntegrationVehicleAd model (43 lines)<br>
+                    • Found 8 test files to understand expected behavior<br>
+                    • Read AdIntegrationProjector (182 lines)<br>
+                    • Searched for IntegrationEnum constants (230 lines)<br>
+                    • Read IntegrationEnum.php (63 lines)
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 1.5 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Show the screenshot:</span> This is Claude Code's investigation - completely autonomous</li>
+                        <li><span style="color: #888;">Walk through what it did:</span> Read the problematic service file, searched for related models, found 8 test files, read integration projectors, searched enum constants</li>
+                        <li><span style="color: #888;">Emphasize:</span> I didn't tell it to read these files. It KNEW to investigate the data structures, understand the integration types, check test files for expected behavior</li>
+                        <li>This is the codebase understanding we talked about - agent reads, analyzes, connects the dots</li>
+                        <li><span style="color: #888;">Bottom box shows:</span> 7 different file operations, hundreds of lines analyzed, all in under 2 minutes</li>
+                        <li><span style="color: #888;">Transition:</span> After investigation, it presented a fix plan...</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 47: The Fix Plan & Results -->
+            <section>
+                <h2>Claude's Fix Plan - Approved & Executed</h2>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Fix Plan" style="max-width: 90%; border: 2px solid #444; border-radius: 8px;">
+                </div>
+                <div class="two-column" style="font-size: 0.75em; gap: 15px; margin-top: 20px;">
+                    <div class="stats-box" style="padding: 12px;">
+                        <strong>Problem Identified:</strong><br>
+                        • Two data structures in vehicle ads<br>
+                        • Field-based: ['field_uuid' => 'price']<br>
+                        • Key-value: ['id' => 'ABC', 'price' => 1000]<br>
+                        • Code assumed field-based for ALL<br>
+                        • Root cause: Missing validation
+                    </div>
+                    <div class="mcp-box" style="padding: 12px;">
+                        <strong>Solution Executed:</strong><br>
+                        • Git worktree feature branch created<br>
+                        • Data structure check added<br>
+                        • Wrapped logic in conditional<br>
+                        • Key-value structures skipped<br>
+                        • 18 tests created & passing<br>
+                        • PR created with full explanation
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 20px; text-align: center; font-size: 1.1em;">
+                    <strong>Result: Bug fixed, tested, documented, ready for review - 10 minutes</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li><span style="color: #888;">Show the screenshot - this is the actual fix plan I approved</span></li>
+                        <li><span style="color: #888;">Left side - Problem:</span> Claude identified TWO different data structures being used - field-based (legacy integrations) and key-value (newer integrations like Dober Avto)</li>
+                        <li>The bug: Code at line 64 assumed ALL integrations use field-based structure, crashed when encountering key-value</li>
+                        <li><span style="color: #888;">Right side - Solution:</span> Added data structure validation, wrapped field-based logic in conditional, gracefully skips key-value structures</li>
+                        <li><span style="color: #888;">Note the git worktree:</span> I asked it to use git worktree - it created the feature branch correctly, isolated the work</li>
+                        <li>Created 18 comprehensive tests covering both data structures, all edge cases, error scenarios</li>
+                        <li><span style="color: #888;">Bottom result - emphasize the time:</span> 10 minutes from "fix this error" to "PR ready for review with tests and documentation"</li>
+                        <li><span style="color: #888;">Manual approach?</span> Reading logs, understanding integration types, checking multiple integrations, writing tests, creating PR - easily 2-3 hours</li>
+                        <li><span style="color: #888;">Key point:</span> This is a real production bug fix that happened TODAY. Not a demo, not theoretical - actual work</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 48: Q&A -->
+            <section class="center">
+                <h1>Questions?</h1>
+                <div style="margin: 80px 0;">
+                    <div class="mcp-box" style="max-width: 700px; margin: 0 auto; font-size: 0.9em;">
+                        <strong>Ask anything about:</strong><br><br>
+                        • How AI agents work<br>
+                        • MCP integration and setup<br>
+                        • Specific use cases<br>
+                        • Prompt engineering<br>
+                        • Getting started
+                    </div>
+                </div>
+                <p style="font-size: 1.1em; margin-top: 60px;">
+                    Thank you! 🚀
+                </p>
+                <aside class="notes">
+                    <strong>TIMING: Open-ended</strong>
+
+                    <ul>
+                        <li><strong>Opening:</strong> "That's the presentation! I'm happy to answer any questions about AI agents, MCP integration, specific use cases, prompt engineering, or getting started. What would you like to know?"</li>
+                    </ul>
+
+                    <strong>Be prepared to discuss:</strong>
+                    <ul>
+                        <li>Security and data privacy with MCPs</li>
+                        <li>Cost considerations (API usage, subscriptions)</li>
+                        <li>Team onboarding strategies</li>
+                        <li>Specific technical implementation details</li>
+                        <li>Comparison between different agents (Claude Code vs Cursor vs Windsurf)</li>
+                        <li>Integration with existing workflows and CI/CD</li>
+                        <li>Handling edge cases and limitations</li>
+                        <li>When NOT to use AI agents</li>
+                    </ul>
+
+                    <strong>Final thought if no questions:</strong>
+                    <ul>
+                        <li>"If there are no questions now, feel free to reach out later. The best way to understand this is to try it - pick one agent, set up 2-3 MCPs, and give it a real task. You'll see the difference immediately. Thank you!"</li>
+                    </ul>
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: false,
+            width: 1200,
+            height: 700,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 1.2,
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>
