@@ -788,525 +788,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 13: How AI Agents Use MCPs -->
-            <section>
-                <h2>How AI Agents Use MCPs</h2>
-                <div style="font-size: 0.8em;">
-                    <div class="highlight-box">
-                        <strong>Step 1:</strong> You give a prompt<br>
-                        <em>"Check <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack for bug reports and create <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira tickets"</em>
-                    </div>
-                    <div class="mcp-box">
-                        <strong>Step 2:</strong> Agent analyzes and plans<br>
-                        <em>• Need to read <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack → Use Slack MCP [approve]<br>
-                        • Need to create <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira ticket → Use Jira MCP [approve]</em>
-                    </div>
-                    <div class="highlight-box">
-                        <strong>Step 3:</strong> Agent executes via MCPs (with approvals)<br>
-                        <em>• Calls <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack MCP to fetch messages [you approve]<br>
-                        • Analyzes content<br>
-                        • Calls <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira MCP to create tickets [you approve each]</em>
-                    </div>
-                    <div class="stats-box" style="text-align: left;">
-                        <strong>Step 4:</strong> Agent reports back<br>
-                        <em>"Created 3 <img src="https://cdn.simpleicons.org/jira/0052CC" class="service-logo" alt="Jira" style="width: 20px; height: 20px; vertical-align: middle;">Jira tickets from <img src="https://cdn.simpleicons.org/slack/4A154B" class="service-logo" alt="Slack" style="width: 20px; height: 20px; vertical-align: middle;">Slack bug reports"</em>
-                    </div>
-                </div>
-                <div class="mcp-box" style="margin-top: 30px; text-align: center; font-size: 0.9em;">
-                    <strong>Key insight:</strong> MCPs excel at tasks BEFORE coding (gathering info) and AFTER coding (integration, deployment, communication) - you approve each MCP action
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
-                    <ul>
-                        <li>Complete workflow of how an agent uses MCPs</li>
-                        <li><span style="color: #888;">Step 1:</span> You give natural language prompt - "Check Slack for bug reports and create Jira tickets"</li>
-                        <li><span style="color: #888;">Step 2 - Emphasize approvals:</span> Agent plans → "Need Slack MCP" [you approve] → "Need Jira MCP" [you approve]. You control what tools it accesses</li>
-                        <li><span style="color: #888;">Step 3 - Emphasize approvals:</span> Executes → calls Slack MCP [you approve] → analyzes content → calls Jira MCP [you approve each]. Every MCP action requires approval</li>
-                        <li><span style="color: #888;">Bottom box - KEY:</span> MCPs shine BEFORE coding (gathering info from Slack, Jira, databases) and AFTER coding (PRs, updating tickets, notifying teams). Agent writes code, MCPs automate surrounding work. You approve each action</li>
-                        <li><span style="color: #888;">Transition:</span> Let's see this approval workflow in action...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- SECTION 3: REAL-WORLD EXAMPLES -->
-
-            <!-- Slide 14: Example Scenario Introduction -->
-            <section>
-                <h2>Real-World Scenario</h2>
-                <div class="highlight-box">
-                    <h3 style="margin-top: 0;">📧 Bug Report from Slack</h3>
-                    <div style="background: rgba(0,0,0,0.3); padding: 15px; margin-top: 10px; border-radius: 5px;">
-                        <strong>@support</strong> Sarah Chen reports:<br>
-                        "Profile picture upload (6.2MB) shows 'success' but doesn't save."<br><br>
-                        <strong>Environment:</strong> Production | <strong>User ID:</strong> 84729
-                    </div>
-                </div>
-                <div style="font-size: 0.8em; margin-top: 20px;">
-                    <div class="warning-box">
-                        <strong>Follow-up:</strong> Works fine with 2MB files
-                    </div>
-                    <div class="warning-box">
-                        <strong>Additional:</strong> User john.doe reports same issue with 7.1MB PNG
-                    </div>
-                </div>
-                <div style="margin-top: 30px; padding: 15px; border-radius: 5px; background: rgba(223, 59, 59, 0.1); text-align: center; font-size: 0.9em;">
-                    <strong>Task:</strong> Investigate → Fix → Test → Document → Deploy
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
-                    <ul>
-                        <li><span style="color: #888;">Scenario you've probably experienced:</span> Bug report through Slack from support channel</li>
-                        <li><span style="color: #888;">Sarah Chen reports:</span> Profile picture upload (6.2MB) shows 'success' but doesn't save</li>
-                        <li><span style="color: #888;">Follow-ups:</span> 2MB files work fine. User john.doe reports same issue with 7.1MB PNG. Pattern: files over certain size are failing</li>
-                        <li><span style="color: #888;">Bottom - Full task:</span> Investigate → Fix → Test → Document → Create PR. Complete end-to-end workflow</li>
-                        <li><span style="color: #888;">Transition:</span> Let's see how long this takes WITHOUT MCPs...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 15: WITHOUT MCPs - Title -->
-            <section class="center">
-                <h2>Approach 1: WITHOUT MCPs</h2>
-                <div class="warning-box" style="max-width: 600px; margin: 40px auto;">
-                    <h3>AI Agent + Manual Integration</h3>
-                    <p>Agent can write code, but YOU handle tool integration</p>
-                </div>
-                <div class="stats-box" style="max-width: 400px; margin: 20px auto;">
-                    <strong>Estimated Time: 90 minutes</strong>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 30 seconds</strong>
-                    <ul>
-                        <li><span style="color: #888;">Set expectations for WITHOUT scenario:</span> AI agent helps write code, but YOU handle all tool integration manually</li>
-                        <li><span style="color: #888;">Point to time estimate - let it sink in:</span> 90 minutes. Remember this number</li>
-                        <li><span style="color: #888;">Transition:</span> Let's walk through what those 90 minutes look like, step by step...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 16: WITHOUT MCPs - Steps 1-4 -->
-            <section>
-                <h2>WITHOUT MCPs - Manual Steps (1-4)</h2>
-                <div style="font-size: 0.8em;">
-                    <div class="warning-box">
-                        <strong>Step 1:</strong> Read Slack messages manually<br>
-                        <em>• Open Slack<br>
-                        • Search #customer-support<br>
-                        • Read through threads<br>
-                        • Copy relevant info</em><br>
-                        ⏱️ <strong>5 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 2:</strong> Create Jira ticket manually<br>
-                        <em>• Open Jira<br>
-                        • Create new issue<br>
-                        • Paste Slack context<br>
-                        • Add details</em><br>
-                        ⏱️ <strong>10 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 3:</strong> Tell AI agent about the issue<br>
-                        <em>• Paste bug description to agent<br>
-                        • Agent searches codebase<br>
-                        • Agent identifies issue</em><br>
-                        ⏱️ <strong>5 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 4:</strong> Agent writes fix + tests<br>
-                        <em>• Agent generates code<br>
-                        • You review and apply</em><br>
-                        ⏱️ <strong>15 minutes</strong>
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Go through each step with slight frustration - they should FEEL the pain</span></li>
-                        <li><span style="color: #888;">Step 1:</span> Manually open Slack, search customer-support, read threads, copy info. 5 minutes</li>
-                        <li><span style="color: #888;">Step 2:</span> Switch to Jira, create issue, paste from Slack, fill fields. 10 minutes</li>
-                        <li><span style="color: #888;">Step 3:</span> NOW tell AI agent. Paste bug description, agent searches codebase, identifies problem. 5 minutes</li>
-                        <li><span style="color: #888;">Step 4:</span> Agent generates fix + tests. You review and apply. 15 minutes. <span style="color: #888;">Notice</span> - ACTUAL coding only 15 minutes, but already 35 minutes total</li>
-                        <li><span style="color: #888;">Transition:</span> And we're not even halfway done yet...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 17: WITHOUT MCPs - Steps 5-8 -->
-            <section>
-                <h2>WITHOUT MCPs - Manual Steps (5-8)</h2>
-                <div style="font-size: 0.8em;">
-                    <div class="warning-box">
-                        <strong>Step 5:</strong> Run tests manually<br>
-                        <em>• Execute test suite<br>
-                        • Fix any failures<br>
-                        • Verify all pass</em><br>
-                        ⏱️ <strong>10 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 6:</strong> Create commit + PR manually<br>
-                        <em>• git add, commit, push<br>
-                        • Open GitHub<br>
-                        • Create PR<br>
-                        • Write description</em><br>
-                        ⏱️ <strong>10 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 7:</strong> Update Jira manually<br>
-                        <em>• Copy PR link<br>
-                        • Go back to Jira<br>
-                        • Add link to ticket<br>
-                        • Update status</em><br>
-                        ⏱️ <strong>5 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 8:</strong> Notify team manually<br>
-                        <em>• Go back to Slack<br>
-                        • Post update<br>
-                        • Link to PR</em><br>
-                        ⏱️ <strong>5 minutes</strong>
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
-                    <ul>
-                        <li><span style="color: #888;">Continue the pain - go faster, they get the pattern</span></li>
-                        <li><span style="color: #888;">Step 5:</span> Run tests manually. 10 minutes</li>
-                        <li><span style="color: #888;">Step 6:</span> Git commands, open GitHub, create PR, write description. 10 minutes</li>
-                        <li><span style="color: #888;">Step 7:</span> Copy PR link, switch BACK to Jira, add link, update status. 5 minutes</li>
-                        <li><span style="color: #888;">Step 8:</span> Switch BACK to Slack, post update with PR link. 5 minutes</li>
-                        <li><span style="color: #888;">Emphasize context switching:</span> Notice how many times? Slack → Jira → Agent → Terminal → GitHub → Jira → Slack. Exhausting!</li>
-                        <li><span style="color: #888;">Transition:</span> And there's still more...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 18: WITHOUT MCPs - Steps 9-12 -->
-            <section>
-                <h2>WITHOUT MCPs - Final Steps</h2>
-                <div style="font-size: 0.8em;">
-                    <div class="warning-box">
-                        <strong>Step 9:</strong> Update documentation<br>
-                        <em>• Open Confluence<br>
-                        • Find relevant page<br>
-                        • Document the fix</em><br>
-                        ⏱️ <strong>10 minutes</strong>
-                    </div>
-                    <div class="warning-box">
-                        <strong>Step 10:</strong> Context switching penalty<br>
-                        <em>• Lost focus between tools<br>
-                        • Mental overhead<br>
-                        • Forgot to update something?</em><br>
-                        ⏱️ <strong>10 minutes</strong>
-                    </div>
-                </div>
-                <div class="stats-box" style="margin-top: 30px; font-size: 1.2em;">
-                    <strong>TOTAL TIME: ~90 minutes</strong><br>
-                    <span style="font-size: 0.8em;">50 minutes of manual tool integration</span>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
-                    <ul>
-                        <li><span style="color: #888;">Final steps - emphasize hidden cost</span></li>
-                        <li><span style="color: #888;">Step 9:</span> Oh wait, forgot documentation. Open Confluence, find page, document fix. 10 minutes</li>
-                        <li><span style="color: #888;">Step 10:</span> Hidden cost - context switching penalty. Lost focus, mental overhead. Forgot to update something? Probably. 10 minutes</li>
-                        <li><span style="color: #888;">Point to total - emphasize breakdown:</span> 90 minutes TOTAL. Only 40 minutes actual development. 50 minutes - MORE THAN HALF - was manual tool integration</li>
-                        <li><span style="color: #888;">Pause for effect:</span> That's broken. Now let me show you the better way...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 19: WITHOUT MCPs - Pain Points -->
-            <section>
-                <h2>WITHOUT MCPs - Pain Points</h2>
-                <div class="two-column" style="font-size: 0.8em;">
-                    <div>
-                        <div class="warning-box">
-                            <strong>Context Switching</strong><br>
-                            • 20+ tool switches<br>
-                            • Lost focus<br>
-                            • Mental overhead
-                        </div>
-                        <div class="warning-box">
-                            <strong>Manual Data Entry</strong><br>
-                            • Copy-paste errors<br>
-                            • Inconsistent formats<br>
-                            • Forgotten updates
-                        </div>
-                    </div>
-                    <div>
-                        <div class="warning-box">
-                            <strong>No Workflow Continuity</strong><br>
-                            • Agent can't see Slack<br>
-                            • Agent can't update Jira<br>
-                            • Agent can't post to Slack
-                        </div>
-                        <div class="warning-box">
-                            <strong>Time Wasted</strong><br>
-                            • 50+ min on integration<br>
-                            • Only 40 min on actual fix<br>
-                            • Zero value-add work
-                        </div>
-                    </div>
-                </div>
-                <p style="text-align: center; margin-top: 30px; font-size: 1.1em; font-weight: bold;">Agent helps with code, but YOU are the integration layer</p>
-                <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
-                    <ul>
-                        <li><span style="color: #888;">Summarize pain points - don't dwell too long, they get it</span></li>
-                        <li><span style="color: #888;">Context switching:</span> 20+ tool switches, lost focus, mental overhead</li>
-                        <li><span style="color: #888;">Manual data entry:</span> copy-paste errors, inconsistent formats, forgotten updates</li>
-                        <li><span style="color: #888;">No workflow continuity:</span> Agent writes code but can't see Slack, can't update Jira, can't post updates. Blind to your tooling</li>
-                        <li><span style="color: #888;">Time wasted:</span> 50 minutes on integration, only 40 on actual fix. Zero value-add work</li>
-                        <li><span style="color: #888;">Read bottom line with emphasis:</span> Agent helps with code, but YOU are the integration layer. You're the glue. Not sustainable</li>
-                        <li><span style="color: #888;">Transition with excitement:</span> Now watch this...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 20: WITH MCPs - Title -->
-            <section class="center">
-                <h2>Approach 2: WITH MCPs</h2>
-                <div class="mcp-box" style="max-width: 600px; margin: 40px auto;">
-                    <h3>AI Agent + MCP Integration</h3>
-                    <p>Agent handles EVERYTHING end-to-end</p>
-                </div>
-                <div class="stats-box" style="max-width: 400px; margin: 20px auto;">
-                    <strong>Estimated Time: 15 minutes</strong>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 30 seconds</strong>
-                    <ul>
-                        <li><span style="color: #888;">Build contrast with excitement:</span> NOW let's see WITH MCPs. AI agent with MCP integration handles EVERYTHING end-to-end. You heard that right - everything</li>
-                        <li><span style="color: #888;">Point to time - let number speak:</span> 15 minutes. Remember WITHOUT was 90. That's 83% reduction!</li>
-                        <li><span style="color: #888;">Energy:</span> Excitement and enthusiasm - this is the WOW moment coming up!</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 21: WITH MCPs - Single Prompt -->
-            <section>
-                <h2>WITH MCPs - Single Prompt</h2>
-                <div class="mcp-box" style="font-size: 0.9em;">
-                    <strong>Your prompt to Claude Code:</strong>
-                    <div class="code-box" style="margin-top: 20px; font-size: 0.9em;">
-"Check #customer-support Slack channel for profile<br>
-upload issues, investigate the codebase, fix the bug,<br>
-write comprehensive tests, create a PR with proper<br>
-description, update the Jira ticket, and notify the<br>
-team in Slack"
-                    </div>
-                </div>
-                <div class="stats-box" style="margin-top: 30px;">
-                    <strong>Then you approve each action...</strong><br>
-                    <span style="font-size: 0.8em;">Agent proposes, you approve - especially for MCP calls</span>
-                </div>
-                <div class="highlight-box" style="margin-top: 20px; text-align: center; font-size: 0.85em;">
-                    <strong>What MCPs automate:</strong> Reading Slack, creating Jira tickets, creating PRs, updating tickets, posting notifications<br>
-                    <strong>What you still do:</strong> Write/review code, approve each MCP action
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Read the prompt - this is ONE command:</span> "Check customer-support Slack channel for profile upload issues, investigate codebase, fix bug, write tests, create PR, update Jira ticket, notify team in Slack"</li>
-                        <li><span style="color: #888;">Clarify approval workflow:</span> Don't just hit enter and walk away. Agent proposes each action, asks approval - especially MCP calls. "Can I read Slack?" You approve. "Create Jira ticket?" You approve. "Create PR?" You approve. Supervising, not blindly trusting</li>
-                        <li><span style="color: #888;">Point to bottom - emphasize what MCPs automate:</span> ALL work BEFORE coding (reading Slack, creating Jira tickets) and AFTER coding (PRs, updating tickets, notifications). Agent writes code, you review, but integration work automated WITH approval</li>
-                        <li><span style="color: #888;">Build anticipation:</span> Let me show you what this approval workflow looks like...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 22: WITH MCPs - Agent Execution (1) -->
-            <section>
-                <h2>WITH MCPs - Agent Execution (1)</h2>
-                <div class="demo-console">
-<strong style="color: #f6ad55;">→ Agent: Can I use Slack MCP to read #customer-support?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved</strong><br>
-✓ Reading messages from #customer-support...<br>
-✓ Found 3 related messages:<br>
-  - Sarah Chen: 6.2MB upload fails<br>
-  - john.doe: 7.1MB PNG same issue<br>
-  - Pattern identified: Files > 5MB fail<br>
-<br>
-<strong style="color: #f6ad55;">→ Agent: Can I use Jira MCP to create a ticket?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved</strong><br>
-✓ Ticket PROJ-789 created: "File upload validation bug > 5MB"<br>
-✓ Added user details and reproduction steps<br>
-<br>
-✓ Searching codebase... (no approval needed for reading)<br>
-✓ Found FileUploadController.php<br>
-✓ Found validation rule: max:5120 (5MB limit)<br>
-✓ Root cause: Hardcoded limit, but success message shown anyway
-                </div>
-                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">⏱️ <strong>5 minutes elapsed</strong> (including your approvals)</p>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Walk through what agent does - emphasize approvals</span></li>
-                        <li><span style="color: #888;">Agent asks:</span> "Can I use Slack MCP to read customer-support?" <span style="color: #888;">You approve.</span> Reads channel, finds 3 messages, identifies pattern - files over 5MB fail</li>
-                        <li><span style="color: #888;">Agent asks:</span> "Can I use Jira MCP to create ticket?" <span style="color: #888;">You approve.</span> Creates ticket with all Slack details</li>
-                        <li>Searches codebase (no approval for reading own files), finds controller, identifies 5MB limit, discovers root cause</li>
-                        <li><span style="color: #888;">Point to time:</span> 5 minutes including approvals. MCPs automated: reading Slack, creating Jira ticket - all BEFORE-coding work. Agent did requirements gathering for you</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 23: WITH MCPs - Agent Execution (2) -->
-            <section>
-                <h2>WITH MCPs - Agent Execution (2)</h2>
-                <div class="demo-console">
-✓ Implementing fix in 3 files:<br>
-  1. FileUploadController.php - Update validation logic<br>
-  2. config/upload.php - Make limit configurable<br>
-  3. .env.example - Add MAX_FILE_SIZE_MB variable<br>
-<br>
-<strong style="color: #f6ad55;">→ Agent: Can I write these changes?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved (after reviewing proposed changes)</strong><br>
-<br>
-<strong style="color: #4AF626;">Developer adds context:</strong> "Use 5MB as default, add error message"<br>
-<br>
-✓ Writing tests...<br>
-<strong style="color: #4AF626;">Developer prompt:</strong> "Add edge case for exactly 5MB"<br>
-<br>
-✓ Created UploadValidationTest.php:<br>
-  - Test < 5MB uploads (pass)<br>
-  - Test 5MB exact (pass)<br>
-  - Test > 5MB uploads (fail with clear error)<br>
-  - Test error message shown to user<br>
-  - Test configuration changes<br>
-  Total: 18 test cases<br>
-<br>
-<strong style="color: #f6ad55;">→ Agent: Can I run the test suite?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved</strong><br>
-✓ Running test suite...<br>
-✓ All 18 tests passing ✅
-                </div>
-                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">⏱️ <strong>10 minutes elapsed</strong></p>
-                <aside class="notes">
-                    <strong>TIMING: 45 seconds</strong>
-                    <ul>
-                        <li><span style="color: #888;">Notice the workflow - emphasize developer involvement:</span> Agent asks permission to write changes, you approve after reviewing</li>
-                        <li><span style="color: #888;">YOU provide context:</span> "Use 5MB as default, add error message"</li>
-                        <li><span style="color: #888;">Agent writes tests, YOU prompt:</span> "Add edge case for exactly 5MB"</li>
-                        <li><span style="color: #888;">It's collaborative</span> - agent does work, you guide with prompts and context, approve each action</li>
-                        <li>10 minutes total with your active involvement</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 24: WITH MCPs - Agent Execution (3) -->
-            <section>
-                <h2>WITH MCPs - Agent Execution (3)</h2>
-                <div class="demo-console">
-✓ Creating commit... (you review the code changes)<br>
-  git add .<br>
-  git commit -m "Fix: Handle file uploads > 5MB with proper error message<br>
-  - Made upload limit configurable<br>
-  - Show clear error for oversized files<br>
-  - Added 18 tests covering edge cases"<br>
-<br>
-<strong style="color: #f6ad55;">→ Agent: Can I use GitHub MCP to create PR?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved (after reviewing the changes)</strong><br>
-✓ PR #456 created with detailed description<br>
-✓ Linked to PROJ-789<br>
-<br>
-<strong style="color: #f6ad55;">→ Agent: Can I use Jira MCP to update ticket status?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved</strong><br>
-✓ Status: In Progress → In Review<br>
-✓ Added PR link and fix summary<br>
-<br>
-<strong style="color: #f6ad55;">→ Agent: Can I use Slack MCP to notify team?</strong><br>
-<strong style="color: #68d391;">✓ You: Approved</strong><br>
-✓ "Bug fix PR created: [link] - Will resolve upload issues > 5MB"<br>
-<br>
-<strong style="color: #68d391;">✓ COMPLETE! All tasks done with your supervision.</strong>
-                </div>
-                <p style="text-align: center; margin-top: 20px; font-size: 1.1em; font-weight: bold;">⏱️ <strong>15 minutes total</strong> (with approvals)</p>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Final steps - emphasize approvals for AFTER-coding work</span></li>
-                        <li><span style="color: #888;">After you review code, agent creates commit. Asks:</span> "Can I use GitHub MCP to create PR?" <span style="color: #888;">You approve after reviewing.</span> PR created with detailed description</li>
-                        <li>"Can I use Jira MCP to update ticket status?" <span style="color: #888;">You approve.</span> Status updated, PR link added</li>
-                        <li>"Can I use Slack MCP to notify team?" <span style="color: #888;">You approve.</span> Team notification posted</li>
-                        <li><span style="color: #888;">Point to COMPLETE - supervised automation:</span> All tasks done WITH YOUR SUPERVISION. MCPs automated ALL AFTER-coding integration - PRs, Jira updates, Slack posts. You still wrote and reviewed code, but surrounding work automated with approval</li>
-                        <li><span style="color: #888;">Pause, then:</span> 15 minutes total including approvals. WITHOUT MCPs: 90 minutes. Let's compare...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 25: Before/After Comparison -->
-            <section style="padding: 10px 20px !important;">
-                <h2 style="margin-top: 0; margin-bottom: 10px;">Before/After Comparison</h2>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>WITHOUT MCPs</th>
-                            <th>WITH MCPs</th>
-                            <th>Improvement</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Total Time</strong></td>
-                            <td>90 minutes</td>
-                            <td>15 minutes</td>
-                            <td style="color: #48bb78;">83% faster</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tool Switches</strong></td>
-                            <td>20+</td>
-                            <td>0</td>
-                            <td style="color: #48bb78;">✅ Zero</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Manual Steps</strong></td>
-                            <td>10</td>
-                            <td>1 (review)</td>
-                            <td style="color: #48bb78;">✅ 90% reduction</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Copy-Paste Operations</strong></td>
-                            <td>15+</td>
-                            <td>0</td>
-                            <td style="color: #48bb78;">✅ Eliminated</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Potential Errors</strong></td>
-                            <td>High</td>
-                            <td>Low</td>
-                            <td style="color: #48bb78;">✅ Consistent</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Context Maintained</strong></td>
-                            <td>No</td>
-                            <td>Yes</td>
-                            <td style="color: #48bb78;">✅ Full workflow</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Documentation</strong></td>
-                            <td>Often missed</td>
-                            <td>Always complete</td>
-                            <td style="color: #48bb78;">✅ Reliable</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="mcp-box" style="text-align: center; margin-top: 10px; font-size: 1.0em; padding: 8px;">
-                    <strong>75 minutes saved = More time for architecture & innovation</strong>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Walk through table - let numbers speak:</span> Total time: 90 min WITHOUT, 15 min WITH. 83% faster!</li>
-                        <li><span style="color: #888;">Tool switches:</span> 20+ WITHOUT, ZERO WITH. <span style="color: #888;">Manual steps:</span> 10 WITHOUT, 1 (review) WITH. <span style="color: #888;">Copy-paste:</span> 15+ WITHOUT, ZERO WITH - completely eliminated</li>
-                        <li><span style="color: #888;">Potential errors:</span> High WITHOUT (manual work), Low WITH (automated/consistent). <span style="color: #888;">Context maintained:</span> No WITHOUT (jumping between tools), Yes WITH (agent maintains full workflow). <span style="color: #888;">Documentation:</span> Often missed WITHOUT, Always complete WITH</li>
-                        <li><span style="color: #888;">Point to bottom - the payoff:</span> 75 minutes saved on single task. More time for architecture, innovation, hard problems - work that moves product forward</li>
-                        <li><span style="color: #888;">Transition:</span> This is THE key difference...</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 26: The MCP Advantage - Emphasized -->
+            <!-- Slide 13: The MCP Advantage - Emphasized -->
             <section class="center">
                 <h2>The MCP Advantage</h2>
                 <div style="margin: 20px 0;">
@@ -1338,7 +820,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 27: More Real-World Examples -->
+            <!-- Slide 14: More Real-World Examples -->
             <section>
                 <h2>More Real-World MCP Examples</h2>
                 <div style="font-size: 0.75em;">
@@ -1387,7 +869,7 @@ team in Slack"
 
             <!-- SECTION 4: PROMPT ENGINEERING BEST PRACTICES -->
 
-            <!-- Slide 28: Section Header -->
+            <!-- Slide 15: Section Header -->
             <section class="center section-header">
                 <h1>Prompt Engineering</h1>
                 <h3>Best Practices for AI Agents</h3>
@@ -1399,7 +881,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 29: Why Prompting Matters -->
+            <!-- Slide 16: Why Prompting Matters -->
             <section>
                 <h2>Why Prompting Matters</h2>
                 <div class="two-column" style="font-size: 0.8em;">
@@ -1445,7 +927,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 30: Core Prompting Principles (2025) -->
+            <!-- Slide 17: Core Prompting Principles (2025) -->
             <section>
                 <h2>Core Prompting Principles (2025)</h2>
                 <div style="font-size: 0.75em;">
@@ -1481,7 +963,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 31: Complete Prompt Structure -->
+            <!-- Slide 18: Complete Prompt Structure -->
             <section>
                 <h2>Complete Prompt Structure</h2>
                 <div class="highlight-box" style="padding: 12px;">
@@ -1521,7 +1003,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 32: Good vs Bad Prompts & Common Pitfalls -->
+            <!-- Slide 19: Good vs Bad Prompts & Common Pitfalls -->
             <section>
                 <h2>Good vs Bad Prompts & Common Pitfalls</h2>
                 <div style="font-size: 0.65em;">
@@ -1583,7 +1065,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 33: Advanced Techniques -->
+            <!-- Slide 20: Advanced Techniques -->
             <section>
                 <h2>Advanced Techniques (Claude 4)</h2>
                 <div style="font-size: 0.7em;">
@@ -1643,7 +1125,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 34: Security & Defensive Prompting -->
+            <!-- Slide 21: Security & Defensive Prompting -->
             <section>
                 <h2>Security & Defensive Prompting</h2>
                 <div style="font-size: 0.72em;">
@@ -1699,7 +1181,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 35: Prompting Checklist -->
+            <!-- Slide 22: Prompting Checklist -->
             <section>
                 <h2>Prompting Checklist</h2>
                 <div class="stats-box" style="font-size: 0.85em;">
@@ -1731,56 +1213,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 36: Measuring Prompt Quality -->
-            <section>
-                <h2>Measuring Prompt Quality</h2>
-                <div style="font-size: 0.75em;">
-                    <div class="two-column" style="gap: 15px;">
-                        <div>
-                            <div class="stats-box" style="padding: 12px;">
-                                <strong>Track These Metrics:</strong><br>
-                                • <strong>First-attempt success rate</strong><br>
-                                  Target: >80%<br>
-                                • <strong>Approval cycles per task</strong><br>
-                                  Target: <3<br>
-                                • <strong>Code review rejections</strong><br>
-                                  Target: <15%<br>
-                                • <strong>Time: prompt → working code</strong><br>
-                                  Benchmark your baseline
-                            </div>
-                        </div>
-                        <div>
-                            <div class="highlight-box" style="padding: 12px;">
-                                <strong>Continuous Improvement:</strong><br>
-                                • Save successful prompts as templates<br>
-                                • Review failures - unclear prompt or tool limitation?<br>
-                                • Build team prompt library in .claude/commands/<br>
-                                • Share learnings across team
-                            </div>
-                            <div class="mcp-box" style="padding: 12px; margin-top: 10px; text-align: center;">
-                                <strong>Goal: Treat prompts like code</strong><br>
-                                Review, iterate, version control
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li>Make prompting measurable - track these metrics to improve over time</li>
-                        <li>First-attempt success rate: Aim for above 80% - how often does the agent get it right on first try?</li>
-                        <li>Approval cycles per task: Target less than 3 - how many back-and-forth cycles before acceptance?</li>
-                        <li>Code review rejections: Target less than 15% - how often does agent code get rejected in peer review?</li>
-                        <li>Time from prompt to working code: Establish your baseline and track improvement</li>
-                        <li>Continuous improvement: Save successful prompts as templates, Review failures (unclear prompt or tool limitation?), Build team prompt library in .claude/commands/, Share learnings across team</li>
-                        <li>Bottom box: Treat prompts like code - Review them, iterate on them, version control them</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- FINAL: WRAP-UP -->
-
-            <!-- Slide 37: Key Takeaways -->
+            <!-- Slide 23: Key Takeaways -->
             <section>
                 <h2>Key Takeaways</h2>
                 <div style="font-size: 0.8em;">
@@ -1841,7 +1274,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 38: Getting Started Roadmap -->
+            <!-- Slide 24: Getting Started Roadmap -->
             <section>
                 <h2>Getting Started Roadmap</h2>
                 <div class="two-column" style="font-size: 0.8em;">
@@ -1898,7 +1331,7 @@ team in Slack"
                 </aside>
             </section>
 
-            <!-- Slide 39: CLAUDE.md - Project Context File -->
+            <!-- Slide 25: CLAUDE.md - Project Context File -->
             <section>
                 <h2>CLAUDE.md - Your Project's AI Context</h2>
                 <div style="font-size: 0.62em;">
@@ -1963,7 +1396,7 @@ npm run build<br>
                 </aside>
             </section>
 
-            <!-- Slide 40: Slash Commands - Automate Workflows -->
+            <!-- Slide 26: Slash Commands - Automate Workflows -->
             <section>
                 <h2>Slash Commands - Automate Workflows</h2>
                 <div style="font-size: 0.68em;">
@@ -2021,7 +1454,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 41: Additional Documentation Files -->
+            <!-- Slide 27: Additional Documentation Files -->
             <section>
                 <h2>Additional Documentation Files</h2>
                 <div style="font-size: 0.65em;">
@@ -2088,7 +1521,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 42: Resources & Further Learning -->
+            <!-- Slide 28: Resources & Further Learning -->
             <section>
                 <h2>Resources & Further Learning</h2>
                 <div style="font-size: 0.68em;">
@@ -2136,7 +1569,7 @@ Review current changes:<br>
 
             <!-- SECTION 5: REAL-WORLD EXAMPLE -->
 
-            <!-- Slide 44: Section Header -->
+            <!-- Slide 29: Section Header -->
             <section class="center section-header">
                 <h1>Real-World Example</h1>
                 <h3>Claude Code in Action</h3>
@@ -2150,112 +1583,112 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 45: Screenshot 1 -->
+            <!-- Slide 30: Screenshot 1 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.17.png" alt="Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 46: Screenshot 2 -->
+            <!-- Slide 31: Screenshot 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.55.png" alt="Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 47: Screenshot 3 -->
+            <!-- Slide 32: Screenshot 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.11.png" alt="Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 48: Screenshot 4 -->
+            <!-- Slide 33: Screenshot 4 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.28.png" alt="Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 49: Screenshot 5 -->
+            <!-- Slide 34: Screenshot 5 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.39.png" alt="Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 50: Screenshot 6 -->
+            <!-- Slide 35: Screenshot 6 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.12.png" alt="Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 51: Screenshot 7 -->
+            <!-- Slide 36: Screenshot 7 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.35.png" alt="Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 52: Screenshot 8 -->
+            <!-- Slide 37: Screenshot 8 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.47.png" alt="Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 53: Screenshot 9 -->
+            <!-- Slide 38: Screenshot 9 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.46.png" alt="Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 54: Screenshot 10 -->
+            <!-- Slide 39: Screenshot 10 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.55.png" alt="Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 55: Screenshot 11 -->
+            <!-- Slide 40: Screenshot 11 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.46.png" alt="Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 56: Screenshot 12 -->
+            <!-- Slide 41: Screenshot 12 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.58.png" alt="Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 57: Screenshot 13 -->
+            <!-- Slide 42: Screenshot 13 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.07.png" alt="Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 58: Screenshot 14 -->
+            <!-- Slide 43: Screenshot 14 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.19.png" alt="Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 59: Screenshot 15 -->
+            <!-- Slide 44: Screenshot 15 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.22.01.png" alt="Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 60: Q&A -->
+            <!-- Slide 45: Q&A -->
             <section class="center">
                 <h1>Questions?</h1>
                 <div style="margin: 80px 0;">
