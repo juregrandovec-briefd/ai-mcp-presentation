@@ -251,6 +251,10 @@
             border: 2px solid transparent !important;
             border-image: linear-gradient(90deg, var(--preskok-red), var(--briefd-green)) 1 !important;
         }
+        /* Screenshot slides positioning */
+        .reveal .slides section:has(div > img) {
+            top: -100px !important;
+        }
     </style>
 </head>
 <body>
@@ -2146,104 +2150,112 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 45: The Error Summary -->
-            <section>
-                <h2>Production Errors - The Starting Point</h2>
-                <div style="text-align: center; margin: 20px 0;">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Error Summary" style="max-width: 90%; border: 2px solid #444; border-radius: 8px;">
+            <!-- Slide 45: Screenshot 1 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.09.17.png" alt="Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
-                <div class="warning-box" style="margin-top: 20px; text-align: center;">
-                    <strong>5 Recent Errors Found:</strong><br>
-                    • AdUpdateService TypeError (3 occurrences)<br>
-                    • Dober Avto Integration Issues (2 occurrences)<br>
-                    • Array Offset Error (1 occurrence)
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
-                    <ul>
-                        <li><span style="color: #888;">Show the screenshot:</span> This is our actual error monitoring dashboard from today - 5 different errors</li>
-                        <li><span style="color: #888;">Point to the top error:</span> AdUpdateService TypeError appearing 3 times - "Cannot access offset of type string on string"</li>
-                        <li>This is affecting vehicle ad updates from different integration sources - Dober Avto, Phyron, Virtual Salon</li>
-                        <li><span style="color: #888;">The task:</span> I gave Claude Code one simple prompt: "Let's fix the AdUpdateService TypeError, use git worktree and create a PR into main"</li>
-                        <li><span style="color: #888;">Transition:</span> Watch what happened next...</li>
-                    </ul>
-                </aside>
             </section>
 
-            <!-- Slide 46: Claude's Investigation -->
-            <section>
-                <h2>Claude Code - Autonomous Investigation</h2>
-                <div style="text-align: center; margin: 20px 0;">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Claude Investigation" style="max-width: 90%; border: 2px solid #444; border-radius: 8px;">
+            <!-- Slide 46: Screenshot 2 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.09.55.png" alt="Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
-                <div class="mcp-box" style="margin-top: 20px; font-size: 0.85em;">
-                    <strong>What Claude Did Autonomously:</strong><br>
-                    • Read AdUpdateService.php (123 lines)<br>
-                    • Searched for IntegrationVehicleAd.php files<br>
-                    • Read IntegrationVehicleAd model (43 lines)<br>
-                    • Found 8 test files to understand expected behavior<br>
-                    • Read AdIntegrationProjector (182 lines)<br>
-                    • Searched for IntegrationEnum constants (230 lines)<br>
-                    • Read IntegrationEnum.php (63 lines)
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Show the screenshot:</span> This is Claude Code's investigation - completely autonomous</li>
-                        <li><span style="color: #888;">Walk through what it did:</span> Read the problematic service file, searched for related models, found 8 test files, read integration projectors, searched enum constants</li>
-                        <li><span style="color: #888;">Emphasize:</span> I didn't tell it to read these files. It KNEW to investigate the data structures, understand the integration types, check test files for expected behavior</li>
-                        <li>This is the codebase understanding we talked about - agent reads, analyzes, connects the dots</li>
-                        <li><span style="color: #888;">Bottom box shows:</span> 7 different file operations, hundreds of lines analyzed, all in under 2 minutes</li>
-                        <li><span style="color: #888;">Transition:</span> After investigation, it presented a fix plan...</li>
-                    </ul>
-                </aside>
             </section>
 
-            <!-- Slide 47: The Fix Plan & Results -->
-            <section>
-                <h2>Claude's Fix Plan - Approved & Executed</h2>
-                <div style="text-align: center; margin: 20px 0;">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Fix Plan" style="max-width: 90%; border: 2px solid #444; border-radius: 8px;">
+            <!-- Slide 47: Screenshot 3 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.10.11.png" alt="Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
-                <div class="two-column" style="font-size: 0.75em; gap: 15px; margin-top: 20px;">
-                    <div class="stats-box" style="padding: 12px;">
-                        <strong>Problem Identified:</strong><br>
-                        • Two data structures in vehicle ads<br>
-                        • Field-based: ['field_uuid' => 'price']<br>
-                        • Key-value: ['id' => 'ABC', 'price' => 1000]<br>
-                        • Code assumed field-based for ALL<br>
-                        • Root cause: Missing validation
-                    </div>
-                    <div class="mcp-box" style="padding: 12px;">
-                        <strong>Solution Executed:</strong><br>
-                        • Git worktree feature branch created<br>
-                        • Data structure check added<br>
-                        • Wrapped logic in conditional<br>
-                        • Key-value structures skipped<br>
-                        • 18 tests created & passing<br>
-                        • PR created with full explanation
-                    </div>
-                </div>
-                <div class="highlight-box" style="margin-top: 20px; text-align: center; font-size: 1.1em;">
-                    <strong>Result: Bug fixed, tested, documented, ready for review - 10 minutes</strong>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
-                    <ul>
-                        <li><span style="color: #888;">Show the screenshot - this is the actual fix plan I approved</span></li>
-                        <li><span style="color: #888;">Left side - Problem:</span> Claude identified TWO different data structures being used - field-based (legacy integrations) and key-value (newer integrations like Dober Avto)</li>
-                        <li>The bug: Code at line 64 assumed ALL integrations use field-based structure, crashed when encountering key-value</li>
-                        <li><span style="color: #888;">Right side - Solution:</span> Added data structure validation, wrapped field-based logic in conditional, gracefully skips key-value structures</li>
-                        <li><span style="color: #888;">Note the git worktree:</span> I asked it to use git worktree - it created the feature branch correctly, isolated the work</li>
-                        <li>Created 18 comprehensive tests covering both data structures, all edge cases, error scenarios</li>
-                        <li><span style="color: #888;">Bottom result - emphasize the time:</span> 10 minutes from "fix this error" to "PR ready for review with tests and documentation"</li>
-                        <li><span style="color: #888;">Manual approach?</span> Reading logs, understanding integration types, checking multiple integrations, writing tests, creating PR - easily 2-3 hours</li>
-                        <li><span style="color: #888;">Key point:</span> This is a real production bug fix that happened TODAY. Not a demo, not theoretical - actual work</li>
-                    </ul>
-                </aside>
             </section>
 
-            <!-- Slide 48: Q&A -->
+            <!-- Slide 48: Screenshot 4 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.10.28.png" alt="Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 49: Screenshot 5 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.10.39.png" alt="Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 50: Screenshot 6 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.11.12.png" alt="Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 51: Screenshot 7 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.11.35.png" alt="Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 52: Screenshot 8 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.11.47.png" alt="Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 53: Screenshot 9 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.12.46.png" alt="Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 54: Screenshot 10 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.12.55.png" alt="Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 55: Screenshot 11 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.19.46.png" alt="Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 56: Screenshot 12 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.19.58.png" alt="Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 57: Screenshot 13 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.21.07.png" alt="Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 58: Screenshot 14 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.21.19.png" alt="Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 59: Screenshot 15 -->
+            <section style="padding: 0 !important; top: -100px;">
+                <div style="text-align: center;">
+                    <img src="img/Screenshot 2025-10-15 at 07.22.01.png" alt="Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
+                </div>
+            </section>
+
+            <!-- Slide 60: Q&A -->
             <section class="center">
                 <h1>Questions?</h1>
                 <div style="margin: 80px 0;">
