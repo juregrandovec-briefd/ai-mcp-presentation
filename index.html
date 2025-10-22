@@ -437,9 +437,32 @@ claude-code
                 </aside>
             </section>
 
+            <!-- Slide 5: Real-World Example Teaser #1 -->
+            <section class="center">
+                <div class="mcp-box" style="max-width: 800px; margin: 0 auto; padding: 30px;">
+                    <h2 style="margin-top: 0;">Coming Up: Real-World Example #1</h2>
+                    <p style="font-size: 1.1em; margin: 30px 0;">We'll demonstrate Claude Code in action with a simple prompt to show you how agents work in practice.</p>
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <strong>What you'll see:</strong><br><br>
+                        • Live Claude Code session<br>
+                        • A practical development task<br>
+                        • How the agent executes step-by-step
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 30 seconds</strong>
+                    <ul>
+                        <li>Quick teaser - we'll show you Claude Code in action later</li>
+                        <li>Real practical example, not theoretical</li>
+                        <li>You'll see how the agent works step by step</li>
+                        <li>This builds anticipation for the demo section</li>
+                    </ul>
+                </aside>
+            </section>
+
             <!-- SECTION 2: MODEL CONTEXT PROTOCOL -->
 
-            <!-- Slide 5: Section Header -->
+            <!-- Slide 6: Section Header -->
             <section class="center section-header">
                 <h1>Model Context Protocol</h1>
                 <h3>Connecting AI to Your Tools</h3>
@@ -453,7 +476,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 6: What is MCP? -->
+            <!-- Slide 7: What is MCP? -->
             <section>
                 <h2>What is MCP?</h2>
                 <div class="mcp-box">
@@ -491,7 +514,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 7: Available MCPs for Development -->
+            <!-- Slide 8: Available MCPs for Development -->
             <section>
                 <h2>Available MCPs for Development</h2>
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 0.7em;">
@@ -573,7 +596,31 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 8: Section Header -->
+            <!-- Slide 9: Real-World Example Teaser #2 -->
+            <section class="center">
+                <div class="mcp-box" style="max-width: 800px; margin: 0 auto; padding: 30px;">
+                    <h2 style="margin-top: 0;">Coming Up: Real-World Example #2</h2>
+                    <p style="font-size: 1.1em; margin: 30px 0;">We'll show MCPs in action: connecting to Slack #customer_support channel and opening a GitHub PR.</p>
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <strong>What you'll see:</strong><br><br>
+                        • Agent reads context from Slack channel<br>
+                        • Uses that context to understand the issue<br>
+                        • Creates and opens a Pull Request<br>
+                        • All through MCP connections
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 30 seconds</strong>
+                    <ul>
+                        <li>Second teaser - showing MCP power in action</li>
+                        <li>Real integration: Slack → Code → GitHub PR</li>
+                        <li>Shows how MCPs connect different tools seamlessly</li>
+                        <li>This demonstrates the "USB-C for AI" concept in practice</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 10: Section Header -->
             <section class="center section-header">
                 <h1>Prompt Engineering</h1>
                 <h3>Best Practices for AI Agents</h3>
@@ -585,173 +632,49 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 9: Why Prompting Matters -->
+            <!-- Slide 11: Prompt Engineering Essentials -->
             <section>
-                <h2>Why Prompting Matters</h2>
-                <div class="two-column" style="font-size: 0.8em;">
-                    <div>
-                        <div class="warning-box">
-                            <strong>❌ Vague Prompt</strong>
-                            <div class="code-box" style="margin-top: 10px;">
-"Fix the bug"
-                            </div>
-                            <strong>Result:</strong><br>
-                            • Agent confused<br>
-                            • Asks many questions<br>
-                            • Wrong assumptions<br>
-                            • Partial solution
-                        </div>
+                <h2>Prompt Engineering Essentials</h2>
+                <div style="font-size: 0.68em;">
+                    <div class="highlight-box" style="padding: 10px; margin: 5px 0;">
+                        <strong>Why It Matters:</strong> Same agent, 10x better results with good prompts
                     </div>
-                    <div>
-                        <div class="stats-box">
-                            <strong>✅ Specific Prompt</strong>
-                            <div class="code-box" style="margin-top: 10px; text-align: left;">
-"Investigate file upload issue where files > 5MB show success but don't save. Fix validation, add error message, write tests"
-                            </div>
-                            <strong>Result:</strong><br>
-                            • Clear direction<br>
-                            • Complete solution<br>
-                            • Proper testing<br>
-                            • First-time success
-                        </div>
-                    </div>
-                </div>
-                <div class="highlight-box" style="text-align: center; margin-top: 30px; font-size: 1.1em;">
-                    <strong>Same agent, 10x better results with good prompts</strong>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li>Prompting matters because the same agent gives you 10x better results with a good prompt vs a vague one</li>
-                        <li>Left side: "Fix the bug" - Agent confused, asks many questions, wrong assumptions, partial solution</li>
-                        <li>Right side: "Investigate file upload issue where files over 5MB show success but don't save. Fix validation, add error message, write tests" - Clear direction, complete solution, proper testing, first-time success</li>
-                        <li>Emphasize the bottom highlight: Same agent, 10x better results with good prompts</li>
-                        <li>This is why we're spending time on prompting - it's the difference between frustration and success</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 10: Core Prompting Principles (2025) -->
-            <section>
-                <h2>Core Prompting Principles (2025)</h2>
-                <div style="font-size: 0.75em;">
-                    <div class="highlight-box" style="margin: 10px 0; padding: 12px;">
-                        <strong>1. Be Explicit with Instructions</strong><br>
-                        • Go beyond basics - request fully-featured implementations<br>
-                        • Describe exactly what you want in output<br>
-                        • Example: <em>"Create comprehensive OAuth implementation with error handling, logging, and edge case coverage"</em>
-                    </div>
-                    <div class="mcp-box" style="margin: 10px 0; padding: 12px;">
-                        <strong>2. Add Context and Motivation</strong><br>
-                        • Explain WHY certain behaviors matter<br>
-                        • Help AI understand underlying goals<br>
-                        • Example: <em>"We need caching because API has rate limits and user experience degrades above 200ms"</em>
-                    </div>
-                    <div class="stats-box" style="margin: 10px 0; padding: 12px; text-align: left;">
-                        <strong>3. Precision Over Cleverness</strong><br>
-                        • Clear structure beats clever wording<br>
-                        • Most failures come from ambiguity, not model limitations<br>
-                        • Use structured formats (XML tags, JSON) for complex requests
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li>These are the three core principles from Claude's official 2025 documentation</li>
-                        <li>Principle 1: Be explicit with instructions - Go beyond basics, request fully-featured implementations. Don't just say "add login", say "create comprehensive OAuth with error handling, logging, and edge case coverage"</li>
-                        <li>Principle 2: Add context and motivation - Explain WHY certain behaviors matter. Example: "We need caching because API has rate limits and user experience degrades above 200ms"</li>
-                        <li>Principle 3: Precision over cleverness - Clear structure beats clever wording. Most failures come from ambiguity, not model limitations</li>
-                        <li>Use structured formats like XML tags or JSON for complex requests</li>
-                        <li>Remember: Most prompt failures are from ambiguity, not AI limitations</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 11: Complete Prompt Structure -->
-            <section>
-                <h2>Complete Prompt Structure</h2>
-                <div class="highlight-box" style="padding: 12px;">
-                    <h3 style="margin-top: 0;">7-Part Template:</h3>
-                    <div style="font-size: 0.75em;">
-                        <p><strong>1. Context:</strong> What's the situation?</p>
-                        <p><strong>2. Task:</strong> What needs to be done?</p>
-                        <p><strong>3. Constraints:</strong> Any limitations?</p>
-                        <p><strong>4. Output format:</strong> How should it respond?</p>
-                        <p><strong>5. Expected Behavior:</strong> Describe edge cases</p>
-                        <p><strong>6. Success Criteria:</strong> Define "done"</p>
-                        <p><strong>7. Reasoning Request:</strong> Ask agent to explain approach first</p>
-                    </div>
-                </div>
-                <div class="stats-box" style="margin-top: 10px; padding: 10px;">
-                    <strong>Real-World Example:</strong>
-                    <div class="code-box" style="margin-top: 10px; text-align: left; font-size: 0.65em;">
-<strong>Context:</strong> Laravel API with 100K+ daily users<br>
-<strong>Task:</strong> Add rate limiting to prevent abuse<br>
-<strong>Constraints:</strong> Redis available, must not break existing auth<br>
-<strong>Output:</strong> Implementation + migration guide + monitoring dashboard<br>
-<strong>Expected:</strong> Handle burst traffic, graceful degradation<br>
-<strong>Success:</strong> 429 responses after limit, &lt;5ms overhead<br>
-<strong>Reasoning:</strong> "Explain your approach before coding"
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li>The complete prompt structure has 7 parts - walk through each one from the slide</li>
-                        <li>Parts 1-4 are basics: Context (what's the situation?), Task (what needs doing?), Constraints (limitations?), Output format (how should it respond?)</li>
-                        <li>Parts 5-7 make all the difference: Expected Behavior covers edge cases, Success Criteria defines what "done" means, Reasoning Request asks agent to explain approach first</li>
-                        <li>Show the real-world example: Laravel API with 100K+ daily users, adding rate limiting</li>
-                        <li>Point out the specificity: Redis, 429 responses, less than 5ms overhead, monitoring dashboard, graceful degradation</li>
-                        <li>Emphasize: We're not just saying "add rate limiting" - we're providing complete context, constraints, and success criteria</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 12: Good vs Bad Prompts & Common Pitfalls -->
-            <section>
-                <h2>Good vs Bad Prompts & Common Pitfalls</h2>
-                <div style="font-size: 0.65em;">
-                    <div class="two-column" style="gap: 15px;">
+                    <div class="two-column" style="gap: 15px; margin-top: 10px;">
                         <div>
-                            <h3 style="font-size: 1.1em; margin-bottom: 10px;">❌ Bad Prompts</h3>
-                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
-                                <strong>"Fix the bug"</strong> - Too vague, no context
+                            <h3 style="font-size: 1.1em; margin-bottom: 10px;">Core Principles</h3>
+                            <div class="mcp-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>1. Be Explicit</strong><br>
+                                Request fully-featured implementations<br>
+                                <em style="font-size: 0.9em;">"Create OAuth with error handling, logging, edge cases"</em>
                             </div>
-                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
-                                <strong>"Make it better"</strong> - Subjective, no direction
+                            <div class="mcp-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>2. Add Context & Motivation</strong><br>
+                                Explain WHY behaviors matter<br>
+                                <em style="font-size: 0.9em;">"Need caching: API has rate limits, UX degrades >200ms"</em>
                             </div>
-                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
-                                <strong>"Add 6+ features at once"</strong> - Too many tasks
-                            </div>
-                            <h3 style="font-size: 1.1em; margin: 15px 0 10px 0;">❌ Common Pitfalls</h3>
-                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
-                                <strong>Ignoring agent questions</strong> - Answer clarifications
-                            </div>
-                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
-                                <strong>Not reviewing output</strong> - Always review & test
-                            </div>
-                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
-                                <strong>Expecting perfection</strong> - Iterate & refine
+                            <div class="mcp-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>3. Precision Over Cleverness</strong><br>
+                                Clear structure beats clever wording<br>
+                                Most failures = ambiguity, not AI limits
                             </div>
                         </div>
                         <div>
-                            <h3 style="font-size: 1.1em; margin-bottom: 10px;">✅ Good Prompts</h3>
-                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
-                                <strong>"Fix UserController line 45: email validation should allow + characters"</strong><br>
-                                Specific location + requirement
+                            <h3 style="font-size: 1.1em; margin-bottom: 10px;">Examples</h3>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>❌ BAD:</strong> "Fix the bug"<br>
+                                <span style="font-size: 0.9em;">→ Vague, confused agent, partial solution</span>
                             </div>
                             <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
-                                <strong>"Refactor calculateTotal() to O(n), maintain same API"</strong><br>
-                                Clear goal + constraints
+                                <strong>✅ GOOD:</strong> "Fix UserController line 45: email validation should allow + characters"<br>
+                                <span style="font-size: 0.9em;">→ Specific location + clear requirement</span>
                             </div>
-                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
-                                <strong>"Implement OAuth2: 1) Setup, 2) Backend, 3) Frontend, 4) Tests"</strong><br>
-                                Complex task broken down
-                            </div>
-                            <div class="mcp-box" style="padding: 8px; margin: 15px 0 5px 0; font-size: 0.95em;">
-                                <strong>Complete Example:</strong><br>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
                                 <strong>❌ BAD:</strong> "Add error handling"<br>
-                                <strong>✅ GOOD:</strong> "Add error handling to UserService: try-catch on DB calls, log to Sentry with context, return standardized JSON errors, retry transient failures (3x, exponential backoff), write tests, update API docs"
+                                <span style="font-size: 0.9em;">→ No details, incomplete</span>
+                            </div>
+                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
+                                <strong>✅ GOOD:</strong> "Add error handling to UserService: try-catch on DB calls, log to Sentry, return JSON errors, retry 3x with backoff, write tests"<br>
+                                <span style="font-size: 0.9em;">→ Complete specification</span>
                             </div>
                         </div>
                     </div>
@@ -759,165 +682,73 @@ claude-code
                 <aside class="notes">
                     <strong>TIMING: 2 minutes</strong>
                     <ul>
-                        <li>This slide combines bad prompts and common pitfalls</li>
-                        <li>Bad prompts - Left side top: "Fix the bug" is too vague, "Make it better" is subjective, "Add 6+ features at once" is too many tasks</li>
-                        <li>Common pitfalls - Left side bottom: Ignoring agent questions (always answer clarifications!), Not reviewing output (always review and test!), Expecting perfection (iterate and refine!)</li>
-                        <li>Good prompts - Right side: Specific location + requirement ("Fix UserController line 45"), Clear goal + constraints ("Refactor to O(n)"), Complex task broken down into steps (OAuth: 1-2-3-4)</li>
-                        <li>Show the bottom complete example: "Add error handling" BAD versus detailed specification with Sentry logging, retry logic with exponential backoff, standardized JSON errors, tests, and docs</li>
-                        <li>Key message: Agents aren't oracles - they need clear direction and you need to review their output</li>
+                        <li>This slide combines why prompting matters with core principles and examples</li>
+                        <li>Top highlight: Same agent gives 10x better results with good prompts</li>
+                        <li>Left - Three core principles: 1) Be explicit - request full implementations not basics, 2) Add context and motivation - explain WHY things matter, 3) Precision over cleverness - clear structure beats clever wording</li>
+                        <li>Right - Examples showing bad vs good: "Fix the bug" is vague vs specific "Fix UserController line 45", "Add error handling" is incomplete vs detailed specification with Sentry logging, retry logic, tests</li>
+                        <li>Key message: Specificity and context are everything</li>
                     </ul>
                 </aside>
             </section>
 
-            <!-- Slide 13: Advanced Techniques -->
+            <!-- Slide 12: Practical Tips & Best Practices -->
             <section>
-                <h2>Advanced Techniques (Claude 4)</h2>
-                <div style="font-size: 0.7em;">
+                <h2>Practical Tips & Best Practices</h2>
+                <div style="font-size: 0.65em;">
                     <div class="two-column" style="gap: 15px;">
                         <div>
-                            <div class="highlight-box" style="padding: 10px;">
-                                <strong>Chain of Thought</strong><br>
-                                <em>"Explain your reasoning step-by-step before implementing"</em><br>
-                                → Shows logic, catches errors early
+                            <h3 style="font-size: 1.05em; margin-bottom: 8px;">Prompt Structure Template</h3>
+                            <div class="highlight-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>1. Context:</strong> What's the situation?<br>
+                                <strong>2. Task:</strong> What needs to be done?<br>
+                                <strong>3. Constraints:</strong> Limitations & requirements<br>
+                                <strong>4. Output:</strong> Format, tests, docs?<br>
+                                <strong>5. Success:</strong> Define "done"
                             </div>
-                            <div class="mcp-box" style="padding: 10px; margin-top: 10px;">
-                                <strong>Long-Horizon Reasoning</strong><br>
-                                <em>"Track test results in JSON, continue from failures"</em><br>
-                                → Maintains state across complex tasks
-                            </div>
-                            <div class="highlight-box" style="padding: 10px; margin-top: 10px;">
-                                <strong>Provide Examples</strong><br>
-                                <em>"Follow pattern in UserController::store()"</em><br>
-                                → Ensures consistency
+                            <h3 style="font-size: 1.05em; margin: 15px 0 8px 0;">Advanced Techniques</h3>
+                            <div class="mcp-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>• Chain of Thought:</strong> "Explain reasoning step-by-step"<br>
+                                <strong>• Provide Examples:</strong> "Follow pattern in UserController"<br>
+                                <strong>• Parallel Reads:</strong> "Read these 5 files in parallel"<br>
+                                <strong>• Iterative:</strong> "Show 3 approaches with pros/cons"
                             </div>
                         </div>
                         <div>
-                            <div class="stats-box" style="padding: 10px;">
-                                <strong>Context Window Management</strong><br>
-                                <em>"If approaching context limit, summarize completed work and continue"</em><br>
-                                → Handles large refactorings
+                            <h3 style="font-size: 1.05em; margin-bottom: 8px;">Pre-Flight Checklist</h3>
+                            <div class="stats-box" style="padding: 8px; margin: 5px 0; text-align: left;">
+                                ✅ <strong>Clear objective</strong> - Success defined<br>
+                                ✅ <strong>Sufficient context</strong> - Files, patterns<br>
+                                ✅ <strong>Specific constraints</strong> - Performance, standards<br>
+                                ✅ <strong>Expected output</strong> - Tests? Docs?<br>
+                                ✅ <strong>Testing criteria</strong> - How to verify
                             </div>
-                            <div class="warning-box" style="padding: 10px; margin-top: 10px;">
-                                <strong>Parallel Tool Usage</strong><br>
-                                <em>"Read these 5 files in parallel, then compare patterns"</em><br>
-                                → Significantly faster
-                            </div>
-                            <div class="stats-box" style="padding: 10px; margin-top: 10px;">
-                                <strong>Iterative Refinement</strong><br>
-                                <em>"Show 3 approaches with pros/cons"</em><br>
-                                → Better decisions
+                            <h3 style="font-size: 1.05em; margin: 15px 0 8px 0;">Security & Safety</h3>
+                            <div class="warning-box" style="padding: 8px; margin: 5px 0;">
+                                <strong>• Set boundaries:</strong> "Only modify /src/features/"<br>
+                                <strong>• Request sources:</strong> "Provide file paths & lines"<br>
+                                <strong>• Protect data:</strong> "Redact PII from examples"<br>
+                                <strong>• Always review:</strong> Test output, iterate
                             </div>
                         </div>
                     </div>
-                    <div class="mcp-box" style="padding: 10px; margin-top: 10px; font-size: 0.95em;">
-                        <strong>XML Formatting for Complex Requests</strong><br>
-                        Use XML tags to structure complex prompts with multiple parts, requirements, or constraints → Helps Claude parse and understand multi-faceted requests more accurately
+                    <div class="highlight-box" style="text-align: center; margin-top: 10px; padding: 10px; font-size: 1.05em;">
+                        <strong>Better prompts = Better code = Less iteration</strong>
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
+                    <strong>TIMING: 2 minutes</strong>
                     <ul>
-                        <li>These are advanced Claude 4 techniques that significantly improve results</li>
-                        <li>Chain of Thought: "Explain your reasoning step-by-step before implementing" - Shows logic, catches errors early</li>
-                        <li>Long-horizon Reasoning: "Track test results in JSON, continue from failures" - Maintains state across complex multi-step tasks, especially useful for large refactorings</li>
-                        <li>Provide Examples: "Follow pattern in UserController::store()" - Ensures consistency with existing code patterns</li>
-                        <li>Context Window Management: "If approaching context limit, summarize completed work and continue" - Tell Claude how to handle large refactorings that might exceed limits</li>
-                        <li>Parallel Tool Usage: "Read these 5 files in parallel, then compare patterns" - Significantly faster than sequential reads</li>
-                        <li>Iterative Refinement: "Show 3 approaches with pros/cons" - Better architectural decisions by comparing options</li>
-                        <li>XML Formatting at bottom: Use XML tags to structure complex prompts with multiple parts - helps Claude parse multi-faceted requests more accurately</li>
+                        <li>This slide combines structure, advanced techniques, checklist, and security</li>
+                        <li>Left top - 5-part template: Context (situation), Task (what to do), Constraints (limits), Output (format), Success (definition of done)</li>
+                        <li>Left bottom - Advanced techniques: Chain of thought for reasoning, Provide examples for consistency, Parallel reads for speed, Iterative for better decisions</li>
+                        <li>Right top - Pre-flight checklist: Clear objective, Sufficient context, Specific constraints, Expected output, Testing criteria</li>
+                        <li>Right bottom - Security: Set boundaries on file modifications, Request sources to minimize hallucinations, Protect PII, Always review and test output</li>
+                        <li>Bottom highlight: Better prompts lead to better code with less back-and-forth</li>
                     </ul>
                 </aside>
             </section>
 
-            <!-- Slide 14: Security & Defensive Prompting -->
-            <section>
-                <h2>Security & Defensive Prompting</h2>
-                <div style="font-size: 0.72em;">
-                    <div class="two-column" style="gap: 15px;">
-                        <div>
-                            <div class="warning-box" style="padding: 10px;">
-                                <strong>Prompt Scaffolding</strong><br>
-                                Set clear boundaries:<br>
-                                • "Only modify files in /src/features/"<br>
-                                • "Do not touch /config/ or /database/"<br>
-                                • "Never delete files without approval"<br>
-                                → Limits unintended actions
-                            </div>
-                            <div class="stats-box" style="padding: 10px; margin-top: 10px;">
-                                <strong>Output Verification</strong><br>
-                                Request sources:<br>
-                                • "Provide file paths and line numbers"<br>
-                                • "Cite documentation sources"<br>
-                                • "Show relevant code context"<br>
-                                → Minimizes hallucinations
-                            </div>
-                        </div>
-                        <div>
-                            <div class="highlight-box" style="padding: 10px;">
-                                <strong>Safety Constraints</strong><br>
-                                Explicit approval workflows:<br>
-                                • "Propose changes first, wait for approval"<br>
-                                • "Show diff before applying"<br>
-                                • "List all files to be modified"<br>
-                                → Maintains control
-                            </div>
-                            <div class="mcp-box" style="padding: 10px; margin-top: 10px;">
-                                <strong>Sensitive Data Protection</strong><br>
-                                Guard against leaks:<br>
-                                • "Do not log user credentials"<br>
-                                • "Redact PII from examples"<br>
-                                • "Use placeholder data only"<br>
-                                → Protects privacy
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
-                    <ul>
-                        <li>Security and defensive prompting are critical for production environments</li>
-                        <li>Prompt Scaffolding: Set clear boundaries - "Only modify files in /src/features/", "Do not touch /config/ or /database/", "Never delete files without approval" - Limits unintended actions</li>
-                        <li>Output Verification: Request sources to minimize hallucinations - "Provide file paths and line numbers", "Cite documentation sources", "Show relevant code context"</li>
-                        <li>Safety Constraints: Explicit approval workflows - "Propose changes first, wait for approval", "Show diff before applying", "List all files to be modified" - Maintains control</li>
-                        <li>Sensitive Data Protection: Guard against leaks - "Do not log user credentials", "Redact PII from examples", "Use placeholder data only" - Protects privacy</li>
-                        <li>These practices are essential when working with real codebases and production data</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 15: Prompting Checklist -->
-            <section>
-                <h2>Prompting Checklist</h2>
-                <div class="stats-box" style="font-size: 0.85em;">
-                    <h3 style="margin-top: 0;">Before Hitting Enter:</h3>
-                    <div style="text-align: left; margin-top: 20px;">
-                        <p>✅ <strong>Clear objective</strong> - Agent knows what success looks like</p>
-                        <p>✅ <strong>Sufficient context</strong> - Relevant files, patterns, constraints</p>
-                        <p>✅ <strong>Specific constraints</strong> - Performance, compatibility, standards</p>
-                        <p>✅ <strong>Expected output format</strong> - Tests? Docs? PR description?</p>
-                        <p>✅ <strong>Testing criteria</strong> - How to verify it works</p>
-                        <p>✅ <strong>Success metrics</strong> - What gets better after this change</p>
-                    </div>
-                </div>
-                <div class="highlight-box" style="text-align: center; margin-top: 30px; font-size: 1.1em;">
-                    <strong>Better prompts = Better code = Less iteration</strong>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
-                    <ul>
-                        <li>This is your pre-flight checklist before hitting enter on any prompt</li>
-                        <li>Clear objective: Does the agent know what success looks like?</li>
-                        <li>Sufficient context: Relevant files, patterns, constraints provided?</li>
-                        <li>Specific constraints: Performance targets, compatibility requirements, coding standards?</li>
-                        <li>Expected output format: Tests? Documentation? PR description?</li>
-                        <li>Testing criteria: How to verify it works?</li>
-                        <li>Success metrics: What gets better after this change?</li>
-                        <li>Bottom highlight: Better prompts = Better code = Less iteration</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 16: Key Takeaways -->
+            <!-- Slide 13: Key Takeaways -->
             <section>
                 <h2>Key Takeaways</h2>
                 <div style="font-size: 0.8em;">
@@ -978,7 +809,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 17: Getting Started Roadmap -->
+            <!-- Slide 14: Getting Started Roadmap -->
             <section>
                 <h2>Getting Started Roadmap</h2>
                 <div class="two-column" style="font-size: 0.8em;">
@@ -1035,7 +866,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 18: CLAUDE.md - Project Context File -->
+            <!-- Slide 15: CLAUDE.md - Project Context File -->
             <section>
                 <h2>CLAUDE.md - Your Project's AI Context</h2>
                 <div style="font-size: 0.62em;">
@@ -1100,7 +931,7 @@ npm run build<br>
                 </aside>
             </section>
 
-            <!-- Slide 19: Slash Commands - Automate Workflows -->
+            <!-- Slide 16: Slash Commands - Automate Workflows -->
             <section>
                 <h2>Slash Commands - Automate Workflows</h2>
                 <div style="font-size: 0.68em;">
@@ -1158,7 +989,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 20: Additional Documentation Files -->
+            <!-- Slide 17: Additional Documentation Files -->
             <section>
                 <h2>Additional Documentation Files</h2>
                 <div style="font-size: 0.65em;">
@@ -1225,7 +1056,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 21: Resources & Further Learning -->
+            <!-- Slide 18: Resources & Further Learning -->
             <section>
                 <h2>Resources & Further Learning</h2>
                 <div style="font-size: 0.68em;">
@@ -1273,7 +1104,7 @@ Review current changes:<br>
 
             <!-- SECTION 5: REAL-WORLD EXAMPLE -->
 
-            <!-- Slide 22: Section Header -->
+            <!-- Slide 19: Section Header -->
             <section class="center section-header">
                 <h1>Real-World Example</h1>
                 <h3>Claude Code in Action</h3>
@@ -1287,112 +1118,112 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 23: Screenshot 1 -->
+            <!-- Slide 20: Screenshot 1 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.17.png" alt="Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 24: Screenshot 2 -->
+            <!-- Slide 21: Screenshot 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.55.png" alt="Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 25: Screenshot 3 -->
+            <!-- Slide 22: Screenshot 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.11.png" alt="Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 26: Screenshot 4 -->
+            <!-- Slide 23: Screenshot 4 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.28.png" alt="Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 27: Screenshot 5 -->
+            <!-- Slide 24: Screenshot 5 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.39.png" alt="Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 28: Screenshot 6 -->
+            <!-- Slide 25: Screenshot 6 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.12.png" alt="Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 29: Screenshot 7 -->
+            <!-- Slide 26: Screenshot 7 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.35.png" alt="Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 30: Screenshot 8 -->
+            <!-- Slide 27: Screenshot 8 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.47.png" alt="Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 31: Screenshot 9 -->
+            <!-- Slide 28: Screenshot 9 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.46.png" alt="Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 32: Screenshot 10 -->
+            <!-- Slide 29: Screenshot 10 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.55.png" alt="Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 33: Screenshot 11 -->
+            <!-- Slide 30: Screenshot 11 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.46.png" alt="Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 34: Screenshot 12 -->
+            <!-- Slide 31: Screenshot 12 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.58.png" alt="Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 35: Screenshot 13 -->
+            <!-- Slide 32: Screenshot 13 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.07.png" alt="Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 36: Screenshot 14 -->
+            <!-- Slide 33: Screenshot 14 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.19.png" alt="Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 37: Screenshot 15 -->
+            <!-- Slide 34: Screenshot 15 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.22.01.png" alt="Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 38: Section Header - 2nd Real-World Example -->
+            <!-- Slide 35: Section Header - 2nd Real-World Example -->
             <section class="center section-header">
                 <h1>Real-World Example #2</h1>
                 <h3>Another Case Study</h3>
@@ -1406,77 +1237,77 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 39: Screenshot 1 from Case 2 -->
+            <!-- Slide 36: Screenshot 1 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.58.46.png" alt="Case 2 Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 40: Screenshot 2 from Case 2 -->
+            <!-- Slide 37: Screenshot 2 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.58.55.png" alt="Case 2 Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 41: Screenshot 3 from Case 2 -->
+            <!-- Slide 38: Screenshot 3 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.09.png" alt="Case 2 Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 42: Screenshot 4 from Case 2 -->
+            <!-- Slide 39: Screenshot 4 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.15.png" alt="Case 2 Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 43: Screenshot 5 from Case 2 -->
+            <!-- Slide 40: Screenshot 5 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.24.png" alt="Case 2 Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 44: Screenshot 6 from Case 2 -->
+            <!-- Slide 41: Screenshot 6 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.34.png" alt="Case 2 Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 45: Screenshot 7 from Case 2 -->
+            <!-- Slide 42: Screenshot 7 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.24.png" alt="Case 2 Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 46: Screenshot 8 from Case 2 -->
+            <!-- Slide 43: Screenshot 8 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.30.png" alt="Case 2 Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 47: Screenshot 9 from Case 2 -->
+            <!-- Slide 44: Screenshot 9 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.38.png" alt="Case 2 Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 48: Screenshot 10 from Case 2 -->
+            <!-- Slide 45: Screenshot 10 from Case 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.46.png" alt="Case 2 Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 49: Q&A -->
+            <!-- Slide 46: Q&A -->
             <section class="center">
                 <h1>Questions?</h1>
                 <div style="margin: 80px 0;">
@@ -1514,6 +1345,48 @@ Review current changes:<br>
                     <strong>Final thought if no questions:</strong>
                     <ul>
                         <li>"If there are no questions now, feel free to reach out later. The best way to understand this is to try it - pick one agent, set up 2-3 MCPs, and give it a real task. You'll see the difference immediately. Thank you!"</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 47: Live Coding Demo -->
+            <section class="center">
+                <div class="section-header" style="padding: 40px 30px;">
+                    <h1>Live Coding Demo</h1>
+                    <h3>Let's See It All Together</h3>
+                </div>
+                <div class="two-column" style="gap: 30px; margin-top: 40px; font-size: 0.85em;">
+                    <div class="highlight-box" style="padding: 20px;">
+                        <h3 style="margin-top: 0;">Claude Desktop</h3>
+                        <p>Interactive AI assistant with:</p>
+                        <ul>
+                            <li>Full MCP integration</li>
+                            <li>Real-time coding assistance</li>
+                            <li>Context-aware suggestions</li>
+                        </ul>
+                    </div>
+                    <div class="mcp-box" style="padding: 20px;">
+                        <h3 style="margin-top: 0;">GitHub Claude Bot</h3>
+                        <p>Automated PR reviews with:</p>
+                        <ul>
+                            <li>Code analysis</li>
+                            <li>Security scanning</li>
+                            <li>Best practice recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="stats-box" style="margin-top: 30px; padding: 20px; font-size: 1.1em;">
+                    <strong>Ready to see how it all works together?</strong>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 5-10 minutes</strong>
+                    <ul>
+                        <li>This is the live coding demonstration section</li>
+                        <li>Show Claude Desktop: Open the app, show MCP connections, demonstrate real-time coding</li>
+                        <li>Show GitHub Claude Bot: Navigate to a PR, show automated review comments, code suggestions</li>
+                        <li>Walk through a complete workflow: Write code → Get suggestions → Create PR → Bot reviews</li>
+                        <li>Keep it interactive - pause for questions, explain what you're doing</li>
+                        <li>If something goes wrong, use it as a teaching moment about AI limitations and iteration</li>
                     </ul>
                 </aside>
             </section>
