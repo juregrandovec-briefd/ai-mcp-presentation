@@ -252,7 +252,7 @@
             border-image: linear-gradient(90deg, var(--preskok-red), var(--briefd-green)) 1 !important;
         }
         /* Screenshot slides positioning */
-        .reveal .slides section:has(div > img) {
+        .reveal .slides section:has(div > img):not(.title-slide) {
             top: -100px !important;
         }
     </style>
@@ -271,7 +271,7 @@
         <div class="slides">
 
             <!-- Slide 1: Title -->
-            <section class="center" style="display: flex !important; flex-direction: column; justify-content: center; min-height: 600px; top: 0 !important;">
+            <section class="center title-slide" style="display: flex !important; flex-direction: column; justify-content: center; min-height: 400px;">
                 <h1 style="margin-bottom: 60px;">AI Coding Agents & MCPs</h1>
                 <p style="font-size: 1.1em; font-weight: bold; margin-bottom: 50px;">Presented by Jure Grandovec</p>
                 <div class="company-logos-wrapper">
