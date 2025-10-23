@@ -344,6 +344,12 @@
                 display: block;
                 overflow-x: auto;
             }
+
+            /* QR code mobile styling */
+            .title-slide img[alt="Presentation QR Code"] {
+                width: 120px !important;
+                height: 120px !important;
+            }
         }
     </style>
 </head>
@@ -370,6 +376,12 @@
                         <img src="https://autobrief.io/wp-content/uploads/2023/04/AutoBriefD-logo.svg" alt="Briefd Logo" style="height: 40px; object-fit: contain; background: white; padding: 8px 12px; border-radius: 5px;">
                     </div>
                 </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <div style="background: white; padding: 15px; border-radius: 10px; display: inline-block; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://juregrandovec-briefd.github.io/ai-mcp-presentation/index.html" alt="Presentation QR Code" style="display: block; margin: 0 auto;">
+                        <p style="margin: 10px 0 0 0; font-size: 0.7em; color: #333;">Scan to follow along</p>
+                    </div>
+                </div>
                 <aside class="notes">
                     <strong>TIMING: 30 seconds</strong>
                     <ul>
@@ -378,6 +390,7 @@
                         <li><span style="color: #888;">We'll cover:</span> what AI agents are, how they differ from Copilot, how MCPs unlock their potential</li>
                         <li>Real examples with actual time savings</li>
                         <li>Best practices you can use tomorrow</li>
+                        <li><span style="color: #888;">QR code:</span> Attendees can scan to follow along on their devices</li>
                         <li><span style="color: #888;">Energy:</span> Start with enthusiasm - this is exciting!</li>
                     </ul>
                 </aside>
