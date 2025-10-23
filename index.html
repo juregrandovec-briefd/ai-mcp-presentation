@@ -309,10 +309,12 @@
                 font-size: 1em;
             }
 
-            /* Adjust screenshot images for mobile */
+            /* Adjust screenshot images for mobile - full width, no height limit */
             .reveal .slides section img {
                 max-width: 100% !important;
-                max-height: 60vh !important;
+                max-height: none !important;
+                height: auto !important;
+                width: 100% !important;
             }
 
             /* Make boxes more mobile-friendly */
