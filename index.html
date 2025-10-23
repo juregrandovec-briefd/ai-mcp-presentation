@@ -251,9 +251,11 @@
             border: 2px solid transparent !important;
             border-image: linear-gradient(90deg, var(--preskok-red), var(--briefd-green)) 1 !important;
         }
-        /* Screenshot slides positioning */
-        .reveal .slides section:has(div > img):not(.title-slide) {
-            top: -100px !important;
+        /* Screenshot slides positioning - only on desktop */
+        @media (min-width: 769px) {
+            .reveal .slides section:has(div > img):not(.title-slide) {
+                top: -100px !important;
+            }
         }
 
         /* Mobile responsive styles */
@@ -266,9 +268,8 @@
                 background-color: #ffffff !important;
             }
 
-            /* Fix screenshot positioning - remove negative offset on mobile */
+            /* Fix screenshot section padding on mobile */
             .reveal .slides section:has(div > img):not(.title-slide) {
-                top: 0 !important;
                 padding: 5px !important;
             }
 
@@ -549,70 +550,70 @@ claude-code
             </section>
 
             <!-- Slide 6: Screenshot 1 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.58.46.png" alt="Case 2 Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 7: Screenshot 2 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.58.55.png" alt="Case 2 Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 8: Screenshot 3 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.09.png" alt="Case 2 Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 9: Screenshot 4 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.15.png" alt="Case 2 Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 10: Screenshot 5 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.24.png" alt="Case 2 Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 11: Screenshot 6 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 14.59.34.png" alt="Case 2 Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 12: Screenshot 7 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.24.png" alt="Case 2 Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 13: Screenshot 8 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.30.png" alt="Case 2 Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 14: Screenshot 9 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.38.png" alt="Case 2 Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 15: Screenshot 10 from Example 1 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/2/Screenshot 2025-10-21 at 15.00.46.png" alt="Case 2 Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
@@ -1346,105 +1347,105 @@ Review current changes:<br>
             </section>
 
             <!-- Slide 30: Screenshot 1 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.17.png" alt="Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 31: Screenshot 2 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.55.png" alt="Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 32: Screenshot 3 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.11.png" alt="Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 33: Screenshot 4 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.28.png" alt="Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 34: Screenshot 5 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.39.png" alt="Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 35: Screenshot 6 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.12.png" alt="Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 36: Screenshot 7 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.35.png" alt="Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 37: Screenshot 8 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.47.png" alt="Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 38: Screenshot 9 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.46.png" alt="Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 39: Screenshot 10 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.55.png" alt="Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 40: Screenshot 11 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.46.png" alt="Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 41: Screenshot 12 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.58.png" alt="Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 42: Screenshot 13 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.07.png" alt="Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 43: Screenshot 14 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.19.png" alt="Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 44: Screenshot 15 from Example 2 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.22.01.png" alt="Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
@@ -1473,133 +1474,133 @@ Review current changes:<br>
             </section>
 
             <!-- Slide 46: Screenshot 1 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.50.52.png" alt="Case 3 Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 47: Screenshot 2 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.51.02.png" alt="Case 3 Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 48: Screenshot 3 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.51.16.png" alt="Case 3 Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 49: Screenshot 4 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.51.58.png" alt="Case 3 Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 50: Screenshot 5 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.52.25.png" alt="Case 3 Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 51: Screenshot 6 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.55.20.png" alt="Case 3 Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 52: Screenshot 7 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.56.55.png" alt="Case 3 Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 53: Screenshot 8 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.57.03.png" alt="Case 3 Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 54: Screenshot 9 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.18.40.png" alt="Case 3 Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 55: Screenshot 10 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.21.51.png" alt="Case 3 Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 56: Screenshot 11 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.21.57.png" alt="Case 3 Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 57: Screenshot 12 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.22.05.png" alt="Case 3 Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 58: Screenshot 13 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.24.04.png" alt="Case 3 Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 59: Screenshot 14 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.24.36.png" alt="Case 3 Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 60: Screenshot 15 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.24.58.png" alt="Case 3 Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 61: Screenshot 16 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.25.28.png" alt="Case 3 Screenshot 16" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 62: Screenshot 17 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.25.59.png" alt="Case 3 Screenshot 17" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 63: Screenshot 18 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.28.23.png" alt="Case 3 Screenshot 18" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
             <!-- Slide 64: Screenshot 19 from Example 3 -->
-            <section style="padding: 0 !important; top: -100px;">
+            <section style="padding: 0 !important;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.28.33.png" alt="Case 3 Screenshot 19" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
