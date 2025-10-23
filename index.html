@@ -251,15 +251,15 @@
             border: 2px solid transparent !important;
             border-image: linear-gradient(90deg, var(--preskok-red), var(--briefd-green)) 1 !important;
         }
-        /* Screenshot slides positioning - only on desktop */
-        @media (min-width: 769px) {
+        /* Screenshot slides positioning - only on desktop (not phones/tablets) */
+        @media (min-width: 1025px) {
             .reveal .slides section:has(div > img):not(.title-slide) {
                 top: -100px !important;
             }
         }
 
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
+        /* Mobile and tablet responsive styles */
+        @media (max-width: 1024px) {
             /* Force white background on mobile */
             .reveal {
                 background-color: #ffffff !important;
