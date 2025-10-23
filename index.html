@@ -479,15 +479,11 @@ Updates Jira → Notifies team] DONE!
                 </div>
                 <p style="text-align: center; margin-top: 30px; font-weight: bold;">Agents execute autonomously with oversight</p>
                 <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
                     <ul>
-                        <li><span style="color: #888;">Critical distinction:</span> AI agents ≠ AI assistants. Many of you use GitHub Copilot or ChatGPT - those are assistants</li>
-                        <li><span style="color: #888;">Left - Assistants:</span> Respond to prompts, provide suggestions, then STOP. You ask "write email validator" → they give code → YOU manually test, commit, push</li>
-                        <li>They need constant guidance and can't take actions</li>
-                        <li><span style="color: #888;">Right - Agents:</span> Fundamentally different. You say "Fix JIRA-123" → agent reads ticket, investigates, fixes, tests, commits, creates PR, updates Jira, notifies team. Complete end-to-end</li>
-                        <li><span style="color: #888;">Bottom line:</span> Agents execute autonomously with oversight - you're in control, but they handle the entire workflow</li>
-                        <li><span style="color: #888;">Transition:</span> What agents are available today in 2025?</li>
-                    </ul>
+                        <li><strong>Assistants</strong> (like Copilot): Give you code suggestions, you do the rest manually</li>
+                        <li><strong>Agents</strong> (like Claude Code): Execute entire workflows with your approval at each step</li>
+                        <li><strong>Key difference</strong>: Copilot suggests, agents execute end-to-end</li>
+                        </ul>
                 </aside>
             </section>
 
@@ -523,15 +519,11 @@ claude-code
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
                     <ul>
-                        <li>Getting started is surprisingly simple</li>
-                        <li><span style="color: #888;">Claude Code:</span> npm install globally → authenticate → run claude-code. That's it</li>
-                        <li><span style="color: #888;">Cursor:</span> Download from cursor.com → install → authenticate → open project. Even simpler</li>
-                        <li><span style="color: #888;">First prompt should be simple:</span> "Analyze my codebase and explain the architecture." See how well it understands</li>
-                        <li><span style="color: #888;">Requirements:</span> API key from Anthropic or OpenAI, git repository helps, clear project structure</li>
-                        <li><span style="color: #888;">Transition:</span> Now before we dive into the real power, I want to tease something important...</li>
-                    </ul>
+                        <li><strong>Claude Code</strong>: npm install, authenticate, run - that's it</li>
+                        <li><strong>Cursor</strong>: Download, install, authenticate - also easy</li>
+                        <li><strong>First test</strong>: Try simple prompt like "analyze my codebase"</li>
+                        </ul>
                 </aside>
             </section>
 
@@ -632,11 +624,9 @@ claude-code
                 <h1>Model Context Protocol</h1>
                 <h3>Connecting AI to Your Tools</h3>
                 <aside class="notes">
-                    <strong>TIMING: 15 seconds</strong>
                     <ul>
-                        <li>Model Context Protocol - or MCP. This is how we connect AI agents to your actual development tools</li>
-                        <li><span style="color: #888;">Energy:</span> Shift tone - this is THE key section. Slow down slightly, ensure clarity</li>
-                        <li><span style="color: #888;">Transition immediately to next slide without pausing</span></li>
+                        <li><strong>MCPs connect AI to your dev tools</strong>: This is the key technology that makes everything work</li>
+                        <li>Transition immediately to next slide without pausing</li>
                     </ul>
                 </aside>
             </section>
@@ -668,14 +658,12 @@ claude-code
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
                     <ul>
                         <li>MCP = Model Context Protocol. Open-source standard for connecting AI assistants to external data sources and tools</li>
-                        <li><span style="color: #888;">Left column:</span> Created by Anthropic in November 2024 (very recent). Purpose: standardize how AI tools communicate with dev tools</li>
-                        <li><span style="color: #888;">The analogy - make it stick:</span> "USB-C for AI". Just like USB-C lets any device connect to any charger, MCP lets any AI agent connect to any dev tool</li>
-                        <li><span style="color: #888;">Right - Benefits:</span> Build once, use everywhere. No more copy-paste. Open-source ecosystem. Vendor agnostic - not locked to specific AI provider</li>
-                        <li><span style="color: #888;">Transition:</span> But how does it actually work under the hood?</li>
-                    </ul>
+                        <li><strong>MCP standardizes AI-tool communication</strong>: Created by Anthropic in Nov 2024</li>
+                        <li><strong>Think USB-C for AI</strong>: One protocol, works everywhere</li>
+                        <li><strong>Benefits</strong>: Build once, use everywhere - open source, vendor agnostic</li>
+                        </ul>
                 </aside>
             </section>
 
@@ -749,15 +737,12 @@ claude-code
                 </div>
                 <p style="text-align: center; margin-top: 20px; font-size: 0.8em;">100+ community-built MCPs available at github.com/modelcontextprotocol</p>
                 <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
                     <ul>
-                        <li><span style="color: #888;">Here's a sample of available MCPs - won't go through every detail, just highlight key ones</span></li>
-                        <li><span style="color: #888;">Top row - Essentials:</span> GitHub (full repo access, PR management, issue tracking), Jira (tickets, sprints), Slack (messages, channels). These three cover most workflow integration needs</li>
-                        <li><span style="color: #888;">Middle row - Specialized:</span> Playwright (browser automation, E2E testing), Chrome DevTools MCP (browser debugging - network errors, performance traces, DOM inspection), Google Drive (document access)</li>
-                        <li><span style="color: #888;">Bottom row - Framework-specific:</span> Angular CLI and Laravel - agent generates components, controllers, follows best practices automatically</li>
-                        <li><span style="color: #888;">Bottom text:</span> Just a sample - 100+ community-built MCPs available. Ecosystem growing fast</li>
-                        <li><span style="color: #888;">Transition:</span> Let's dive deeper into one of these - Playwright MCP for frontend development</li>
-                    </ul>
+                        <li><strong>Essential MCPs</strong>: GitHub, Jira, Slack - cover most workflows</li>
+                        <li><strong>Specialized tools</strong>: Playwright (testing), Chrome DevTools (debugging), Google Drive</li>
+                        <li><strong>Framework support</strong>: Angular CLI, Laravel for auto-generation</li>
+                        <li><strong>Growing ecosystem</strong>: 100+ MCPs available, more being added</li>
+                        </ul>
                 </aside>
             </section>
 
@@ -814,16 +799,14 @@ claude-code
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 3-5 minutes (LIVE DEMO)</strong>
                     <ul>
                         <li><strong>DEMO TIME:</strong> Show Playwright MCP in action with Claude Code</li>
-                        <li><span style="color: #888;">Suggested demo flow:</span> Open a test website, inspect an element, take a screenshot, demonstrate how the agent uses the MCP tools</li>
-                        <li><span style="color: #888;">Left side:</span> Shows 5 example prompts from basic to advanced - these are real prompts you can use</li>
-                        <li><span style="color: #888;">Right side:</span> Three categories of capabilities: Browser Control (navigation, interactions), Element Inspection (finding and checking elements), Testing & Debugging (screenshots, network monitoring, console logs)</li>
-                        <li><span style="color: #888;">Bottom tip:</span> You can chain MCPs together - take a screenshot with Playwright, then use GitHub MCP to create an issue with that screenshot attached</li>
-                        <li><span style="color: #888;">If time allows:</span> Do a live demo, otherwise skip and move to workflow examples</li>
-                        <li><span style="color: #888;">Transition:</span> Now let's see how Playwright and other MCPs combine for complete workflows</li>
-                    </ul>
+                        <li>Suggested demo flow: Open a test website, inspect an element, take a screenshot, demonstrate how the agent uses the MCP tools</li>
+                        <li>Left side: Shows 5 example prompts from basic to advanced - these are real prompts you can use</li>
+                        <li>Right side: Three categories of capabilities: Browser Control (navigation, interactions), Element Inspection (finding and checking elements), Testing & Debugging (screenshots, network monitoring, console logs)</li>
+                        <li>Bottom tip: You can chain MCPs together - take a screenshot with Playwright, then use GitHub MCP to create an issue with that screenshot attached</li>
+                        <li>If time allows: Do a live demo, otherwise skip and move to workflow examples</li>
+                        </ul>
                 </aside>
             </section>
 
@@ -884,9 +867,9 @@ claude-code
                 </div>
                 <aside class="notes">
                     <ul>
-                        <li>Frontend: Angular components, responsive design, Playwright tests</li>
-                        <li>Backend: Bug fixes from Slack errors, Laravel APIs, docs updates</li>
-                        <li>Real workflows we use daily</li>
+                        <li><strong>Frontend workflows</strong>: Angular components, responsive design, Playwright E2E tests</li>
+                        <li><strong>Backend workflows</strong>: Production error monitoring, Laravel APIs, automated testing</li>
+                        <li><strong>Real examples</strong>: These are workflows we actually use daily</li>
                     </ul>
                 </aside>
             </section>
@@ -946,9 +929,9 @@ claude-code
                 </div>
                 <aside class="notes">
                     <ul>
-                        <li>Not just for developers - PMs and sales can use it too</li>
-                        <li>PM: Sprint reports, blocker tracking, client updates</li>
-                        <li>Sales: Lead qualification, proposal generation</li>
+                        <li><strong>Not just for developers</strong>: PMs and sales teams can automate their work too</li>
+                        <li><strong>PM use cases</strong>: Sprint reports, blocker tracking, client updates</li>
+                        <li><strong>Sales use cases</strong>: Lead qualification, proposal generation</li>
                     </ul>
                 </aside>
             </section>
@@ -1012,7 +995,6 @@ claude-code
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
                     <ul>
                         <li>This slide combines why prompting matters with core principles and examples</li>
                         <li>Top highlight: Same agent gives 10x better results with good prompts</li>
@@ -1068,7 +1050,6 @@ claude-code
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
                     <ul>
                         <li>This slide combines structure, advanced techniques, checklist, and security</li>
                         <li>Left top - 5-part template: Context (situation), Task (what to do), Constraints (limits), Output (format), Success (definition of done)</li>
@@ -1106,7 +1087,6 @@ claude-code
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 2 minutes</strong>
                     <ul>
                         <li>Let's recap the five key takeaways - these are the most critical points from this entire presentation</li>
                         <li>Takeaway 1: AI Agents ≠ AI Assistants - Agents execute complete workflows from start to finish, but they're not fully autonomous. You approve each step, especially MCP calls. It's supervised automation.</li>
@@ -1132,7 +1112,6 @@ claude-code
                     • Code patterns and standards
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 30 seconds</strong>
                     <ul>
                         <li>Now let's shift gears to practical project setup</li>
                         <li>This section covers: CLAUDE.md structure and configuration, Slash commands for repeatable workflows, Documentation and testing guidelines, Code patterns and standards</li>
@@ -1186,7 +1165,6 @@ claude-code
                     <strong>Goal: 65-85% time savings on routine tasks within 1 month</strong>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
                     <ul>
                         <li>Here's a practical 4-week roadmap for getting started with AI agents and MCPs</li>
                         <li>Week 1 - Setup: Install Claude Code or Cursor, Try basic prompts without MCPs first, Explore agent capabilities and get comfortable</li>
@@ -1251,7 +1229,6 @@ npm run build<br>
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
                     <ul>
                         <li>CLAUDE.md is your project's AI context file - automatically loaded by Claude Code in every session</li>
                         <li>Location: .claude/CLAUDE.md at your project root</li>
@@ -1309,7 +1286,6 @@ Review current changes:<br>
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
                     <ul>
                         <li>Slash commands automate repeatable workflows - Location: .claude/commands/ directory</li>
                         <li>Each command is a markdown file that gets triggered by /command-name</li>
@@ -1376,7 +1352,6 @@ Review current changes:<br>
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1.5 minutes</strong>
                     <ul>
                         <li>Three additional MD files that complete your project's AI knowledge base</li>
                         <li>CODE_PATTERNS.md (left top): Defines your architecture patterns - Controller Pattern (single responsibility, use Form Requests, return JSON), Service Layer (business logic, dependency injection, return DTOs not Eloquent models)</li>
@@ -1423,13 +1398,12 @@ Review current changes:<br>
                     </div>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 1 minute</strong>
                     <ul>
                         <li>Here are comprehensive resources for further learning - all current for 2025</li>
-                        <li><span style="color: #888;">Official Documentation at top:</span> Claude Code docs, Claude 4 Best Practices, MCP Protocol specification, Cursor documentation</li>
-                        <li><span style="color: #888;">Left - Prompt Engineering resources (2025):</span> OpenAI Guide, DAIR.AI, IBM 2025 Guide, MIT Sloan - all have been updated with latest best practices</li>
-                        <li><span style="color: #888;">Right - MCP Servers:</span> Official GitHub repository from modelcontextprotocol, Community "awesome-mcp-servers" list, SDK Documentation</li>
-                        <li><span style="color: #888;">Bottom box:</span> Everything is linked from docs.claude.com/claude-code for easy access</li>
+                        <li>Official Documentation at top: Claude Code docs, Claude 4 Best Practices, MCP Protocol specification, Cursor documentation</li>
+                        <li>Left - Prompt Engineering resources (2025): OpenAI Guide, DAIR.AI, IBM 2025 Guide, MIT Sloan - all have been updated with latest best practices</li>
+                        <li>Right - MCP Servers: Official GitHub repository from modelcontextprotocol, Community "awesome-mcp-servers" list, SDK Documentation</li>
+                        <li>Bottom box: Everything is linked from docs.claude.com/claude-code for easy access</li>
                     </ul>
                 </aside>
             </section>
@@ -1447,12 +1421,10 @@ Review current changes:<br>
                     </p>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 15 seconds</strong>
                     <ul>
                         <li>Second real-world example: Monitoring production exceptions via Slack MCP</li>
-                        <li><span style="color: #888;">This demonstrates how MCPs connect AI agents to external tools like Slack</span></li>
-                        <li><span style="color: #888;">Energy:</span> Real results from production environment</li>
-                    </ul>
+                        <li>This demonstrates how MCPs connect AI agents to external tools like Slack</li>
+                        </ul>
                 </aside>
             </section>
 
@@ -1574,12 +1546,10 @@ Review current changes:<br>
                     </p>
                 </div>
                 <aside class="notes">
-                    <strong>TIMING: 15 seconds</strong>
                     <ul>
                         <li>Third real-world example: Solving JIRA ticket BRIEFD-5606 for PDF generation</li>
-                        <li><span style="color: #888;">This shows a complete JIRA workflow integration</span></li>
-                        <li><span style="color: #888;">Energy:</span> Demonstrate end-to-end ticket resolution</li>
-                    </ul>
+                        <li>This shows a complete JIRA workflow integration</li>
+                        </ul>
                 </aside>
             </section>
 
