@@ -668,53 +668,72 @@ claude-code
             <!-- Slide 19: MCP Use Case Examples -->
             <section>
                 <h2>MCP Workflows in Action</h2>
-                <div style="font-size: 0.65em;">
-                    <div class="highlight-box" style="padding: 10px; margin: 10px 0; text-align: center;">
+                <div style="font-size: 0.58em;">
+                    <div class="highlight-box" style="padding: 8px; margin: 8px 0; text-align: center;">
                         <strong>Combining MCPs for Complete Workflows</strong>
                     </div>
-                    <div class="three-column" style="gap: 15px; margin-top: 15px;">
+                    <div class="three-column" style="gap: 12px; margin-top: 12px;">
                         <div>
-                            <div class="mcp-box" style="padding: 10px; margin: 0; height: 100%;">
+                            <div class="mcp-box" style="padding: 8px; margin: 0;">
                                 <h3 style="font-size: 1.1em; margin-top: 0;">🔧 Development</h3>
-                                <div class="code-box" style="margin-top: 10px; padding: 8px; font-size: 0.9em;">
-<strong>Prompt:</strong> "Check #prod-errors in Slack, find related GitHub issues, fix the bug"<br><br>
-<strong>Agent Flow:</strong><br>
-1️⃣ Slack MCP → Read errors<br>
+                                <div class="code-box" style="margin-top: 8px; padding: 6px; font-size: 0.95em;">
+<strong>Example 1:</strong> "Check #prod-errors in Slack, find related issues, fix the bug"<br>
+1️⃣ Slack → Read errors<br>
 2️⃣ GitHub/Bitbucket → Find issues<br>
 3️⃣ Read codebase → Fix bug<br>
-4️⃣ Run tests → Verify fix<br>
-5️⃣ GitHub/Bitbucket → Create PR<br>
-6️⃣ Slack MCP → Post update
+4️⃣ Run tests → Create PR<br>
+5️⃣ Slack → Post update
+                                </div>
+                                <div class="code-box" style="margin-top: 8px; padding: 6px; font-size: 0.95em;">
+<strong>Example 2:</strong> "Set up new feature branch with all dependencies"<br>
+1️⃣ Jira → Read ticket details<br>
+2️⃣ GitHub/Bitbucket → Create branch<br>
+3️⃣ Update dependencies<br>
+4️⃣ Angular CLI → Generate components<br>
+5️⃣ Slack → Notify team
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="stats-box" style="padding: 10px; margin: 0; text-align: left; height: 100%;">
+                            <div class="stats-box" style="padding: 8px; margin: 0; text-align: left;">
                                 <h3 style="font-size: 1.1em; margin-top: 0;">📋 Project Management</h3>
-                                <div class="code-box" style="margin-top: 10px; padding: 8px; font-size: 0.9em;">
-<strong>Prompt:</strong> "Generate sprint report from Jira and post to #team-updates"<br><br>
-<strong>Agent Flow:</strong><br>
-1️⃣ Jira MCP → Get sprint data<br>
-2️⃣ GitHub/Bitbucket → Get PRs & commits<br>
-3️⃣ Confluence → Read docs context<br>
-4️⃣ Generate summary report<br>
-5️⃣ Slack MCP → Post to channel<br>
-6️⃣ Email MCP → Send to stakeholders
+                                <div class="code-box" style="margin-top: 8px; padding: 6px; font-size: 0.95em;">
+<strong>Example 1:</strong> "Show me sprint blockers and resource allocation"<br>
+1️⃣ Jira → Get in-progress tickets<br>
+2️⃣ Slack → Check for blockers<br>
+3️⃣ Confluence → Read team capacity<br>
+4️⃣ Generate blockers report<br>
+5️⃣ Email → Send to stakeholders
+                                </div>
+                                <div class="code-box" style="margin-top: 8px; padding: 6px; font-size: 0.95em;">
+<strong>Example 2:</strong> "Prepare weekly status for clients"<br>
+1️⃣ Jira → Get completed work<br>
+2️⃣ Confluence → Read project goals<br>
+3️⃣ Generate progress summary<br>
+4️⃣ Email → Format for client<br>
+5️⃣ Slack → Post in #client-updates
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="warning-box" style="padding: 10px; margin: 0; height: 100%;">
-                                <h3 style="font-size: 1.1em; margin-top: 0;">💼 Sales Support</h3>
-                                <div class="code-box" style="margin-top: 10px; padding: 8px; font-size: 0.9em;">
-<strong>Prompt:</strong> "Prospect asked about OAuth integration - provide technical answer"<br><br>
-<strong>Agent Flow:</strong><br>
-1️⃣ Confluence → Read OAuth docs<br>
-2️⃣ GitHub/Bitbucket → Check implementation<br>
-3️⃣ Jira MCP → Find related tickets<br>
-4️⃣ Draft technical response<br>
-5️⃣ Email MCP → Format for client<br>
-6️⃣ Slack MCP → Notify sales team
+                            <div class="warning-box" style="padding: 8px; margin: 0;">
+                                <h3 style="font-size: 1.1em; margin-top: 0;">💼 Sales</h3>
+                                <div class="code-box" style="margin-top: 8px; padding: 6px; font-size: 0.95em;">
+<strong>Example 1:</strong> "Qualify lead from contact form and schedule follow-up"<br>
+1️⃣ Email → Read inquiry<br>
+2️⃣ Confluence → Check pricing & features<br>
+3️⃣ Draft qualification questions<br>
+4️⃣ Email → Send response<br>
+5️⃣ Jira → Create opportunity<br>
+6️⃣ Slack → Notify #sales
+                                </div>
+                                <div class="code-box" style="margin-top: 8px; padding: 6px; font-size: 0.95em;">
+<strong>Example 2:</strong> "Create proposal for prospect meeting tomorrow"<br>
+1️⃣ Confluence → Get product info<br>
+2️⃣ Jira → Find similar deals<br>
+3️⃣ Generate custom proposal<br>
+4️⃣ Email → Send to prospect<br>
+5️⃣ Slack → Update #deals
                                 </div>
                             </div>
                         </div>
@@ -723,11 +742,11 @@ claude-code
                 <aside class="notes">
                     <strong>TIMING: 2 minutes</strong>
                     <ul>
-                        <li>This slide shows how MCPs combine for real workflows across different departments</li>
-                        <li><span style="color: #888;">Development example (left):</span> Agent checks #prod-errors in Slack, finds related GitHub issues, fixes the bug, runs tests, creates PR, posts update to Slack - complete workflow</li>
-                        <li><span style="color: #888;">Project Management example (middle):</span> Generate sprint report by pulling data from Jira, getting PRs from GitHub/Bitbucket, reading context from Confluence, then posting to Slack and emailing stakeholders</li>
-                        <li><span style="color: #888;">Sales Support example (right):</span> When prospect asks technical question, agent reads OAuth docs from Confluence, checks implementation in GitHub, finds related Jira tickets, drafts response, formats for email, notifies sales team on Slack</li>
-                        <li><span style="color: #888;">Key point:</span> These aren't separate tools - they're orchestrated workflows where the agent manages the entire process</li>
+                        <li>This slide shows how MCPs combine for real workflows across different departments - 6 total examples</li>
+                        <li><span style="color: #888;">Development (left):</span> Two examples - monitoring production errors end-to-end, and setting up new feature work with all the scaffolding</li>
+                        <li><span style="color: #888;">Project Management (middle):</span> Two PM-focused examples - identifying sprint blockers for resource planning, and preparing client status reports</li>
+                        <li><span style="color: #888;">Sales (right):</span> Two sales-focused examples - qualifying inbound leads and creating proposals, no technical work required</li>
+                        <li><span style="color: #888;">Key point:</span> Notice how each role gets exactly what they need - developers get code fixes, PMs get reports and insights, sales gets customer communications</li>
                         <li><span style="color: #888;">Transition:</span> So now you've seen what's possible - let's talk about how to make these prompts effective</li>
                     </ul>
                 </aside>
