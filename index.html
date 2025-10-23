@@ -255,6 +255,95 @@
         .reveal .slides section:has(div > img):not(.title-slide) {
             top: -100px !important;
         }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            /* Force white background on mobile */
+            .reveal {
+                background-color: #ffffff !important;
+            }
+            body {
+                background-color: #ffffff !important;
+            }
+
+            /* Fix screenshot positioning - remove negative offset on mobile */
+            .reveal .slides section:has(div > img):not(.title-slide) {
+                top: 0 !important;
+                padding: 5px !important;
+            }
+
+            /* Stack grid layouts to single column */
+            .two-column,
+            .three-column,
+            .four-column {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            /* Reduce section padding */
+            .reveal .slides section {
+                padding: 10px 15px !important;
+            }
+
+            /* Adjust brand header for mobile */
+            .brand-header {
+                padding: 0 15px;
+            }
+            .brand-header img {
+                height: 25px;
+                padding: 3px 8px;
+            }
+
+            /* Reduce font sizes for mobile */
+            .reveal {
+                font-size: 18px;
+            }
+            .reveal h1 {
+                font-size: 1.6em;
+            }
+            .reveal h2 {
+                font-size: 1.2em;
+            }
+            .reveal h3 {
+                font-size: 1em;
+            }
+
+            /* Adjust screenshot images for mobile */
+            .reveal .slides section img {
+                max-width: 100% !important;
+                max-height: 60vh !important;
+            }
+
+            /* Make boxes more mobile-friendly */
+            .highlight-box,
+            .stats-box,
+            .code-box,
+            .warning-box,
+            .mcp-box {
+                padding: 8px !important;
+                margin: 8px 0 !important;
+                font-size: 0.9em !important;
+            }
+
+            /* Reduce demo console size */
+            .demo-console {
+                font-size: 0.5em !important;
+                padding: 6px !important;
+                max-height: 300px !important;
+            }
+
+            /* Adjust company logos */
+            .company-logos img {
+                height: 35px;
+            }
+
+            /* Make tables scrollable on mobile */
+            .comparison-table {
+                font-size: 0.5em !important;
+                display: block;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 <body>
