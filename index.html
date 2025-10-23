@@ -765,12 +765,78 @@ claude-code
                         <li><span style="color: #888;">Middle row - Specialized:</span> Playwright (browser automation, E2E testing), Chrome DevTools MCP (browser debugging - network errors, performance traces, DOM inspection), Google Drive (document access)</li>
                         <li><span style="color: #888;">Bottom row - Framework-specific:</span> Angular CLI and Laravel - agent generates components, controllers, follows best practices automatically</li>
                         <li><span style="color: #888;">Bottom text:</span> Just a sample - 100+ community-built MCPs available. Ecosystem growing fast</li>
-                        <li><span style="color: #888;">Transition:</span> Now let's see how these MCPs combine for real workflows</li>
+                        <li><span style="color: #888;">Transition:</span> Let's dive deeper into one of these - Playwright MCP for frontend development</li>
                     </ul>
                 </aside>
             </section>
 
-            <!-- Slide 19: MCP Workflows - Development -->
+            <!-- Slide 19: Playwright MCP - Frontend -->
+            <section>
+                <h2>Playwright MCP - Frontend</h2>
+                <div style="font-size: 0.65em;">
+                    <div class="highlight-box" style="padding: 10px; margin: 10px 0; text-align: center;">
+                        <strong>Browser Automation & Testing with AI</strong>
+                    </div>
+                    <div class="two-column" style="gap: 20px; margin-top: 15px;">
+                        <div>
+                            <h3>Example Prompts:</h3>
+                            <div class="code-box" style="margin-top: 10px; padding: 10px; font-size: 0.85em;">
+<strong>1. Basic Navigation:</strong><br>
+"Open https://example.com and take a screenshot"<br><br>
+<strong>2. Element Inspection:</strong><br>
+"Navigate to the homepage, find all buttons, and list their text"<br><br>
+<strong>3. Form Testing:</strong><br>
+"Open the login page, fill the email field with test@example.com, take a screenshot"<br><br>
+<strong>4. Visual Regression:</strong><br>
+"Take screenshots of the homepage at mobile (375px) and desktop (1920px) widths"<br><br>
+<strong>5. E2E Testing:</strong><br>
+"Navigate to /checkout, verify the cart button exists, click it, wait for the cart modal to appear"
+                            </div>
+                        </div>
+                        <div>
+                            <h3>What Playwright MCP Can Do:</h3>
+                            <div class="stats-box" style="padding: 15px; margin-top: 10px; text-align: left;">
+                                <strong style="color: var(--preskok-red);">Browser Control:</strong>
+                                <ul style="margin: 8px 0 15px 20px; font-size: 0.95em;">
+                                    <li>Navigate to URLs</li>
+                                    <li>Click, type, hover, scroll</li>
+                                    <li>Handle dialogs & popups</li>
+                                </ul>
+                                <strong style="color: var(--briefd-green);">Element Inspection:</strong>
+                                <ul style="margin: 8px 0 15px 20px; font-size: 0.95em;">
+                                    <li>Find elements by selector</li>
+                                    <li>Get element text & attributes</li>
+                                    <li>Check visibility & state</li>
+                                </ul>
+                                <strong style="color: var(--preskok-red);">Testing & Debugging:</strong>
+                                <ul style="margin: 8px 0 15px 20px; font-size: 0.95em;">
+                                    <li>Take screenshots & videos</li>
+                                    <li>Monitor network requests</li>
+                                    <li>Console log monitoring</li>
+                                    <li>Responsive testing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="warning-box" style="margin-top: 15px; text-align: center; font-size: 0.85em;">
+                        <strong>💡 Pro Tip:</strong> Combine with GitHub MCP to automatically create bug reports with screenshots!
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 3-5 minutes (LIVE DEMO)</strong>
+                    <ul>
+                        <li><strong>DEMO TIME:</strong> Show Playwright MCP in action with Claude Code</li>
+                        <li><span style="color: #888;">Suggested demo flow:</span> Open a test website, inspect an element, take a screenshot, demonstrate how the agent uses the MCP tools</li>
+                        <li><span style="color: #888;">Left side:</span> Shows 5 example prompts from basic to advanced - these are real prompts you can use</li>
+                        <li><span style="color: #888;">Right side:</span> Three categories of capabilities: Browser Control (navigation, interactions), Element Inspection (finding and checking elements), Testing & Debugging (screenshots, network monitoring, console logs)</li>
+                        <li><span style="color: #888;">Bottom tip:</span> You can chain MCPs together - take a screenshot with Playwright, then use GitHub MCP to create an issue with that screenshot attached</li>
+                        <li><span style="color: #888;">If time allows:</span> Do a live demo, otherwise skip and move to workflow examples</li>
+                        <li><span style="color: #888;">Transition:</span> Now let's see how Playwright and other MCPs combine for complete workflows</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 20: MCP Workflows - Development -->
             <section>
                 <h2>MCP Workflows in Action: Development</h2>
                 <div style="font-size: 0.58em;">
@@ -837,7 +903,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 20: MCP Workflows - PM & Sales -->
+            <!-- Slide 21: MCP Workflows - PM & Sales -->
             <section>
                 <h2>MCP Workflows in Action: PM & Sales</h2>
                 <div style="font-size: 0.58em;">
@@ -897,73 +963,7 @@ claude-code
                         <li><span style="color: #888;">Project Management (left):</span> Sprint blocker tracking, resource allocation reporting, client status updates - all automated data gathering and formatting</li>
                         <li><span style="color: #888;">Sales (right):</span> Lead qualification automation, proposal generation, opportunity tracking - no coding required</li>
                         <li><span style="color: #888;">Key point:</span> MCPs aren't just for developers - PMs and sales teams can automate their workflows too</li>
-                        <li><span style="color: #888;">Transition:</span> Let me show you a live demonstration of one of these MCPs in action</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Slide 21: Playwright MCP - Frontend -->
-            <section>
-                <h2>Playwright MCP - Frontend</h2>
-                <div style="font-size: 0.65em;">
-                    <div class="highlight-box" style="padding: 10px; margin: 10px 0; text-align: center;">
-                        <strong>Browser Automation & Testing with AI</strong>
-                    </div>
-                    <div class="two-column" style="gap: 20px; margin-top: 15px;">
-                        <div>
-                            <h3>Example Prompts:</h3>
-                            <div class="code-box" style="margin-top: 10px; padding: 10px; font-size: 0.85em;">
-<strong>1. Basic Navigation:</strong><br>
-"Open https://example.com and take a screenshot"<br><br>
-<strong>2. Element Inspection:</strong><br>
-"Navigate to the homepage, find all buttons, and list their text"<br><br>
-<strong>3. Form Testing:</strong><br>
-"Open the login page, fill the email field with test@example.com, take a screenshot"<br><br>
-<strong>4. Visual Regression:</strong><br>
-"Take screenshots of the homepage at mobile (375px) and desktop (1920px) widths"<br><br>
-<strong>5. E2E Testing:</strong><br>
-"Navigate to /checkout, verify the cart button exists, click it, wait for the cart modal to appear"
-                            </div>
-                        </div>
-                        <div>
-                            <h3>What Playwright MCP Can Do:</h3>
-                            <div class="stats-box" style="padding: 15px; margin-top: 10px; text-align: left;">
-                                <strong style="color: var(--preskok-red);">Browser Control:</strong>
-                                <ul style="margin: 8px 0 15px 20px; font-size: 0.95em;">
-                                    <li>Navigate to URLs</li>
-                                    <li>Click, type, hover, scroll</li>
-                                    <li>Handle dialogs & popups</li>
-                                </ul>
-                                <strong style="color: var(--briefd-green);">Element Inspection:</strong>
-                                <ul style="margin: 8px 0 15px 20px; font-size: 0.95em;">
-                                    <li>Find elements by selector</li>
-                                    <li>Get element text & attributes</li>
-                                    <li>Check visibility & state</li>
-                                </ul>
-                                <strong style="color: var(--preskok-red);">Testing & Debugging:</strong>
-                                <ul style="margin: 8px 0 15px 20px; font-size: 0.95em;">
-                                    <li>Take screenshots & videos</li>
-                                    <li>Monitor network requests</li>
-                                    <li>Console log monitoring</li>
-                                    <li>Responsive testing</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="warning-box" style="margin-top: 15px; text-align: center; font-size: 0.85em;">
-                        <strong>💡 Pro Tip:</strong> Combine with GitHub MCP to automatically create bug reports with screenshots!
-                    </div>
-                </div>
-                <aside class="notes">
-                    <strong>TIMING: 3-5 minutes (LIVE DEMO)</strong>
-                    <ul>
-                        <li><strong>DEMO TIME:</strong> Show Playwright MCP in action with Claude Code</li>
-                        <li><span style="color: #888;">Suggested demo flow:</span> Open a test website, inspect an element, take a screenshot, demonstrate how the agent uses the MCP tools</li>
-                        <li><span style="color: #888;">Left side:</span> Shows 5 example prompts from basic to advanced - these are real prompts you can use</li>
-                        <li><span style="color: #888;">Right side:</span> Three categories of capabilities: Browser Control (navigation, interactions), Element Inspection (finding and checking elements), Testing & Debugging (screenshots, network monitoring, console logs)</li>
-                        <li><span style="color: #888;">Bottom tip:</span> You can chain MCPs together - take a screenshot with Playwright, then use GitHub MCP to create an issue with that screenshot attached</li>
-                        <li><span style="color: #888;">If time allows:</span> Do a live demo, otherwise skip and move to Prompt Engineering</li>
-                        <li><span style="color: #888;">Transition:</span> Now that you've seen it in action, let's talk about how to write effective prompts</li>
+                        <li><span style="color: #888;">Transition:</span> Now that you've seen these workflows, let's talk about prompt engineering</li>
                     </ul>
                 </aside>
             </section>
