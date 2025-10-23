@@ -445,8 +445,8 @@ claude-code
                 <h3>Monitoring Production Exceptions via Slack</h3>
                 <div style="margin-top: 40px;">
                     <p style="font-size: 0.8em;">Jump to:
-                        <a href="#/28" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #2</a> |
-                        <a href="#/44" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #3</a>
+                        <a href="#/29" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #2</a> |
+                        <a href="#/45" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #3</a>
                     </p>
                 </div>
                 <aside class="notes">
@@ -660,12 +660,80 @@ claude-code
                         <li><span style="color: #888;">Middle row - Specialized:</span> Playwright (browser automation, E2E testing), Chrome DevTools MCP (browser debugging - network errors, performance traces, DOM inspection), Google Drive (document access)</li>
                         <li><span style="color: #888;">Bottom row - Framework-specific:</span> Angular CLI and Laravel - agent generates components, controllers, follows best practices automatically</li>
                         <li><span style="color: #888;">Bottom text:</span> Just a sample - 100+ community-built MCPs available. Ecosystem growing fast</li>
-                        <li><span style="color: #888;">Transition:</span> So how do you actually set these up?</li>
+                        <li><span style="color: #888;">Transition:</span> Now let's see how these MCPs combine for real workflows</li>
                     </ul>
                 </aside>
             </section>
 
-            <!-- Slide 19: Section Header -->
+            <!-- Slide 19: MCP Use Case Examples -->
+            <section>
+                <h2>MCP Workflows in Action</h2>
+                <div style="font-size: 0.65em;">
+                    <div class="highlight-box" style="padding: 10px; margin: 10px 0; text-align: center;">
+                        <strong>Combining MCPs for Complete Workflows</strong>
+                    </div>
+                    <div class="three-column" style="gap: 15px; margin-top: 15px;">
+                        <div>
+                            <div class="mcp-box" style="padding: 10px; margin: 0; height: 100%;">
+                                <h3 style="font-size: 1.1em; margin-top: 0;">🔧 Development</h3>
+                                <div class="code-box" style="margin-top: 10px; padding: 8px; font-size: 0.9em;">
+<strong>Prompt:</strong> "Check #prod-errors in Slack, find related GitHub issues, fix the bug"<br><br>
+<strong>Agent Flow:</strong><br>
+1️⃣ Slack MCP → Read errors<br>
+2️⃣ GitHub/Bitbucket → Find issues<br>
+3️⃣ Read codebase → Fix bug<br>
+4️⃣ Run tests → Verify fix<br>
+5️⃣ GitHub/Bitbucket → Create PR<br>
+6️⃣ Slack MCP → Post update
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats-box" style="padding: 10px; margin: 0; text-align: left; height: 100%;">
+                                <h3 style="font-size: 1.1em; margin-top: 0;">📋 Project Management</h3>
+                                <div class="code-box" style="margin-top: 10px; padding: 8px; font-size: 0.9em;">
+<strong>Prompt:</strong> "Generate sprint report from Jira and post to #team-updates"<br><br>
+<strong>Agent Flow:</strong><br>
+1️⃣ Jira MCP → Get sprint data<br>
+2️⃣ GitHub/Bitbucket → Get PRs & commits<br>
+3️⃣ Confluence → Read docs context<br>
+4️⃣ Generate summary report<br>
+5️⃣ Slack MCP → Post to channel<br>
+6️⃣ Email MCP → Send to stakeholders
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="warning-box" style="padding: 10px; margin: 0; height: 100%;">
+                                <h3 style="font-size: 1.1em; margin-top: 0;">💼 Sales Support</h3>
+                                <div class="code-box" style="margin-top: 10px; padding: 8px; font-size: 0.9em;">
+<strong>Prompt:</strong> "Prospect asked about OAuth integration - provide technical answer"<br><br>
+<strong>Agent Flow:</strong><br>
+1️⃣ Confluence → Read OAuth docs<br>
+2️⃣ GitHub/Bitbucket → Check implementation<br>
+3️⃣ Jira MCP → Find related tickets<br>
+4️⃣ Draft technical response<br>
+5️⃣ Email MCP → Format for client<br>
+6️⃣ Slack MCP → Notify sales team
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <strong>TIMING: 2 minutes</strong>
+                    <ul>
+                        <li>This slide shows how MCPs combine for real workflows across different departments</li>
+                        <li><span style="color: #888;">Development example (left):</span> Agent checks #prod-errors in Slack, finds related GitHub issues, fixes the bug, runs tests, creates PR, posts update to Slack - complete workflow</li>
+                        <li><span style="color: #888;">Project Management example (middle):</span> Generate sprint report by pulling data from Jira, getting PRs from GitHub/Bitbucket, reading context from Confluence, then posting to Slack and emailing stakeholders</li>
+                        <li><span style="color: #888;">Sales Support example (right):</span> When prospect asks technical question, agent reads OAuth docs from Confluence, checks implementation in GitHub, finds related Jira tickets, drafts response, formats for email, notifies sales team on Slack</li>
+                        <li><span style="color: #888;">Key point:</span> These aren't separate tools - they're orchestrated workflows where the agent manages the entire process</li>
+                        <li><span style="color: #888;">Transition:</span> So now you've seen what's possible - let's talk about how to make these prompts effective</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Slide 20: Section Header -->
             <section class="center section-header">
                 <h1>Prompt Engineering</h1>
                 <h3>Best Practices for AI Agents</h3>
@@ -736,7 +804,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 21: Practical Tips & Best Practices -->
+            <!-- Slide 22: Practical Tips & Best Practices -->
             <section>
                 <h2>Practical Tips & Best Practices</h2>
                 <div style="font-size: 0.65em;">
@@ -793,7 +861,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 22: Key Takeaways -->
+            <!-- Slide 23: Key Takeaways -->
             <section>
                 <h2>Key Takeaways</h2>
                 <div style="font-size: 0.8em;">
@@ -854,7 +922,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 23: Getting Started Roadmap -->
+            <!-- Slide 24: Getting Started Roadmap -->
             <section>
                 <h2>Getting Started Roadmap</h2>
                 <div class="two-column" style="font-size: 0.8em;">
@@ -911,7 +979,7 @@ claude-code
                 </aside>
             </section>
 
-            <!-- Slide 24: CLAUDE.md - Project Context File -->
+            <!-- Slide 25: CLAUDE.md - Project Context File -->
             <section>
                 <h2>CLAUDE.md - Your Project's AI Context</h2>
                 <div style="font-size: 0.62em;">
@@ -976,7 +1044,7 @@ npm run build<br>
                 </aside>
             </section>
 
-            <!-- Slide 25: Slash Commands - Automate Workflows -->
+            <!-- Slide 26: Slash Commands - Automate Workflows -->
             <section>
                 <h2>Slash Commands - Automate Workflows</h2>
                 <div style="font-size: 0.68em;">
@@ -1034,7 +1102,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 26: Additional Documentation Files -->
+            <!-- Slide 27: Additional Documentation Files -->
             <section>
                 <h2>Additional Documentation Files</h2>
                 <div style="font-size: 0.65em;">
@@ -1101,7 +1169,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 27: Resources & Further Learning -->
+            <!-- Slide 28: Resources & Further Learning -->
             <section>
                 <h2>Resources & Further Learning</h2>
                 <div style="font-size: 0.68em;">
@@ -1149,14 +1217,14 @@ Review current changes:<br>
 
             <!-- SECTION 4: REAL-WORLD EXAMPLE #2 -->
 
-            <!-- Slide 28: Section Header -->
+            <!-- Slide 29: Section Header -->
             <section class="center section-header">
                 <h1>Real-World Example #2</h1>
                 <h3>Refactoring Background Image Processing</h3>
                 <div style="margin-top: 40px;">
                     <p style="font-size: 0.8em;">Jump to:
                         <a href="#/5" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #1</a> |
-                        <a href="#/44" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #3</a>
+                        <a href="#/45" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #3</a>
                     </p>
                 </div>
                 <aside class="notes">
@@ -1169,105 +1237,105 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 29: Screenshot 1 from Example 2 -->
+            <!-- Slide 30: Screenshot 1 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.17.png" alt="Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 30: Screenshot 2 from Example 2 -->
+            <!-- Slide 31: Screenshot 2 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.09.55.png" alt="Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 31: Screenshot 3 from Example 2 -->
+            <!-- Slide 32: Screenshot 3 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.11.png" alt="Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 32: Screenshot 4 from Example 2 -->
+            <!-- Slide 33: Screenshot 4 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.28.png" alt="Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 33: Screenshot 5 from Example 2 -->
+            <!-- Slide 34: Screenshot 5 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.10.39.png" alt="Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 34: Screenshot 6 from Example 2 -->
+            <!-- Slide 35: Screenshot 6 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.12.png" alt="Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 35: Screenshot 7 from Example 2 -->
+            <!-- Slide 36: Screenshot 7 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.35.png" alt="Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 36: Screenshot 8 from Example 2 -->
+            <!-- Slide 37: Screenshot 8 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.11.47.png" alt="Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 37: Screenshot 9 from Example 2 -->
+            <!-- Slide 38: Screenshot 9 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.46.png" alt="Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 38: Screenshot 10 from Example 2 -->
+            <!-- Slide 39: Screenshot 10 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.12.55.png" alt="Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 39: Screenshot 11 from Example 2 -->
+            <!-- Slide 40: Screenshot 11 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.46.png" alt="Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 40: Screenshot 12 from Example 2 -->
+            <!-- Slide 41: Screenshot 12 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.19.58.png" alt="Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 41: Screenshot 13 from Example 2 -->
+            <!-- Slide 42: Screenshot 13 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.07.png" alt="Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 42: Screenshot 14 from Example 2 -->
+            <!-- Slide 43: Screenshot 14 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.21.19.png" alt="Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 43: Screenshot 15 from Example 2 -->
+            <!-- Slide 44: Screenshot 15 from Example 2 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/Screenshot 2025-10-15 at 07.22.01.png" alt="Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
@@ -1276,14 +1344,14 @@ Review current changes:<br>
 
             <!-- SECTION 5: REAL-WORLD EXAMPLE #3 -->
 
-            <!-- Slide 44: Section Header - 3rd Real-World Example -->
+            <!-- Slide 45: Section Header - 3rd Real-World Example -->
             <section class="center section-header">
                 <h1>Real-World Example #3</h1>
                 <h3>Solving JIRA Ticket BRIEFD-5606</h3>
                 <div style="margin-top: 40px;">
                     <p style="font-size: 0.8em;">Jump to:
                         <a href="#/5" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #1</a> |
-                        <a href="#/28" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #2</a>
+                        <a href="#/29" style="color: var(--preskok-red); text-decoration: underline; margin: 0 10px;">Example #2</a>
                     </p>
                 </div>
                 <aside class="notes">
@@ -1296,140 +1364,140 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 45: Screenshot 1 from Example 3 -->
+            <!-- Slide 46: Screenshot 1 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.50.52.png" alt="Case 3 Screenshot 1" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 46: Screenshot 2 from Example 3 -->
+            <!-- Slide 47: Screenshot 2 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.51.02.png" alt="Case 3 Screenshot 2" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 47: Screenshot 3 from Example 3 -->
+            <!-- Slide 48: Screenshot 3 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.51.16.png" alt="Case 3 Screenshot 3" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 48: Screenshot 4 from Example 3 -->
+            <!-- Slide 49: Screenshot 4 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.51.58.png" alt="Case 3 Screenshot 4" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 49: Screenshot 5 from Example 3 -->
+            <!-- Slide 50: Screenshot 5 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.52.25.png" alt="Case 3 Screenshot 5" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 50: Screenshot 6 from Example 3 -->
+            <!-- Slide 51: Screenshot 6 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.55.20.png" alt="Case 3 Screenshot 6" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 51: Screenshot 7 from Example 3 -->
+            <!-- Slide 52: Screenshot 7 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.56.55.png" alt="Case 3 Screenshot 7" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 52: Screenshot 8 from Example 3 -->
+            <!-- Slide 53: Screenshot 8 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 08.57.03.png" alt="Case 3 Screenshot 8" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 53: Screenshot 9 from Example 3 -->
+            <!-- Slide 54: Screenshot 9 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.18.40.png" alt="Case 3 Screenshot 9" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 54: Screenshot 10 from Example 3 -->
+            <!-- Slide 55: Screenshot 10 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.21.51.png" alt="Case 3 Screenshot 10" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 55: Screenshot 11 from Example 3 -->
+            <!-- Slide 56: Screenshot 11 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.21.57.png" alt="Case 3 Screenshot 11" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 56: Screenshot 12 from Example 3 -->
+            <!-- Slide 57: Screenshot 12 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.22.05.png" alt="Case 3 Screenshot 12" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 57: Screenshot 13 from Example 3 -->
+            <!-- Slide 58: Screenshot 13 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.24.04.png" alt="Case 3 Screenshot 13" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 58: Screenshot 14 from Example 3 -->
+            <!-- Slide 59: Screenshot 14 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.24.36.png" alt="Case 3 Screenshot 14" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 59: Screenshot 15 from Example 3 -->
+            <!-- Slide 60: Screenshot 15 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.24.58.png" alt="Case 3 Screenshot 15" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 60: Screenshot 16 from Example 3 -->
+            <!-- Slide 61: Screenshot 16 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.25.28.png" alt="Case 3 Screenshot 16" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 61: Screenshot 17 from Example 3 -->
+            <!-- Slide 62: Screenshot 17 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.25.59.png" alt="Case 3 Screenshot 17" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 62: Screenshot 18 from Example 3 -->
+            <!-- Slide 63: Screenshot 18 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.28.23.png" alt="Case 3 Screenshot 18" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 63: Screenshot 19 from Example 3 -->
+            <!-- Slide 64: Screenshot 19 from Example 3 -->
             <section style="padding: 0 !important; top: -100px;">
                 <div style="text-align: center;">
                     <img src="img/3/Screenshot 2025-10-23 at 09.28.33.png" alt="Case 3 Screenshot 19" style="max-width: 85%; max-height: 75vh; border: 2px solid #444; border-radius: 8px;">
                 </div>
             </section>
 
-            <!-- Slide 64: Q&A -->
+            <!-- Slide 65: Q<!-- Slide 64: Q&A -->A -->
             <section class="center">
                 <h1>Questions?</h1>
                 <div style="margin: 80px 0;">
@@ -1471,7 +1539,7 @@ Review current changes:<br>
                 </aside>
             </section>
 
-            <!-- Slide 65: Live Coding Demo -->
+            <!-- Slide 66: Live Coding Demo -->
             <section class="center">
                 <div class="section-header" style="padding: 40px 30px;">
                     <h1>Live Coding Demo</h1>
